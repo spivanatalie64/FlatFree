@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# flatfree-mirror — Mirror a Flatpak from Flathub to FlatFree
+# Usage: flatfree-mirror <app-id>
+# Example: flatfree-mirror org.gimp.GIMP
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
+if [ $# -eq 0 ]; then
+  echo "Usage: flatfree-mirror <app-id>"
+  echo "Mirror a Flatpak from Flathub to the local FlatFree repo."
+  exit 1
+fi
+
+APP_ID="$1"
+REPO_DIR="${FLATFREE_REPO:-./docs/repo}"
+
+echo -e "${CYAN}Mirroring ${APP_ID} from Flathub to FlatFree...${NC}"
+
+# Check if already installed
+if flatpak info "$APP_ID" &>/dev/null; then
+  echo -e "  ${GREEN}✓ Already installed locally${NC}"
+else
+  echo -e "  Installing from Flathub..."
+  flatpak install --noninteractive flathub "$APP_ID" || {
+    echo -e "  ${RED}Failed to install $APP_ID from Flathub${NC}"
+    exit 1
+  }
+fi
+
+# Get the installed ref and commit
+REF=$(flatpak info --show-ref "$APP_ID" 2>/dev/null || echo "app/$APP_ID/x86_64/master")
+echo -e "  ${GREEN}Ref: $REF${NC}"
+
+# Create local ostree repo if needed
+if [ ! -f "$REPO_DIR/config" ]; then
+  mkdir -p "$REPO_DIR"
+  ostree init --repo="$REPO_DIR" --mode=archive-z2
+  echo -e "  ${GREEN}Created repo at $REPO_DIR${NC}"
+fi
+
+# Pull from system installation into our repo
+echo -e "  Pulling into FlatFree repo..."
+flatpak create-usb /tmp/flatfree-usb "$APP_ID" 2>/dev/null || true
+ostree pull-local --repo="$REPO_DIR" /var/lib/flatpak/repo "$REF" 2>/dev/null || {
+  echo -e "  ${YELLOW}Trying user installation...${NC}"
+  ostree pull-local --repo="$REPO_DIR" ~/.local/share/flatpak/repo "$REF" 2>/dev/null || {
+    echo -e "  ${RED}Could not pull $REF${NC}"
+    exit 1
+  }
+}
+
+echo -e "  ${GREEN}✓ Pulled $APP_ID into FlatFree repo${NC}"
+echo ""
+echo -e "${CYAN}Next steps:${NC}"
+echo "  1. Create a manifest at: ${APP_ID}/${APP_ID}.json"
+echo "  2. Add it to the FlatFree git repo"
+echo "  3. Run: flatpak build-update-repo $REPO_DIR"
+echo "  4. Deploy the repo"
+
+echo ""
+echo -e "${CYAN}FlatFree — for the community, not corporations${NC}"
