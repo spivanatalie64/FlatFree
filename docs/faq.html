@@ -71,21 +71,21 @@
       <div class="faq-item">
         <div class="faq-question">How do I submit my application?</div>
         <div class="faq-answer">
-          <p>Open a pull request on our <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">GitHub repository</a>. Create a directory with your app's reverse-domain ID (e.g., <code style="color: #f0f6fc;">org.example.MyApp</code>), add your flatpak-builder manifest, and submit. No forms, no review process, no waiting. See our <a href="guidelines.html" style="color: #8957e5;">submission guidelines</a> for more details.</p>
+          <p>Open a pull request on our <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">GitHub repository</a>. Create a directory with your app's reverse-domain ID (e.g., <code style="color: #f0f6fc;">org.example.MyApp</code>), add your flatpak-builder manifest, and submit. Our CI automatically validates the manifest, builds the app, and runs a malware scan. If everything passes, your app is merged. See our <a href="guidelines.html" style="color: #8957e5;">submission guidelines</a> for details.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question">Do you have a review process?</div>
         <div class="faq-answer">
-          <p>No. We do not have a review board. We do not have maintainers who judge whether your application is worthy. If your manifest is valid and your software is free software, it will be accepted. We trust developers. We believe that the open source community thrives on trust, not gatekeeping.</p>
+          <p>We have an automated review — our CI validates the manifest, builds the app, and runs a malware scan. If all checks pass, it's accepted automatically. No human reviewers, no subjective judgments, no gatekeepers. Just objective, automated checks that apply equally to every submission.</p>
         </div>
       </div>
 
       <div class="faq-item">
         <div class="faq-question">Is FlatFree safe? What about malicious software?</div>
         <div class="faq-answer">
-          <p>FlatFree applications are distributed as Flatpaks, which benefit from Flatpak's sandboxing and permission system. Users can review the permissions an application requests before installing. Additionally, because all applications are built from source via flatpak-builder manifests, anyone can inspect the build process. We encourage code review by the community — transparency is our security model.</p>
+          <p>Every application submitted to FlatFree is automatically scanned for malware as part of our CI pipeline. Additionally, Flatpaks benefit from Flatpak's sandboxing and permission system, and all applications are built from source via flatpak-builder manifests that anyone can inspect. We combine automated security scanning with community transparency.</p>
         </div>
       </div>
 

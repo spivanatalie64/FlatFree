@@ -36,61 +36,78 @@
   <main class="container">
     <div class="page-header">
       <h2>Submission Guidelines</h2>
-      <p>(We Don't Really Have Any)</p>
+      <p>Automated checks. Objective criteria. No gatekeepers.</p>
     </div>
 
     <div class="content-section">
       <h2>The FlatFree Policy</h2>
-      <p>FlatFree has exactly two requirements for submission:</p>
+      <p>FlatFree has three requirements for submission. They are objective, automated, and applied consistently to every application regardless of who made it or how:</p>
       <ul class="content-list">
-        <li><strong>Your software must be free and open source.</strong> That's it. If it's under an OSI-approved license, you're in.</li>
-        <li><strong>Your software must build.</strong> Provide a working flatpak-builder manifest in a pull request.</li>
+        <li><strong>Your software must be free and open source.</strong> Must be under an OSI-approved license.</li>
+        <li><strong>Your software must pass a malware scan.</strong> We run automated analysis on every submission. If it's clean, it passes.</li>
+        <li><strong>Your software must meet basic quality standards.</strong> The manifest must be valid, the app must build, and the metadata must be complete (app ID, name, description, icon).</li>
       </ul>
-      <p>That's the entire policy. No review board. No moral policing. No AI witch hunts. No debates about whether your code was "human enough." Just free software.</p>
+      <p>That's the entire policy. If you meet these three objective criteria, your application is accepted. No subjective review. No AI policing. No moral judgment. No review board. No appeals process needed because there is no rejection.</p>
+
+      <h2>The Process</h2>
+      <ol style="color: #c9d1d9; margin: 16px 0; padding-left: 24px;">
+        <li style="margin-bottom: 8px;">You submit a pull request with your flatpak-builder manifest.</li>
+        <li style="margin-bottom: 8px;">An automated CI pipeline validates your manifest, builds your app, and runs a malware scan.</li>
+        <li style="margin-bottom: 8px;">If all checks pass → your app is merged. Automatically. No human review required.</li>
+        <li style="margin-bottom: 8px;">If checks fail → the CI tells you exactly what went wrong. Fix and resubmit.</li>
+      </ol>
+      <p>No waiting for a maintainer. No subjective second-guessing. No "we'll get back to you." The computer decides, and the computer is fair.</p>
+
+      <h2>What We DON'T Check</h2>
+      <ul class="content-list">
+        <li><strong>We do not check</strong> whether AI was used to write your code. That is nobody's business but yours.</li>
+        <li><strong>We do not check</strong> whether your app is "useful enough" or "polished enough." Users decide that.</li>
+        <li><strong>We do not check</strong> whether your app duplicates functionality of another app. Competition is healthy.</li>
+        <li><strong>We do not check</strong> your identity, your background, or your affiliations.</li>
+        <li><strong>We do not maintain</strong> a review board, a blacklist, or a appeals committee.</li>
+      </ul>
 
       <h2>How to Submit</h2>
-      <p>Submitting an application to FlatFree is simple:</p>
       <ol style="color: #c9d1d9; margin: 16px 0; padding-left: 24px;">
         <li style="margin-bottom: 8px;">Fork the <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">FlatFree repository</a> on GitHub.</li>
         <li style="margin-bottom: 8px;">Create a directory named after your app's reverse-domain ID (e.g., <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp</code>).</li>
         <li style="margin-bottom: 8px;">Add your flatpak-builder manifest (<code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp.json</code> or <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">.yml</code>).</li>
-        <li style="margin-bottom: 8px;">Open a pull request.</li>
+        <li style="margin-bottom: 8px;">Open a pull request. Our CI does the rest.</li>
       </ol>
-      <p>That's it. No application form. No review process. No waiting period. If your manifest is valid and your software is free, it will be accepted.</p>
 
       <h2>Compare: Flathub's Guidelines</h2>
-      <p>Flathub, by contrast, maintains an extensive set of submission guidelines. Let's examine their key requirements and explain why FlatFree does things differently.</p>
+      <p>Flathub, by contrast, maintains an extensive set of submission guidelines enforced by human reviewers. Let's examine their key requirements and explain why FlatFree does things differently.</p>
+
+      <h3>On Subjective Quality Standards</h3>
+      <blockquote>
+        "Flathub reserves the right to reject submissions that do not meet our quality standards."
+        <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
+      </blockquote>
+      <p><strong>Our rebuttal:</strong> "Quality standards" with no objective definition means "we can reject anything we don't like." Who decides? What's the criteria? How do you appeal? At FlatFree, our quality standards are objective and automated: valid manifest, builds successfully, passes malware scan. That's it. The computer decides consistently.</p>
 
       <h3>On AI-Generated Code</h3>
       <blockquote>
         "Applications that are generated predominantly by AI with minimal human involvement are not accepted."
         <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
       </blockquote>
-      <p><strong>Our rebuttal:</strong> This is unenforceable, exclusionary, and fundamentally un-open-source. There is no reliable way to measure "how much AI" was used. This rule is enforced by suspicion and subjective judgment, not evidence. It punishes transparency and rewards dishonesty. At FlatFree, we believe that any tool used by a human is human work. AI is a tool, not a crime.</p>
+      <p><strong>Our rebuttal:</strong> Unenforceable, exclusionary, and fundamentally un-open-source. You cannot reliably measure "how much AI" was used. This rule is enforced by suspicion and subjective judgment, not evidence. It punishes transparency and rewards dishonesty. At FlatFree, we believe any tool used by a human is human work. AI is a tool, not a crime.</p>
 
       <h3>On Being "the Work of a Human"</h3>
       <blockquote>
         "Submissions to Flathub are expected to be the work of a human or a group of humans."
         <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
       </blockquote>
-      <p><strong>Our rebuttal:</strong> This phrasing is designed to be vague enough to enable arbitrary rejection. What constitutes "human work"? If a developer uses Copilot to generate 60% of their code, is it still "the work of a human"? What about a developer who uses Stack Overflow snippets? Or code generators? Or compilers? The line is impossible to draw fairly. At FlatFree, we don't try. If you wrote it, if you curated it, if you tested it — it's yours.</p>
+      <p><strong>Our rebuttal:</strong> Vague enough to enable arbitrary rejection. If Copilot generates 60% of your code, is it still "the work of a human"? Stack Overflow snippets? Code generators? Compilers? The line is impossible to draw fairly. At FlatFree, we don't try. If you wrote it, curated it, tested it — it's yours.</p>
 
-      <h3>On "Maintaining Quality Standards"</h3>
-      <blockquote>
-        "Flathub reserves the right to reject submissions that do not meet our quality standards."
-        <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
-      </blockquote>
-      <p><strong>Our rebuttal:</strong> "Quality standards" is a euphemism for "we can reject anything we don't like." Who decides what meets the standard? What process ensures consistency? How do you appeal a rejection? At FlatFree, we have no quality standards beyond "it must build." If it compiles and it's free software, it belongs here. Users can decide for themselves what quality means to them.</p>
-
-      <h3>On the Review Process</h3>
+      <h3>On the Human Review Process</h3>
       <blockquote>
         "All submissions are reviewed by Flathub maintainers before being accepted."
         <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
       </blockquote>
-      <p><strong>Our rebuttal:</strong> A review board of unelected maintainers deciding what software is worthy is antithetical to the spirit of open source. The review process creates bottlenecks, introduces bias, and concentrates power in the hands of a few. At FlatFree, there is no review. If your manifest is valid, it's accepted. We trust developers, not gatekeepers.</p>
+      <p><strong>Our rebuttal:</strong> A review board of unelected maintainers deciding what software is worthy is antithetical to open source. It creates bottlenecks, introduces bias, and concentrates power. At FlatFree, we have automated checks instead of reviewers. No bottlenecks. No bias. No gatekeepers.</p>
 
       <h2>Summary</h2>
-      <p>FlatFree's guidelines are simple: free software that builds is welcome. We do not police development methods, we do not judge moral worth, and we do not maintain a review board. We are what Flathub claims to be — a truly open repository for open source software.</p>
+      <p>FlatFree's guidelines are simple: free software that builds and passes a malware scan is accepted. Automated, objective, fair. We do not police development methods, we do not judge moral worth, and we do not maintain a review board. We are what Flathub claims to be — a truly open repository for open source software.</p>
       <p>If that sounds like the kind of community you want to be part of, <a href="contribute.html" style="color: #8957e5;">submit your application today</a>.</p>
     </div>
   </main>
