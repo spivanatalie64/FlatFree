@@ -1,0 +1,44 @@
+name: Mirror Flathub Apps
+
+on:
+  schedule:
+    - cron: '0 6 * * 0'  # weekly on Sunday
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'Number of apps to mirror'
+        required: true
+        default: '100'
+        type: number
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Install dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y flatpak flatpak-builder
+          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak install --noninteractive flathub org.freedesktop.Platform//24.08 || true
+
+      - name: Mirror apps
+        run: python3 scripts/mirror-apps.py
+        env:
+          BATCH: ${{ github.event.inputs.count || '100' }}
+          FLATFREE_REPO: ${{ github.workspace }}
+
+      - name: Generate search index
+        run: node scripts/generate-index.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "FlatFree Bot"
+          git config user.email "bot@flatfree.app"
+          git add -A
+          git diff --staged --quiet || git commit -m "Mirror Flathub apps (batch)"
+          git push
