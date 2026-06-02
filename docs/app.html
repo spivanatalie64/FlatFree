@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlatFree — AcreetionOS Media Writer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">FlatFree</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="about.html">About</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="setup.html">Setup</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="contribute.html">Contribute</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>FlatFree</h1>
+      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="app-detail">
+      <div class="app-detail-header">
+        <div class="app-detail-icon">
+          <div class="app-icon-placeholder">MF</div>
+        </div>
+        <div class="app-detail-meta">
+          <h2>AcreetionOS Media Writer</h2>
+          <p class="app-id">org.acreetionos.MediaWriter</p>
+          <p class="app-version">Version 1.0.0 &mdash; Updated June 2025</p>
+          <p class="app-desc" style="font-size: 1rem;">Write AcreetionOS images to USB flash drives with ease. A simple, reliable tool for creating bootable media.</p>
+          <div class="app-actions">
+            <span class="btn btn-lg">Install</span>
+            <a href="https://github.com/spivanatalie64/FlatFree/tree/main/org.acreetionos.MediaWriter" class="btn btn-lg btn-outline">View Manifest</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-description">
+        <h3>Description</h3>
+        <p>AcreetionOS Media Writer is a straightforward utility for writing operating system images to USB drives. Forked from Fedora Media Writer and rebranded for AcreetionOS, it provides a clean interface for creating bootable installation media.</p>
+        <p>Built with Qt 6 and designed for Linux, it supports writing ISO and raw image files to USB flash drives. No complicated command-line options — just select your image, select your drive, and write.</p>
+        <p>This application is free software, licensed under the GPL, and welcomes contributions from all developers regardless of how they build their software.</p>
+      </div>
+
+      <div class="screenshots">
+        <h3>Screenshots</h3>
+        <div class="screenshot-grid">
+          <div class="screenshot-item">
+            <div class="screenshot-placeholder">Screenshot coming soon</div>
+          </div>
+          <div class="screenshot-item">
+            <div class="screenshot-placeholder">Screenshot coming soon</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="app-info-table">
+        <h3>Details</h3>
+        <table>
+          <tr>
+            <td>App ID</td>
+            <td>org.acreetionos.MediaWriter</td>
+          </tr>
+          <tr>
+            <td>Version</td>
+            <td>1.0.0</td>
+          </tr>
+          <tr>
+            <td>License</td>
+            <td>GPL-2.0-or-later</td>
+          </tr>
+          <tr>
+            <td>Runtime</td>
+            <td>org.gnome.Platform 46</td>
+          </tr>
+          <tr>
+            <td>Branch</td>
+            <td>stable</td>
+          </tr>
+          <tr>
+            <td>Repository</td>
+            <td>FlatFree</td>
+          </tr>
+          <tr>
+            <td>Source</td>
+            <td><a href="https://github.com/spivanatalie64/FlatFree/tree/main/org.acreetionos.MediaWriter" style="color: #8957e5;">View Manifest</a></td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="install-info">
+        <h2>Install</h2>
+        <p>Add the FlatFree remote if you haven't already:</p>
+        <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+        <p>Then install this application:</p>
+        <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
+        <p>Or run it directly once installed:</p>
+        <pre><code>flatpak run org.acreetionos.MediaWriter</code></pre>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlatFree — Blog</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">FlatFree</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="about.html">About</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="setup.html">Setup</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html" class="active">Blog</a>
+        <a href="contribute.html">Contribute</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>FlatFree</h1>
+      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>Blog</h2>
+      <p>News, updates, and thoughts from the FlatFree community.</p>
+    </div>
+
+    <div class="blog-list">
+      <div class="blog-card">
+        <a href="blog/welcome.html">
+          <h3>Welcome to FlatFree &mdash; The Alternative Has Arrived</h3>
+          <p class="blog-meta">June 2, 2025 &middot; by The FlatFree Team</p>
+          <p class="blog-preview">Today we launch FlatFree, a community Flatpak repository built on a simple principle: free software should be distributed without gatekeeping, without moral policing, and without arbitrary rules about how code must be written. Here's why FlatFree exists and what we hope to build.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

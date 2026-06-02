@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlatFree — Contribute</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">FlatFree</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="about.html">About</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="setup.html">Setup</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="contribute.html" class="active">Contribute</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>FlatFree</h1>
+      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>Contribute to FlatFree</h2>
+      <p>Help us build the open repository that open source deserves.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Ways to Contribute</h2>
+      <p>FlatFree is a community project, and every contribution helps. Here's how you can get involved:</p>
+
+      <div class="contribute-grid">
+        <div class="contribute-card">
+          <div class="emoji">📦</div>
+          <h3>Submit an Application</h3>
+          <p>Have a free software Flatpak that deserves a home? Submit it to FlatFree. No review board, no gatekeeping, no AI policing.</p>
+          <p style="margin-top: 12px;"><a href="guidelines.html" class="btn btn-sm">Learn How</a></p>
+        </div>
+
+        <div class="contribute-card">
+          <div class="emoji">🐛</div>
+          <h3>Report Issues</h3>
+          <p>Found a bug in the website, the repo infrastructure, or an application? Open an issue on GitHub and help us improve.</p>
+          <p style="margin-top: 12px;"><a href="https://github.com/spivanatalie64/FlatFree/issues" class="btn btn-sm">Open an Issue</a></p>
+        </div>
+
+        <div class="contribute-card">
+          <div class="emoji">💻</div>
+          <h3>Write Code</h3>
+          <p>Help us improve the website, tooling, and infrastructure. Pull requests are always welcome for any aspect of the project.</p>
+          <p style="margin-top: 12px;"><a href="https://github.com/spivanatalie64/FlatFree" class="btn btn-sm">View the Repo</a></p>
+        </div>
+
+        <div class="contribute-card">
+          <div class="emoji">📣</div>
+          <h3>Spread the Word</h3>
+          <p>Tell other developers about FlatFree. Share it on social media, mention it in community forums, blog about it. The more people know, the stronger our community grows.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Submitting an Application</h2>
+      <p>Submitting your application to FlatFree is straightforward:</p>
+      <ol style="color: #c9d1d9; margin: 16px 0; padding-left: 24px;">
+        <li style="margin-bottom: 8px;">Fork the <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">FlatFree repository</a> on GitHub.</li>
+        <li style="margin-bottom: 8px;">Create a directory named after your app's reverse-domain ID (e.g., <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp</code>).</li>
+        <li style="margin-bottom: 8px;">Add a flatpak-builder manifest: <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp.json</code> or <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp.yml</code>.</li>
+        <li style="margin-bottom: 8px;">Open a pull request.</li>
+      </ol>
+      <p>That's it. No application form. No review process. No waiting for approval. If your manifest is valid and your software is free software, it will be accepted.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Helping with the Repository</h2>
+      <p>The FlatFree repository itself needs maintenance and improvement. Here are some ways to help:</p>
+      <ul class="content-list">
+        <li><strong>Improve the website.</strong> Our documentation and site can always be better. Help us write clearer guides, better CSS, or add new features.</li>
+        <li><strong>Review pull requests.</strong> While we don't have a formal review process, community members who spot issues in submission PRs are encouraged to comment.</li>
+        <li><strong>Build infrastructure.</strong> Help us set up automated build pipelines, repository signing, or better hosting for the Flatpak remote.</li>
+        <li><strong>Write tests.</strong> Help ensure that submitted manifests are valid and that applications build correctly.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Spread the Word</h2>
+      <p>The most impactful thing you can do for FlatFree is to tell others about it. Many developers with AI-assisted projects don't even know they might be rejected from Flathub. Help us reach them:</p>
+      <ul class="content-list">
+        <li>Share FlatFree on social media, forums, and community chat platforms.</li>
+        <li>Mention FlatFree when you see discussions about Flathub's AI policy.</li>
+        <li>Write blog posts about why open repositories should be truly open.</li>
+        <li>Star the <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">GitHub repository</a> to help others discover it.</li>
+      </ul>
+    </div>
+
+    <div class="content-section">
+      <h2>Join the Community</h2>
+      <p>FlatFree is more than just a repository — it's a statement about what open source should be. By contributing, you're helping to build a future where free software distribution is truly free, without arbitrary restrictions on how code is created.</p>
+      <p>Every contribution matters, no matter how small. Whether you're submitting an application, fixing a typo in the documentation, or just telling a friend about FlatFree — you're making a difference.</p>
+      <p><a href="https://github.com/spivanatalie64/FlatFree" class="btn btn-lg">Get Started on GitHub</a></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

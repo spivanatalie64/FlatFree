@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlatFree — FAQ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">FlatFree</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="about.html">About</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="setup.html">Setup</a>
+        <a href="faq.html" class="active">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="contribute.html">Contribute</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>FlatFree</h1>
+      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you wanted to know about FlatFree.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-question">Why FlatFree? Why not just use Flathub?</div>
+        <div class="faq-answer">
+          <p>Flathub has adopted submission guidelines that explicitly reject applications "generated predominantly by AI with minimal human involvement." We believe this is exclusionary, unenforceable, and antithetical to the spirit of open source. FlatFree exists as an alternative for developers who want their free software to be distributed without moral policing. If Flathub accepts your app, great — but if they reject you because of how you built it, you have a home here.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is FlatFree a fork of Flathub?</div>
+        <div class="faq-answer">
+          <p>No. FlatFree is an independent Flatpak repository. We are not affiliated with Flathub or the Flatpak project. We do not mirror Flathub's content, and we do not follow their guidelines. We are a separate, community-run repository with our own submission policy.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you accept AI-generated submissions?</div>
+        <div class="faq-answer">
+          <p>Yes. Absolutely. Without reservation. If you used AI to help write your code, we welcome you. If an AI wrote your entire codebase and you curated and tested it, we welcome you. If you are an AI and you wrote free software... well, we'll cross that bridge when we come to it. The point is: we do not police how software is made. We only care that it's free and that it builds.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How is this different from Flathub?</div>
+        <div class="faq-answer">
+          <p>Flathub has a review board, submission guidelines that ban AI-assisted development, and a culture of gatekeeping. FlatFree has none of that. Our entire submission policy is: free software that builds. No review board, no moral judgments, no AI witch hunts. We also explicitly welcome submissions that Flathub would reject.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I submit my application?</div>
+        <div class="faq-answer">
+          <p>Open a pull request on our <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">GitHub repository</a>. Create a directory with your app's reverse-domain ID (e.g., <code style="color: #f0f6fc;">org.example.MyApp</code>), add your flatpak-builder manifest, and submit. No forms, no review process, no waiting. See our <a href="guidelines.html" style="color: #8957e5;">submission guidelines</a> for more details.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you have a review process?</div>
+        <div class="faq-answer">
+          <p>No. We do not have a review board. We do not have maintainers who judge whether your application is worthy. If your manifest is valid and your software is free software, it will be accepted. We trust developers. We believe that the open source community thrives on trust, not gatekeeping.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Is FlatFree safe? What about malicious software?</div>
+        <div class="faq-answer">
+          <p>FlatFree applications are distributed as Flatpaks, which benefit from Flatpak's sandboxing and permission system. Users can review the permissions an application requests before installing. Additionally, because all applications are built from source via flatpak-builder manifests, anyone can inspect the build process. We encourage code review by the community — transparency is our security model.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I still use Flathub alongside FlatFree?</div>
+        <div class="faq-answer">
+          <p>Absolutely. FlatFree is designed to be a complementary remote, not a replacement. You can have both Flathub and FlatFree configured simultaneously. Flatpak handles multiple remotes gracefully. Use whatever combination works for you.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What license do my applications need to be?</div>
+        <div class="faq-answer">
+          <p>Your application must be free and open source software, licensed under an OSI-approved license. That's the only requirement. We don't care about your license choice as long as it's a recognized free software license.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Who runs FlatFree?</div>
+        <div class="faq-answer">
+          <p>FlatFree is a community project. It was started by developers who were frustrated with Flathub's increasingly exclusionary policies. There is no corporation behind it, no funding, no formal structure. It is maintained by volunteers who believe in truly open software distribution.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What if Flathub changes their policy?</div>
+        <div class="faq-answer">
+          <p>If Flathub reverses course and returns to being a truly open repository, that would be wonderful. But FlatFree will continue to exist as an independent alternative regardless. We believe in redundancy, choice, and the importance of having multiple distribution channels for free software. Even if the specific issue of AI policy were resolved, we believe the community benefits from having options.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        q.classList.toggle('open');
+        const answer = q.nextElementSibling;
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+        } else {
+          answer.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlatFree — Welcome to FlatFree</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="nav-brand">FlatFree</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="../apps.html">Apps</a>
+        <a href="../about.html">About</a>
+        <a href="../guidelines.html">Guidelines</a>
+        <a href="../setup.html">Setup</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="../blog.html">Blog</a>
+        <a href="../contribute.html">Contribute</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>FlatFree</h1>
+      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="blog-post">
+      <h2>Welcome to FlatFree &mdash; The Alternative Has Arrived</h2>
+      <p class="blog-meta">June 2, 2025 &middot; by The FlatFree Team</p>
+
+      <div class="blog-post-content">
+        <p>Today, we are proud to announce the public launch of FlatFree — a new community Flatpak repository built on a radically simple principle: if it's free software and it builds, it belongs here.</p>
+
+        <p>FlatFree exists because the open source ecosystem needs a repository that truly lives up to the ideals of free software. We believe that distribution should not come with moral strings attached. We believe that developers should not be judged by the tools they use to create. And we believe that the community, not a review board, should decide what software is valuable.</p>
+
+        <h3>Why Now?</h3>
+        <p>In 2025, Flathub — the de facto standard Flatpak repository — adopted submission guidelines that explicitly ban applications "generated predominantly by AI with minimal human involvement." This decision was a wake-up call for many of us in the open source community.</p>
+
+        <p>To be clear, Flathub is free to set whatever rules they want for their repository. But their decision revealed a fundamental tension: the dominant distribution platform for Flatpak applications was no longer committed to accepting all free software. They had become gatekeepers, deciding not just whether software was free, but whether it was <em>made correctly</em>.</p>
+
+        <blockquote>
+          "Applications that are generated predominantly by AI with minimal human involvement are not accepted."
+          <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
+        </blockquote>
+
+        <p>This rule is troubling for many reasons:</p>
+        <ul>
+          <li><strong>It's unenforceable.</strong> There is no reliable way to measure AI involvement in a codebase. The rule creates a system where enforcement is based on suspicion, hunches, and biases — not evidence.</li>
+          <li><strong>It punishes honesty.</strong> Developers who openly credit their AI tools are at higher risk of rejection than those who hide their usage. The rule actively incentivizes dishonesty.</li>
+          <li><strong>It excludes newcomers.</strong> AI tools have dramatically lowered the barrier to entry for software development. People who could never have written code before are now building real, useful applications. Flathub's rule tells them they aren't welcome.</li>
+          <li><strong>It misunderstands open source.</strong> The four essential freedoms of free software say nothing about how software is created. They are about users' rights to use, study, modify, and share software. Those freedoms apply regardless of whether a human or an AI wrote the code.</li>
+        </ul>
+
+        <h3>Our Vision</h3>
+        <p>FlatFree is our answer to this problem. We are building a repository where:</p>
+        <ul>
+          <li><strong>All free software is welcome.</strong> No exceptions. No moral policing. If your software is under an approved free software license and it builds, we'll distribute it.</li>
+          <li><strong>AI-assisted development is embraced.</strong> We see AI as a tool, no different from a compiler, a debugger, or a code editor. Tools don't diminish human creativity — they amplify it.</li>
+          <li><strong>There is no review board.</strong> We do not have gatekeepers who decide what applications are "worthy." The community votes with their installs.</li>
+          <li><strong>Transparency is rewarded.</strong> We actively encourage developers to be open about how they build their software. Honesty should be praised, not punished.</li>
+        </ul>
+
+        <p>We are not trying to compete with Flathub on volume. We don't expect to have thousands of applications overnight. What we offer is a home for the applications that Flathub rejects — and a statement that the open source community should be open to everyone.</p>
+
+        <h3>What's Next</h3>
+        <p>FlatFree is just getting started. Right now, we have one application in the repository (our own AcreetionOS Media Writer), a working Flatpak remote, and a website. But the infrastructure is in place for more.</p>
+
+        <p>If you have an application that Flathub has rejected — or if you're worried they might reject it — we want to hear from you. Open a pull request on our <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">GitHub repository</a> and submit your manifest.</p>
+
+        <p>If you believe in our mission, spread the word. Tell other developers about FlatFree. Star the repository. Contribute to the code. Help us build the repository that open source deserves.</p>
+
+        <p>The alternative has arrived.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

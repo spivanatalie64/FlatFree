@@ -3,10 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlatFree</title>
+  <title>FlatFree — The Free Flatpak Repository</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">FlatFree</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="about.html">About</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="setup.html">Setup</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="contribute.html">Contribute</a>
+      </div>
+    </div>
+  </nav>
+
   <header>
     <div class="container">
       <h1>FlatFree</h1>
@@ -19,17 +36,19 @@
       <h2>Available Applications</h2>
       <div class="app-grid">
         <div class="app-card">
-          <div class="app-icon">
-            <img src="https://raw.githubusercontent.com/spivanatalie64/AcreetionMediaWriter/main/dist/screenshots/linux_main.png" alt="AcreetionOS Media Writer">
-          </div>
-          <div class="app-info">
-            <h3>AcreetionOS Media Writer</h3>
-            <p class="app-id">org.acreetionos.MediaWriter</p>
-            <p class="app-desc">Write AcreetionOS images to USB flash drives.</p>
-            <div class="app-actions">
-              <a href="https://github.com/spivanatalie64/FlatFree/tree/main/org.acreetionos.MediaWriter" class="btn">View Manifest</a>
+          <a href="app.html">
+            <div class="app-icon">
+              <div class="app-icon-placeholder">MF</div>
             </div>
-          </div>
+            <div class="app-info">
+              <h3>AcreetionOS Media Writer</h3>
+              <p class="app-id">org.acreetionos.MediaWriter</p>
+              <p class="app-desc">Write AcreetionOS images to USB flash drives.</p>
+              <div class="app-actions">
+                <span class="btn btn-sm">View Details</span>
+              </div>
+            </div>
+          </a>
         </div>
       </div>
     </section>
@@ -81,7 +100,7 @@
 
   <footer>
     <div class="container">
-      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be.</p>
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
     </div>
   </footer>
 </body>

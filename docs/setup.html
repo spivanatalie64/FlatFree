@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlatFree — Setup Guide</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="nav-brand">FlatFree</a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="apps.html">Apps</a>
+        <a href="about.html">About</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="setup.html" class="active">Setup</a>
+        <a href="faq.html">FAQ</a>
+        <a href="blog.html">Blog</a>
+        <a href="contribute.html">Contribute</a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="container">
+      <h1>FlatFree</h1>
+      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="page-header">
+      <h2>Setup Guide</h2>
+      <p>How to add the FlatFree remote on your distribution.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Prerequisites</h2>
+      <p>Before adding FlatFree, you need to have Flatpak installed on your system. Most distributions include it by default, but if not, you can install it using your package manager.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Add the FlatFree Remote</h2>
+      <p>The following command adds the FlatFree repository to your Flatpak installation. Run this once, and you'll be able to install any FlatFree application.</p>
+      <pre class="code-block"><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+    </div>
+
+    <div class="content-section">
+      <h2>Distribution Guides</h2>
+
+      <div class="setup-card">
+        <h3>Fedora</h3>
+        <p>Flatpak comes pre-installed on Fedora. Just add the remote:</p>
+        <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+      </div>
+
+      <div class="setup-card">
+        <h3>Ubuntu / Debian</h3>
+        <p>Install Flatpak if not present, then add the remote:</p>
+        <pre><code>sudo apt install flatpak
+flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+      </div>
+
+      <div class="setup-card">
+        <h3>Arch Linux</h3>
+        <p>Install Flatpak from the official repos, then add the remote:</p>
+        <pre><code>sudo pacman -S flatpak
+flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+      </div>
+
+      <div class="setup-card">
+        <h3>openSUSE</h3>
+        <p>Install Flatpak if needed, then add the remote:</p>
+        <pre><code>sudo zypper install flatpak
+flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+      </div>
+
+      <div class="setup-card">
+        <h3>NixOS</h3>
+        <p>With Flatpak enabled in your configuration, add the remote:</p>
+        <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+      </div>
+
+      <div class="setup-card">
+        <h3>Solus</h3>
+        <p>Flatpak is pre-installed on Solus. Add the remote:</p>
+        <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+      </div>
+    </div>
+
+    <div class="content-section">
+      <h2>Install an Application</h2>
+      <p>Once the remote is added, installing an application is straightforward:</p>
+      <pre class="code-block"><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
+      <p>To run the application:</p>
+      <pre class="code-block"><code>flatpak run org.acreetionos.MediaWriter</code></pre>
+      <p>To update all installed FlatFree applications:</p>
+      <pre class="code-block"><code>flatpak update</code></pre>
+    </div>
+
+    <div class="content-section">
+      <h2>Verify the Remote</h2>
+      <p>You can verify that the FlatFree remote is properly configured:</p>
+      <pre class="code-block"><code>flatpak remotes</code></pre>
+      <p>This should list <strong>flatfree</strong> among your configured remotes.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Troubleshooting</h2>
+      <p><strong>Certificate issues?</strong> Ensure your system's CA certificates are up to date. On most distributions, this is handled automatically by your package manager.</p>
+      <p><strong>Remote not found?</strong> Double-check that you've copied the full URL correctly. The remote URL is case-sensitive.</p>
+      <p><strong>Permission denied?</strong> The <code>flatpak remote-add</code> command typically does not require root privileges, but if you encounter permission issues, try with <code>sudo</code>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>
