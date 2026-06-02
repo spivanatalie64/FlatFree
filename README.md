@@ -25,6 +25,18 @@ Flathub's guidelines ban applications "generated predominantly by AI with minima
 
 Any tool used by a human is human work. AI assistance, Stack Overflow, linters, code generators, compilers — they are all tools. FlatFree will never reject your submission based on how you made it.
 
+## CLI Tool
+
+Use the `flatfree-submit` CLI to validate and submit your Flatpak manifest from the terminal:
+
+```bash
+curl -L https://github.com/spivanatalie64/FlatFree/releases/download/v1.0.0/flatfree-submit -o flatfree-submit
+chmod +x flatfree-submit
+./flatfree-submit --help
+```
+
+Available on the [GitHub Releases page](https://github.com/spivanatalie64/FlatFree/releases).
+
 ## Submitting an Application
 
 We accept submissions from everyone — humans, AI-assisted developers, teams, and bots. To submit, open a pull request adding a directory with your app ID and a flatpak-builder manifest.
