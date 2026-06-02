@@ -12,6 +12,13 @@ flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/Flat
 
 Website: **[https://natalie.acreetionos.org/FlatFree](https://natalie.acreetionos.org/FlatFree)**
 
+## Adding FlatFree to your system
+
+```bash
+flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo
+flatpak install flatfree org.acreetionos.MediaWriter
+```
+
 ## Available Applications
 
 | App ID | Description |
