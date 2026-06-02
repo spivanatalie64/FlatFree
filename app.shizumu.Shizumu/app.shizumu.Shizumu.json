@@ -1,0 +1,22 @@
+{
+  "id": "app.shizumu.Shizumu",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "shizumu",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Shizumu",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.shizumu.Shizumu.flatpak",
+          "dest-filename": "app.shizumu.Shizumu.flatpak"
+        }
+      ]
+    }
+  ]
+}

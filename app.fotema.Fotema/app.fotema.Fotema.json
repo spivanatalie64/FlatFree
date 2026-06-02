@@ -1,0 +1,22 @@
+{
+  "id": "app.fotema.Fotema",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "fotema",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Fotema",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.fotema.Fotema.flatpak",
+          "dest-filename": "app.fotema.Fotema.flatpak"
+        }
+      ]
+    }
+  ]
+}

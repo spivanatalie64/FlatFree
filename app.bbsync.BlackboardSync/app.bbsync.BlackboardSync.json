@@ -1,0 +1,22 @@
+{
+  "id": "app.bbsync.BlackboardSync",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "blackboardsync",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "BlackboardSync",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.bbsync.BlackboardSync.flatpak",
+          "dest-filename": "app.bbsync.BlackboardSync.flatpak"
+        }
+      ]
+    }
+  ]
+}

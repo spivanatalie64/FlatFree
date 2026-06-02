@@ -1,0 +1,22 @@
+{
+  "id": "app.ytmdesktop.ytmdesktop",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "ytmdesktop",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "ytmdesktop",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.ytmdesktop.ytmdesktop.flatpak",
+          "dest-filename": "app.ytmdesktop.ytmdesktop.flatpak"
+        }
+      ]
+    }
+  ]
+}

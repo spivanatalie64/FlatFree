@@ -1,0 +1,22 @@
+{
+  "id": "app.authpass.AuthPass",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "authpass",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "AuthPass",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.authpass.AuthPass.flatpak",
+          "dest-filename": "app.authpass.AuthPass.flatpak"
+        }
+      ]
+    }
+  ]
+}

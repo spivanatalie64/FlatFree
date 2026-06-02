@@ -1,0 +1,22 @@
+{
+  "id": "app.organicmaps.desktop",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "desktop",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "desktop",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.organicmaps.desktop.flatpak",
+          "dest-filename": "app.organicmaps.desktop.flatpak"
+        }
+      ]
+    }
+  ]
+}

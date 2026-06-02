@@ -1,0 +1,22 @@
+{
+  "id": "app.rednotebook.RedNotebook",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "rednotebook",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "RedNotebook",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.rednotebook.RedNotebook.flatpak",
+          "dest-filename": "app.rednotebook.RedNotebook.flatpak"
+        }
+      ]
+    }
+  ]
+}

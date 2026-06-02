@@ -1,0 +1,22 @@
+{
+  "id": "app.opencomic.OpenComic",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "opencomic",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "OpenComic",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.opencomic.OpenComic.flatpak",
+          "dest-filename": "app.opencomic.OpenComic.flatpak"
+        }
+      ]
+    }
+  ]
+}

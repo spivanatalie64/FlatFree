@@ -1,0 +1,22 @@
+{
+  "id": "app.bluebubbles.BlueBubbles",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "bluebubbles",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "BlueBubbles",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.bluebubbles.BlueBubbles.flatpak",
+          "dest-filename": "app.bluebubbles.BlueBubbles.flatpak"
+        }
+      ]
+    }
+  ]
+}

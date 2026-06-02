@@ -1,0 +1,22 @@
+{
+  "id": "app.getclipboard.Clipboard",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "clipboard",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Clipboard",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.getclipboard.Clipboard.flatpak",
+          "dest-filename": "app.getclipboard.Clipboard.flatpak"
+        }
+      ]
+    }
+  ]
+}

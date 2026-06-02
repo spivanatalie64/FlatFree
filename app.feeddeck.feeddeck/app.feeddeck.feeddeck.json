@@ -1,0 +1,22 @@
+{
+  "id": "app.feeddeck.feeddeck",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "feeddeck",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "feeddeck",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.feeddeck.feeddeck.flatpak",
+          "dest-filename": "app.feeddeck.feeddeck.flatpak"
+        }
+      ]
+    }
+  ]
+}

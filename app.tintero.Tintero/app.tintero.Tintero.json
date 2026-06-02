@@ -1,0 +1,22 @@
+{
+  "id": "app.tintero.Tintero",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "tintero",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Tintero",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.tintero.Tintero.flatpak",
+          "dest-filename": "app.tintero.Tintero.flatpak"
+        }
+      ]
+    }
+  ]
+}

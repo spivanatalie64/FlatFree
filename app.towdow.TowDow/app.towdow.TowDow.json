@@ -1,0 +1,22 @@
+{
+  "id": "app.towdow.TowDow",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "towdow",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "TowDow",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.towdow.TowDow.flatpak",
+          "dest-filename": "app.towdow.TowDow.flatpak"
+        }
+      ]
+    }
+  ]
+}

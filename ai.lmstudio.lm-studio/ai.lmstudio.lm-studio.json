@@ -1,0 +1,22 @@
+{
+  "id": "ai.lmstudio.lm-studio",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "lm-studio",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "lm-studio",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/ai.lmstudio.lm-studio.flatpak",
+          "dest-filename": "ai.lmstudio.lm-studio.flatpak"
+        }
+      ]
+    }
+  ]
+}

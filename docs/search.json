@@ -1,5 +1,515 @@
 [
   {
+    "id": "ai.jan.Jan",
+    "name": "Jan",
+    "description": "Jan — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "ai.jan.Jan.json",
+    "path": "ai.jan.Jan/ai.jan.Jan.json"
+  },
+  {
+    "id": "ai.lmstudio.lm-studio",
+    "name": "lm-studio",
+    "description": "lm-studio — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "ai.lmstudio.lm-studio.json",
+    "path": "ai.lmstudio.lm-studio/ai.lmstudio.lm-studio.json"
+  },
+  {
+    "id": "ai.opencode.opencode",
+    "name": "opencode",
+    "description": "opencode — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "ai.opencode.opencode.json",
+    "path": "ai.opencode.opencode/ai.opencode.opencode.json"
+  },
+  {
+    "id": "app.authpass.AuthPass",
+    "name": "AuthPass",
+    "description": "AuthPass — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.authpass.AuthPass.json",
+    "path": "app.authpass.AuthPass/app.authpass.AuthPass.json"
+  },
+  {
+    "id": "app.bbsync.BlackboardSync",
+    "name": "BlackboardSync",
+    "description": "BlackboardSync — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.bbsync.BlackboardSync.json",
+    "path": "app.bbsync.BlackboardSync/app.bbsync.BlackboardSync.json"
+  },
+  {
+    "id": "app.bluebubbles.BlueBubbles",
+    "name": "BlueBubbles",
+    "description": "BlueBubbles — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.bluebubbles.BlueBubbles.json",
+    "path": "app.bluebubbles.BlueBubbles/app.bluebubbles.BlueBubbles.json"
+  },
+  {
+    "id": "app.cantara.Cantara",
+    "name": "Cantara",
+    "description": "Cantara — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.cantara.Cantara.json",
+    "path": "app.cantara.Cantara/app.cantara.Cantara.json"
+  },
+  {
+    "id": "app.comaps.comaps",
+    "name": "comaps",
+    "description": "comaps — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.comaps.comaps.json",
+    "path": "app.comaps.comaps/app.comaps.comaps.json"
+  },
+  {
+    "id": "app.curocalc.calculator",
+    "name": "calculator",
+    "description": "calculator — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.curocalc.calculator.json",
+    "path": "app.curocalc.calculator/app.curocalc.calculator.json"
+  },
+  {
+    "id": "app.devsuite.Ptyxis",
+    "name": "Ptyxis",
+    "description": "Ptyxis — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.devsuite.Ptyxis.json",
+    "path": "app.devsuite.Ptyxis/app.devsuite.Ptyxis.json"
+  },
+  {
+    "id": "app.devsuite.Schemes",
+    "name": "Schemes",
+    "description": "Schemes — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.devsuite.Schemes.json",
+    "path": "app.devsuite.Schemes/app.devsuite.Schemes.json"
+  },
+  {
+    "id": "app.drey.Biblioteca",
+    "name": "Biblioteca",
+    "description": "Biblioteca — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.Biblioteca.json",
+    "path": "app.drey.Biblioteca/app.drey.Biblioteca.json"
+  },
+  {
+    "id": "app.drey.Blurble",
+    "name": "Blurble",
+    "description": "Blurble — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.Blurble.json",
+    "path": "app.drey.Blurble/app.drey.Blurble.json"
+  },
+  {
+    "id": "app.drey.Damask",
+    "name": "Damask",
+    "description": "Damask — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.Damask.json",
+    "path": "app.drey.Damask/app.drey.Damask.json"
+  },
+  {
+    "id": "app.drey.Dialect",
+    "name": "Dialect",
+    "description": "Dialect — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.Dialect.json",
+    "path": "app.drey.Dialect/app.drey.Dialect.json"
+  },
+  {
+    "id": "app.drey.EarTag",
+    "name": "EarTag",
+    "description": "EarTag — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.EarTag.json",
+    "path": "app.drey.EarTag/app.drey.EarTag.json"
+  },
+  {
+    "id": "app.drey.Elastic",
+    "name": "Elastic",
+    "description": "Elastic — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.Elastic.json",
+    "path": "app.drey.Elastic/app.drey.Elastic.json"
+  },
+  {
+    "id": "app.drey.KeyRack",
+    "name": "KeyRack",
+    "description": "KeyRack — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.KeyRack.json",
+    "path": "app.drey.KeyRack/app.drey.KeyRack.json"
+  },
+  {
+    "id": "app.drey.MultiplicationPuzzle",
+    "name": "MultiplicationPuzzle",
+    "description": "MultiplicationPuzzle — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.MultiplicationPuzzle.json",
+    "path": "app.drey.MultiplicationPuzzle/app.drey.MultiplicationPuzzle.json"
+  },
+  {
+    "id": "app.drey.Warp",
+    "name": "Warp",
+    "description": "Warp — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.drey.Warp.json",
+    "path": "app.drey.Warp/app.drey.Warp.json"
+  },
+  {
+    "id": "app.eduroam.geteduroam",
+    "name": "geteduroam",
+    "description": "geteduroam — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.eduroam.geteduroam.json",
+    "path": "app.eduroam.geteduroam/app.eduroam.geteduroam.json"
+  },
+  {
+    "id": "app.feeddeck.feeddeck",
+    "name": "feeddeck",
+    "description": "feeddeck — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.feeddeck.feeddeck.json",
+    "path": "app.feeddeck.feeddeck/app.feeddeck.feeddeck.json"
+  },
+  {
+    "id": "app.fluxer.Fluxer",
+    "name": "Fluxer",
+    "description": "Fluxer — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.fluxer.Fluxer.json",
+    "path": "app.fluxer.Fluxer/app.fluxer.Fluxer.json"
+  },
+  {
+    "id": "app.fotema.Fotema",
+    "name": "Fotema",
+    "description": "Fotema — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.fotema.Fotema.json",
+    "path": "app.fotema.Fotema/app.fotema.Fotema.json"
+  },
+  {
+    "id": "app.freelens.Freelens",
+    "name": "Freelens",
+    "description": "Freelens — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.freelens.Freelens.json",
+    "path": "app.freelens.Freelens/app.freelens.Freelens.json"
+  },
+  {
+    "id": "app.getclipboard.Clipboard",
+    "name": "Clipboard",
+    "description": "Clipboard — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.getclipboard.Clipboard.json",
+    "path": "app.getclipboard.Clipboard/app.getclipboard.Clipboard.json"
+  },
+  {
+    "id": "app.getspace.Space",
+    "name": "Space",
+    "description": "Space — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.getspace.Space.json",
+    "path": "app.getspace.Space/app.getspace.Space.json"
+  },
+  {
+    "id": "app.go2tv.go2tv",
+    "name": "go2tv",
+    "description": "go2tv — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.go2tv.go2tv.json",
+    "path": "app.go2tv.go2tv/app.go2tv.go2tv.json"
+  },
+  {
+    "id": "app.grayjay.Grayjay",
+    "name": "Grayjay",
+    "description": "Grayjay — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.grayjay.Grayjay.json",
+    "path": "app.grayjay.Grayjay/app.grayjay.Grayjay.json"
+  },
+  {
+    "id": "app.gummi.gummi",
+    "name": "gummi",
+    "description": "gummi — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.gummi.gummi.json",
+    "path": "app.gummi.gummi/app.gummi.gummi.json"
+  },
+  {
+    "id": "app.katvan.Katvan",
+    "name": "Katvan",
+    "description": "Katvan — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.katvan.Katvan.json",
+    "path": "app.katvan.Katvan/app.katvan.Katvan.json"
+  },
+  {
+    "id": "app.kreya.Kreya",
+    "name": "Kreya",
+    "description": "Kreya — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.kreya.Kreya.json",
+    "path": "app.kreya.Kreya/app.kreya.Kreya.json"
+  },
+  {
+    "id": "app.lith.Lith",
+    "name": "Lith",
+    "description": "Lith — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.lith.Lith.json",
+    "path": "app.lith.Lith/app.lith.Lith.json"
+  },
+  {
+    "id": "app.moosync.moosync",
+    "name": "moosync",
+    "description": "moosync — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.moosync.moosync.json",
+    "path": "app.moosync.moosync/app.moosync.moosync.json"
+  },
+  {
+    "id": "app.nestful.Nestful",
+    "name": "Nestful",
+    "description": "Nestful — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.nestful.Nestful.json",
+    "path": "app.nestful.Nestful/app.nestful.Nestful.json"
+  },
+  {
+    "id": "app.openbubbles.OpenBubbles",
+    "name": "OpenBubbles",
+    "description": "OpenBubbles — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.openbubbles.OpenBubbles.json",
+    "path": "app.openbubbles.OpenBubbles/app.openbubbles.OpenBubbles.json"
+  },
+  {
+    "id": "app.opencomic.OpenComic",
+    "name": "OpenComic",
+    "description": "OpenComic — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.opencomic.OpenComic.json",
+    "path": "app.opencomic.OpenComic/app.opencomic.OpenComic.json"
+  },
+  {
+    "id": "app.organicmaps.desktop",
+    "name": "desktop",
+    "description": "desktop — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.organicmaps.desktop.json",
+    "path": "app.organicmaps.desktop/app.organicmaps.desktop.json"
+  },
+  {
+    "id": "app.pianocheetah.pianocheetah",
+    "name": "pianocheetah",
+    "description": "pianocheetah — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.pianocheetah.pianocheetah.json",
+    "path": "app.pianocheetah.pianocheetah/app.pianocheetah.pianocheetah.json"
+  },
+  {
+    "id": "app.polychromatic.controller",
+    "name": "controller",
+    "description": "controller — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.polychromatic.controller.json",
+    "path": "app.polychromatic.controller/app.polychromatic.controller.json"
+  },
+  {
+    "id": "app.rednotebook.RedNotebook",
+    "name": "RedNotebook",
+    "description": "RedNotebook — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.rednotebook.RedNotebook.json",
+    "path": "app.rednotebook.RedNotebook/app.rednotebook.RedNotebook.json"
+  },
+  {
+    "id": "app.shizumu.Shizumu",
+    "name": "Shizumu",
+    "description": "Shizumu — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.shizumu.Shizumu.json",
+    "path": "app.shizumu.Shizumu/app.shizumu.Shizumu.json"
+  },
+  {
+    "id": "app.tintero.Tintero",
+    "name": "Tintero",
+    "description": "Tintero — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.tintero.Tintero.json",
+    "path": "app.tintero.Tintero/app.tintero.Tintero.json"
+  },
+  {
+    "id": "app.towdow.TowDow",
+    "name": "TowDow",
+    "description": "TowDow — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.towdow.TowDow.json",
+    "path": "app.towdow.TowDow/app.towdow.TowDow.json"
+  },
+  {
+    "id": "app.tuneline.Tuneline",
+    "name": "Tuneline",
+    "description": "Tuneline — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.tuneline.Tuneline.json",
+    "path": "app.tuneline.Tuneline/app.tuneline.Tuneline.json"
+  },
+  {
+    "id": "app.twintaillauncher.ttl",
+    "name": "ttl",
+    "description": "ttl — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.twintaillauncher.ttl.json",
+    "path": "app.twintaillauncher.ttl/app.twintaillauncher.ttl.json"
+  },
+  {
+    "id": "app.xemu.xemu",
+    "name": "xemu",
+    "description": "xemu — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.xemu.xemu.json",
+    "path": "app.xemu.xemu/app.xemu.xemu.json"
+  },
+  {
+    "id": "app.xmcl.voxelum",
+    "name": "voxelum",
+    "description": "voxelum — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.xmcl.voxelum.json",
+    "path": "app.xmcl.voxelum/app.xmcl.voxelum.json"
+  },
+  {
+    "id": "app.ytmdesktop.ytmdesktop",
+    "name": "ytmdesktop",
+    "description": "ytmdesktop — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.ytmdesktop.ytmdesktop.json",
+    "path": "app.ytmdesktop.ytmdesktop/app.ytmdesktop.ytmdesktop.json"
+  },
+  {
+    "id": "app.ywallet.Ywallet",
+    "name": "Ywallet",
+    "description": "Ywallet — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "x86_64",
+    "categories": [],
+    "manifest": "app.ywallet.Ywallet.json",
+    "path": "app.ywallet.Ywallet/app.ywallet.Ywallet.json"
+  },
+  {
+    "id": "docs",
+    "name": "docs",
+    "description": "docs — cross-platform app",
+    "runtime": "unknown",
+    "runtimeVersion": "",
+    "categories": [],
+    "manifest": "search.json",
+    "path": "docs/search.json"
+  },
+  {
     "id": "org.acreetionos.MediaWriter",
     "name": "MediaWriter",
     "description": "MediaWriter — org.kde.Platform app",

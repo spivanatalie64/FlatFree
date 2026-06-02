@@ -1,0 +1,22 @@
+{
+  "id": "app.polychromatic.controller",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "controller",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "controller",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.polychromatic.controller.flatpak",
+          "dest-filename": "app.polychromatic.controller.flatpak"
+        }
+      ]
+    }
+  ]
+}

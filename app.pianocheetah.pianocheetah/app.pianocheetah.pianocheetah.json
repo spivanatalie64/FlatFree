@@ -1,0 +1,22 @@
+{
+  "id": "app.pianocheetah.pianocheetah",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "pianocheetah",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "pianocheetah",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.pianocheetah.pianocheetah.flatpak",
+          "dest-filename": "app.pianocheetah.pianocheetah.flatpak"
+        }
+      ]
+    }
+  ]
+}

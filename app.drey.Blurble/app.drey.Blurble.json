@@ -1,0 +1,22 @@
+{
+  "id": "app.drey.Blurble",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "blurble",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Blurble",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.drey.Blurble.flatpak",
+          "dest-filename": "app.drey.Blurble.flatpak"
+        }
+      ]
+    }
+  ]
+}

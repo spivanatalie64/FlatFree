@@ -1,0 +1,22 @@
+{
+  "id": "app.xmcl.voxelum",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "voxelum",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "voxelum",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.xmcl.voxelum.flatpak",
+          "dest-filename": "app.xmcl.voxelum.flatpak"
+        }
+      ]
+    }
+  ]
+}

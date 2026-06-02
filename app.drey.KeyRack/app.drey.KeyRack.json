@@ -1,0 +1,22 @@
+{
+  "id": "app.drey.KeyRack",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "keyrack",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "KeyRack",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.drey.KeyRack.flatpak",
+          "dest-filename": "app.drey.KeyRack.flatpak"
+        }
+      ]
+    }
+  ]
+}

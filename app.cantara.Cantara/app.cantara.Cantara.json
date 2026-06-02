@@ -1,0 +1,22 @@
+{
+  "id": "app.cantara.Cantara",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "cantara",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Cantara",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.cantara.Cantara.flatpak",
+          "dest-filename": "app.cantara.Cantara.flatpak"
+        }
+      ]
+    }
+  ]
+}

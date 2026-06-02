@@ -1,0 +1,22 @@
+{
+  "id": "app.comaps.comaps",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "comaps",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "comaps",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.comaps.comaps.flatpak",
+          "dest-filename": "app.comaps.comaps.flatpak"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "app.lith.Lith",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "lith",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Lith",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.lith.Lith.flatpak",
+          "dest-filename": "app.lith.Lith.flatpak"
+        }
+      ]
+    }
+  ]
+}

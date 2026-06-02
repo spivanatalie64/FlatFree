@@ -1,0 +1,22 @@
+{
+  "id": "app.katvan.Katvan",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.kde.Platform",
+  "command": "katvan",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Katvan",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.katvan.Katvan.flatpak",
+          "dest-filename": "app.katvan.Katvan.flatpak"
+        }
+      ]
+    }
+  ]
+}

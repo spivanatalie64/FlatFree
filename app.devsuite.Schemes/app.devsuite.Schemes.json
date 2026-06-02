@@ -1,0 +1,22 @@
+{
+  "id": "app.devsuite.Schemes",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "schemes",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Schemes",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.devsuite.Schemes.flatpak",
+          "dest-filename": "app.devsuite.Schemes.flatpak"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "id": "app.tuneline.Tuneline",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "tuneline",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Tuneline",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.tuneline.Tuneline.flatpak",
+          "dest-filename": "app.tuneline.Tuneline.flatpak"
+        }
+      ]
+    }
+  ]
+}

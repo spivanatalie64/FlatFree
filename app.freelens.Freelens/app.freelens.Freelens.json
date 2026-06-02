@@ -1,0 +1,22 @@
+{
+  "id": "app.freelens.Freelens",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "freelens",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Freelens",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.freelens.Freelens.flatpak",
+          "dest-filename": "app.freelens.Freelens.flatpak"
+        }
+      ]
+    }
+  ]
+}

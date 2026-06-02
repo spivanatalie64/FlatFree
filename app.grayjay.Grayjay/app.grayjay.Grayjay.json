@@ -1,0 +1,22 @@
+{
+  "id": "app.grayjay.Grayjay",
+  "runtime": "org.freedesktop.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.freedesktop.Platform",
+  "command": "grayjay",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Grayjay",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.grayjay.Grayjay.flatpak",
+          "dest-filename": "app.grayjay.Grayjay.flatpak"
+        }
+      ]
+    }
+  ]
+}

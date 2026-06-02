@@ -1,0 +1,22 @@
+{
+  "id": "app.drey.Dialect",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "dialect",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "Dialect",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.drey.Dialect.flatpak",
+          "dest-filename": "app.drey.Dialect.flatpak"
+        }
+      ]
+    }
+  ]
+}

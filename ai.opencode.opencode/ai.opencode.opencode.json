@@ -1,0 +1,22 @@
+{
+  "id": "ai.opencode.opencode",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "opencode",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "opencode",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/ai.opencode.opencode.flatpak",
+          "dest-filename": "ai.opencode.opencode.flatpak"
+        }
+      ]
+    }
+  ]
+}

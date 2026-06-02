@@ -1,0 +1,22 @@
+{
+  "id": "app.openbubbles.OpenBubbles",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "x86_64",
+  "sdk": "org.gnome.Platform",
+  "command": "openbubbles",
+  "finish-args": [],
+  "modules": [
+    {
+      "name": "OpenBubbles",
+      "buildsystem": "simple",
+      "build-commands": [],
+      "sources": [
+        {
+          "type": "file",
+          "url": "https://dl.flathub.org/repo/appstream/app.openbubbles.OpenBubbles.flatpak",
+          "dest-filename": "app.openbubbles.OpenBubbles.flatpak"
+        }
+      ]
+    }
+  ]
+}
