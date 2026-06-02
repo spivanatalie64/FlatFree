@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #0d1117;
+  color: #c9d1d9;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+header {
+  background: linear-gradient(135deg, #6e40c9, #8957e5);
+  padding: 48px 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+header .subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 8px;
+}
+
+.hero {
+  padding: 40px 0;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: #f0f6fc;
+}
+
+.app-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.app-card {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  gap: 20px;
+  transition: border-color 0.2s;
+}
+
+.app-card:hover {
+  border-color: #6e40c9;
+}
+
+.app-icon {
+  flex-shrink: 0;
+  width: 96px;
+  height: 96px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #21262d;
+}
+
+.app-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.app-info {
+  flex: 1;
+}
+
+.app-info h3 {
+  font-size: 1.2rem;
+  color: #f0f6fc;
+  margin-bottom: 4px;
+}
+
+.app-id {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.85rem;
+  color: #8b949e;
+  margin-bottom: 8px;
+}
+
+.app-desc {
+  font-size: 0.95rem;
+  color: #c9d1d9;
+  margin-bottom: 16px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 8px 20px;
+  background: #6e40c9;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #8957e5;
+}
+
+.install-info {
+  padding: 40px 0;
+  border-top: 1px solid #30363d;
+}
+
+.install-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #f0f6fc;
+}
+
+.install-info p {
+  margin-bottom: 12px;
+}
+
+.install-info pre {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+
+.install-info code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.9rem;
+  color: #f0f6fc;
+}
+
+footer {
+  padding: 24px 0;
+  border-top: 1px solid #30363d;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #8b949e;
+}

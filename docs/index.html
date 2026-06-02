@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FlatFree</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>FlatFree</h1>
+      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h2>Available Applications</h2>
+      <div class="app-grid">
+        <div class="app-card">
+          <div class="app-icon">
+            <img src="https://raw.githubusercontent.com/spivanatalie64/AcreetionMediaWriter/main/dist/screenshots/linux_main.png" alt="AcreetionOS Media Writer">
+          </div>
+          <div class="app-info">
+            <h3>AcreetionOS Media Writer</h3>
+            <p class="app-id">org.acreetionos.MediaWriter</p>
+            <p class="app-desc">Write AcreetionOS images to USB flash drives. Automatically downloads the required image and writes it directly to your drive.</p>
+            <div class="app-actions">
+              <a href="https://github.com/spivanatalie64/FlatFree/tree/main/org.acreetionos.MediaWriter" class="btn">View Manifest</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="install-info">
+      <h2>Getting Started</h2>
+      <p>Add the FlatFree remote to your system:</p>
+      <pre><code>flatpak remote-add --if-not-exists flatfree https://spivanatalie64.github.io/FlatFree/flatfree.flatpakrepo</code></pre>
+      <p>Then install an app:</p>
+      <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>FlatFree is not affiliated with Flathub or the Flatpak project.</p>
+    </div>
+  </footer>
+</body>
+</html>
