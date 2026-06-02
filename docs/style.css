@@ -150,6 +150,78 @@ header .subtitle {
   color: #f0f6fc;
 }
 
+.why-flatfree, .submit-app {
+  padding: 40px 0;
+  border-top: 1px solid #30363d;
+}
+
+.why-flatfree h2, .submit-app h2 {
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  color: #f0f6fc;
+}
+
+.why-flatfree h3 {
+  font-size: 1.2rem;
+  margin: 24px 0 12px;
+  color: #f0f6fc;
+}
+
+.why-flatfree p, .submit-app p {
+  margin-bottom: 12px;
+}
+
+.why-flatfree blockquote {
+  background: #161b22;
+  border-left: 4px solid #f38020;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+  font-style: italic;
+  color: #e0e0e0;
+}
+
+.why-flatfree blockquote footer {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  text-align: right;
+  border: none;
+  padding: 0;
+  color: #8b949e;
+}
+
+.why-flatfree blockquote a {
+  color: #8957e5;
+}
+
+.why-flatfree ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.why-flatfree ul li {
+  padding: 10px 16px;
+  margin-bottom: 8px;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  color: #c9d1d9;
+}
+
+.why-flatfree ul li strong {
+  color: #f0f6fc;
+}
+
+.submit-app a {
+  color: #8957e5;
+  text-decoration: none;
+}
+
+.submit-app a:hover {
+  text-decoration: underline;
+}
+
 footer {
   padding: 24px 0;
   border-top: 1px solid #30363d;
