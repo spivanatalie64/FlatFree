@@ -7,10 +7,10 @@ Inspired by [Flathub](https://flathub.org), FlatFree aims to provide an alternat
 ## Adding FlatFree to your system
 
 ```bash
-flatpak remote-add --if-not-exists flatfree https://flatfree.org/repo/flatfree.flatpakrepo
+flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo
 ```
 
-*(Repository hosting coming soon)*
+Website: **[https://natalie.acreetionos.org/FlatFree](https://natalie.acreetionos.org/FlatFree)**
 
 ## Available Applications
 

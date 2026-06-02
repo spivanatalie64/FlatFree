@@ -1,7 +1,7 @@
 [Flatpak Repo]
 Title=FlatFree
-Url=https://spivanatalie64.github.io/FlatFree/repo
-Homepage=https://spivanatalie64.github.io/FlatFree
+Url=https://natalie.acreetionos.org/FlatFree/repo
+Homepage=https://natalie.acreetionos.org/FlatFree
 Comment=A community Flatpak repository — free, open, and built for everyone.
 Description=FlatFree is a community-driven Flatpak repository providing free and open-source applications for Linux. Inspired by Flathub.
-Icon=https://spivanatalie64.github.io/FlatFree/icon.png
+Icon=https://natalie.acreetionos.org/FlatFree/icon.png
