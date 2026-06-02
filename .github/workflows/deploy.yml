@@ -10,6 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - name: Generate search index
+        run: node scripts/generate-index.js
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
