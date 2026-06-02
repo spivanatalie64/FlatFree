@@ -1003,3 +1003,54 @@ footer a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+/* Search did-you-mean */
+.search-did-you-mean {
+  padding: 8px 16px 4px;
+  font-size: 0.8rem;
+  color: #8b949e;
+  font-style: italic;
+}
+
+/* Search submit CTA for no results */
+.search-submit-cta {
+  padding: 16px;
+  border-top: 1px solid #21262d;
+  text-align: center;
+}
+
+.search-submit-cta p {
+  font-size: 0.85rem;
+  color: #8b949e;
+  margin-bottom: 6px;
+}
+
+.search-submit-cta p:last-child {
+  margin-bottom: 0;
+}
+
+.search-cta-link {
+  color: #8957e5;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.search-cta-link:hover {
+  text-decoration: underline;
+}
+
+.search-thanks {
+  font-size: 0.85rem;
+  color: #6e40c9;
+  margin-top: 4px;
+}
+
+/* Search results footer */
+.search-results-footer {
+  padding: 10px 16px;
+  border-top: 1px solid #21262d;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #484f58;
+  font-style: italic;
+}

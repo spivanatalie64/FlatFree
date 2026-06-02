@@ -1,0 +1,212 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+VERSION="1.0.0"
+
+# ────────────────────────────────────────────────────────────
+# FlatFree Submit — CLI tool to submit apps to FlatFree
+# "For the community, not corporations" 
+# ────────────────────────────────────────────────────────────
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+PURPLE='\033[0;35m'
+CYAN='\033[0;36m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+echo -e "${PURPLE}"
+cat << "EOF"
+  _____ _       _____               __
+ |  ___| |     |  ___| __ ___  ___ / _| ___ _ __
+ | |_  | |_____| |_ | '__/ _ \/ _ \ |_ / _ \ '__|
+ |  _| | |_____|  _|| | |  __/  __/  _|  __/ |
+ |_|   |_|     |_|  |_|  \___|\___|_|  \___|_|
+EOF
+echo -e "${NC}"
+echo -e "${CYAN}FlatFree Submit v${VERSION}${NC}"
+echo -e "${CYAN}For the community, not corporations${NC}"
+echo ""
+
+usage() {
+  cat <<EOF
+Usage: flatfree-submit [OPTIONS] <manifest>
+
+Submit a Flatpak application to the FlatFree repository.
+
+Arguments:
+  <manifest>       Path to your flatpak-builder JSON/YAML manifest
+
+Options:
+  --dry-run        Validate the manifest without actually submitting
+  --help           Show this help message
+  --version        Show version
+
+What happens:
+  1. Validates your manifest file
+  2. Checks it has the required fields (id, runtime, modules)
+  3. Guides you through forking and opening a PR on GitHub
+
+Requirements:
+  - git
+  - curl
+  - A GitHub account
+
+Examples:
+  flatfree-submit org.example.MyApp.json
+  flatfree-submit --dry-run my-app.yml
+
+FlatFree is community-driven. We accept all free software,
+regardless of how it was made. No AI policing. No gatekeepers. No review board.
+EOF
+  exit 0
+}
+
+if [ $# -eq 0 ]; then
+  usage
+fi
+
+MANIFEST=""
+DRY_RUN=false
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --help) usage ;;
+    --version) echo "flatfree-submit v${VERSION}"; exit 0 ;;
+    --dry-run) DRY_RUN=true; shift ;;
+    *) MANIFEST="$1"; shift ;;
+  esac
+done
+
+if [ -z "$MANIFEST" ]; then
+  echo -e "${RED}Error: No manifest file specified${NC}"
+  echo "Usage: flatfree-submit <manifest.json>"
+  exit 1
+fi
+
+if [ ! -f "$MANIFEST" ]; then
+  echo -e "${RED}Error: File not found: $MANIFEST${NC}"
+  exit 1
+fi
+
+echo -e "${YELLOW}Step 1: Validating manifest...${NC}"
+
+# Basic JSON parse check
+if ! jq '.' "$MANIFEST" > /dev/null 2>&1; then
+  # Try python3
+  if ! python3 -c "import json; json.load(open('$MANIFEST'))" 2>/dev/null; then
+    echo -e "${RED}Error: $MANIFEST is not valid JSON${NC}"
+    echo "Note: FlatFree also accepts YAML manifests (.yml/.yaml)"
+    exit 1
+  fi
+fi
+
+APP_ID=""
+APP_NAME=""
+RUNTIME=""
+
+# Extract fields
+if command -v jq &>/dev/null; then
+  APP_ID=$(jq -r '.id // empty' "$MANIFEST" 2>/dev/null || true)
+  RUNTIME=$(jq -r '.runtime // empty' "$MANIFEST" 2>/dev/null || true)
+  APP_NAME=$(jq -r '.modules[0].name // empty' "$MANIFEST" 2>/dev/null || python3 -c "import json; m=json.load(open('$MANIFEST')); print(m.get('modules',[{}])[0].get('name',''))" 2>/dev/null || true)
+else
+  APP_ID=$(python3 -c "import json; m=json.load(open('$MANIFEST')); print(m.get('id',''))" 2>/dev/null || true)
+  RUNTIME=$(python3 -c "import json; m=json.load(open('$MANIFEST')); print(m.get('runtime',''))" 2>/dev/null || true)
+  APP_NAME=$(python3 -c "import json; m=json.load(open('$MANIFEST')); print(m.get('modules',[{}])[0].get('name',''))" 2>/dev/null || true)
+fi
+
+HAS_ERRORS=false
+
+if [ -z "$APP_ID" ]; then
+  echo -e "  ${RED}✗ Missing 'id' field (e.g. \"org.example.MyApp\")${NC}"
+  HAS_ERRORS=true
+else
+  echo -e "  ${GREEN}✓ App ID:${NC} $APP_ID"
+fi
+
+if [ -z "$RUNTIME" ]; then
+  echo -e "  ${RED}✗ Missing 'runtime' field (e.g. \"org.kde.Platform\")${NC}"
+  HAS_ERRORS=true
+else
+  echo -e "  ${GREEN}✓ Runtime:${NC} $RUNTIME"
+fi
+
+if [ -z "$APP_NAME" ]; then
+  echo -e "  ${YELLOW}⚠ No module name found (not required, but recommended)${NC}"
+else
+  echo -e "  ${GREEN}✓ App name:${NC} $APP_NAME"
+fi
+
+if [ "$HAS_ERRORS" = true ]; then
+  echo ""
+  echo -e "${RED}Manifest validation failed. Please fix the issues above.${NC}"
+  echo "See: https://docs.flatpak.org/en/latest/flatpak-builder.html"
+  exit 1
+fi
+
+echo -e "${GREEN}✓ Manifest looks good!${NC}"
+echo ""
+
+if [ "$DRY_RUN" = true ]; then
+  echo -e "${YELLOW}[DRY RUN] Would submit $APP_ID to FlatFree${NC}"
+  echo -e "${YELLOW}[DRY RUN] No changes were made${NC}"
+  exit 0
+fi
+
+echo -e "${YELLOW}Step 2: Checking GitHub access...${NC}"
+
+if ! command -v git &>/dev/null; then
+  echo -e "${RED}Error: git is required but not installed${NC}"
+  exit 1
+fi
+
+if ! command -v curl &>/dev/null; then
+  echo -e "${RED}Error: curl is required but not installed${NC}"
+  exit 1
+fi
+
+if ! gh auth status 2>/dev/null; then
+  echo -e "${YELLOW}⚠ GitHub CLI (gh) not authenticated or not installed.${NC}"
+  echo ""
+  echo -e "${CYAN}To submit, please:${NC}"
+fi
+
+DIR_NAME=$(basename "$MANIFEST" | sed 's/\.[^.]*$//')
+if [ "$DIR_NAME" != "$APP_ID" ]; then
+  DIR_NAME="$APP_ID"
+fi
+
+echo ""
+echo -e "${PURPLE}══════════════════════════════════════════════════════════════${NC}"
+echo -e "${PURPLE}  Ready to submit ${CYAN}$APP_ID${NC}"
+echo -e "${PURPLE}══════════════════════════════════════════════════════════════${NC}"
+echo ""
+echo -e "To submit your app to FlatFree manually:"
+echo ""
+echo -e "  1. Fork the FlatFree repo:"
+echo -e "     ${GREEN}https://github.com/spivanatalie64/FlatFree/fork${NC}"
+echo ""
+echo -e "  2. Clone your fork and add your manifest:"
+echo -e "     ${GREEN}git clone https://github.com/YOUR_USERNAME/FlatFree.git${NC}"
+echo -e "     ${GREEN}mkdir -p FlatFree/$DIR_NAME${NC}"
+echo -e "     ${GREEN}cp $MANIFEST FlatFree/$DIR_NAME/$MANIFEST${NC}"
+echo -e "     ${GREEN}cd FlatFree${NC}"
+echo -e "     ${GREEN}git add $DIR_NAME/${NC}"
+echo -e "     ${GREEN}git commit -m \"Add $APP_ID\"${NC}"
+echo -e "     ${GREEN}git push origin main${NC}"
+echo ""
+echo -e "  3. Open a pull request:"
+echo -e "     ${GREEN}gh pr create --fill${NC}"
+echo -e "     Or visit: https://github.com/spivanatalie64/FlatFree/compare"
+echo ""
+echo -e "  4. Our CI will automatically validate and merge your app."
+echo ""
+echo -e "${PURPLE}══════════════════════════════════════════════════════════════${NC}"
+echo ""
+echo -e "${CYAN}Thank you for contributing to FlatFree!${NC}"
+echo -e "${CYAN}FlatFree is community-driven and community-owned.${NC}"
+echo -e "${CYAN}We accept all free software regardless of how it was made.${NC}"
+echo -e "${CYAN}No AI policing. No gatekeepers. No corporate interests.${NC}"
+echo ""
+echo -e "${PURPLE}💜 FlatFree — for the community, not corporations${NC}"
