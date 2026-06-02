@@ -1,0 +1,12 @@
+[
+  {
+    "id": "org.acreetionos.MediaWriter",
+    "name": "MediaWriter",
+    "description": "MediaWriter — org.kde.Platform app",
+    "runtime": "org.kde.Platform",
+    "runtimeVersion": "6.10",
+    "categories": [],
+    "manifest": "org.acreetionos.MediaWriter.json",
+    "path": "org.acreetionos.MediaWriter/org.acreetionos.MediaWriter.json"
+  }
+]

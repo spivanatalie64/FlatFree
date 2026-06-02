@@ -98,7 +98,42 @@ body {
     display: flex;
   }
 
-  .nav-toggle {
+.nav-search {
+  flex: 0 0 180px;
+}
+
+.nav-search-input {
+  width: 100%;
+  padding: 8px 12px;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  color: #c9d1d9;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.nav-search-input::placeholder {
+  color: #484f58;
+}
+
+.nav-search-input:focus {
+  border-color: #6e40c9;
+}
+
+@media (max-width: 768px) {
+  .nav-search {
+    flex: 1;
+    margin-right: 8px;
+  }
+
+  .nav-search-input {
+    font-size: 1rem;
+  }
+}
+
+.nav-toggle {
     display: block;
   }
 }
@@ -843,4 +878,88 @@ footer a:hover {
   font-size: 0.9rem;
   color: #8b949e;
   margin-bottom: 0;
+}
+
+/* Search dropdown */
+.search-bar {
+  position: relative;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 0 0 8px 8px;
+  z-index: 200;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.search-no-results {
+  padding: 16px;
+  color: #8b949e;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.search-result-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+  border-bottom: 1px solid #21262d;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: #21262d;
+}
+
+.search-result-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: #6e40c9;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.search-result-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.search-result-name {
+  font-weight: 600;
+  color: #f0f6fc;
+  font-size: 0.9rem;
+}
+
+.search-result-id {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+.search-result-desc {
+  font-size: 0.8rem;
+  color: #8b949e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
