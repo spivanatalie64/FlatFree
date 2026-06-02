@@ -7,23 +7,28 @@ const DOCS = path.join(ROOT, 'docs');
 
 const index = [];
 
+// Skip non-app directories
+const SKIP = new Set(['docs', 'scripts', '.git', '.github']);
+
 // Walk all top-level directories looking for flatpak manifests
 for (const entry of fs.readdirSync(ROOT)) {
   const dir = path.join(ROOT, entry);
-  if (!fs.statSync(dir).isDirectory() || entry.startsWith('.')) continue;
+  if (!fs.statSync(dir).isDirectory() || entry.startsWith('.') || SKIP.has(entry)) continue;
 
   for (const file of fs.readdirSync(dir)) {
     if (!file.endsWith('.json') && !file.endsWith('.yml') && !file.endsWith('.yaml')) continue;
+    if (file === 'search.json') continue;
     const manifestPath = path.join(dir, file);
     try {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
       const appId = manifest['id'] || entry;
       const moduleName = manifest.modules?.[0]?.name || appId.split('.').pop();
-      const desc = manifest['description'] || `${moduleName} — ${manifest.runtime || 'cross-platform'} app`;
+      const cleanName = moduleName.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[-_]/g, ' ');
+      const desc = manifest['description'] || `${cleanName} — ${manifest.runtime || 'cross-platform'} app`;
 
       index.push({
         id: appId,
-        name: moduleName,
+        name: cleanName,
         description: desc,
         runtime: manifest.runtime || 'unknown',
         runtimeVersion: manifest['runtime-version'] || '',

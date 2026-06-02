@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlatFree — Applications</title>
+  <title>FlatFree — Application Store</title>
   <link rel="stylesheet" href="style.css">
   <script src="search.js" defer></script>
+  <script src="appstore.js" defer></script>
 </head>
 <body>
   <nav class="navbar">
@@ -35,40 +36,21 @@
   </header>
 
   <main class="container">
-    <div class="page-header">
-      <h2>Applications</h2>
-      <p>Browse available Flatpaks in the FlatFree repository.</p>
-    </div>
-
-    <div class="search-bar">
-      <input type="text" placeholder="Search applications..." disabled>
-      <span class="btn">Search</span>
-    </div>
-
-    <section class="hero">
-      <div class="app-grid">
-        <div class="app-card">
-          <a href="app.html">
-            <div class="app-icon">
-              <div class="app-icon-placeholder">MF</div>
-            </div>
-            <div class="app-info">
-              <h3>AcreetionOS Media Writer</h3>
-              <p class="app-id">org.acreetionos.MediaWriter</p>
-              <p class="app-desc">Write AcreetionOS images to USB flash drives.</p>
-              <div class="app-actions">
-                <span class="btn btn-sm">View Details</span>
-                <span class="tag">v1.0.0</span>
-              </div>
-            </div>
-          </a>
+    <div class="appstore-toolbar">
+      <div class="appstore-search">
+        <input type="text" id="appstoreSearch" placeholder="Search apps by name, ID, or description..." autofocus>
+      </div>
+      <div class="appstore-controls">
+        <span class="appstore-count" id="appCount"></span>
+        <div class="appstore-view-toggle">
+          <button class="view-btn active" data-view="grid" title="Grid view">⊞</button>
+          <button class="view-btn" data-view="list" title="List view">☰</button>
         </div>
       </div>
+    </div>
 
-      <p style="text-align: center; color: #8b949e; margin-top: 32px; padding: 24px; border: 1px dashed #30363d; border-radius: 8px;">
-        More applications coming soon. <a href="contribute.html" style="color: #8957e5;">Submit yours!</a>
-      </p>
-    </section>
+    <div id="appGrid" class="appstore-grid"></div>
+    <div id="appStoreFooter" class="appstore-footer"></div>
   </main>
 
   <footer>
