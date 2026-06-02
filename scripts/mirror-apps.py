@@ -39,12 +39,22 @@ def generate_manifest(app_id, info):
 
     name = app_id.split('.')[-1] if '.' in app_id else app_id
 
+    # Try to detect license from metadata
+    license = 'FOSS'
+    for line in info.split('\n'):
+        if 'License:' in line:
+            lic = line.split('License:')[1].strip().split('-')[0].strip()
+            if lic:
+                license = lic
+                break
+
     manifest = {
         'id': app_id,
         'runtime': runtime or 'org.freedesktop.Platform',
         'runtime-version': runtime_ver or '24.08',
         'sdk': runtime or 'org.freedesktop.Sdk',
         'command': command or name.lower(),
+        'license': license,
         'finish-args': [],
         'modules': [{
             'name': name,

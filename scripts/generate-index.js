@@ -26,6 +26,9 @@ for (const entry of fs.readdirSync(ROOT)) {
       const cleanName = moduleName.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[-_]/g, ' ');
       const desc = manifest['description'] || `${cleanName} — ${manifest.runtime || 'cross-platform'} app`;
 
+      const license = manifest['license'] || manifest['x-license'] || 'FOSS';
+      const projectLicense = manifest['project-license'] || '';
+
       index.push({
         id: appId,
         name: cleanName,
@@ -33,6 +36,8 @@ for (const entry of fs.readdirSync(ROOT)) {
         runtime: manifest.runtime || 'unknown',
         runtimeVersion: manifest['runtime-version'] || '',
         categories: manifest['categories'] || [],
+        license: license,
+        projectLicense: projectLicense,
         manifest: file,
         path: `${entry}/${file}`
       });

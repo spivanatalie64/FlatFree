@@ -6,6 +6,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "ai.jan.Jan.json",
     "path": "ai.jan.Jan/ai.jan.Jan.json"
   },
@@ -16,6 +18,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "ai.lmstudio.lm-studio.json",
     "path": "ai.lmstudio.lm-studio/ai.lmstudio.lm-studio.json"
   },
@@ -26,6 +30,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "ai.opencode.opencode.json",
     "path": "ai.opencode.opencode/ai.opencode.opencode.json"
   },
@@ -36,6 +42,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.authpass.AuthPass.json",
     "path": "app.authpass.AuthPass/app.authpass.AuthPass.json"
   },
@@ -46,6 +54,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.bbsync.BlackboardSync.json",
     "path": "app.bbsync.BlackboardSync/app.bbsync.BlackboardSync.json"
   },
@@ -56,6 +66,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.bluebubbles.BlueBubbles.json",
     "path": "app.bluebubbles.BlueBubbles/app.bluebubbles.BlueBubbles.json"
   },
@@ -66,6 +78,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.cantara.Cantara.json",
     "path": "app.cantara.Cantara/app.cantara.Cantara.json"
   },
@@ -76,6 +90,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.comaps.comaps.json",
     "path": "app.comaps.comaps/app.comaps.comaps.json"
   },
@@ -86,6 +102,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.curocalc.calculator.json",
     "path": "app.curocalc.calculator/app.curocalc.calculator.json"
   },
@@ -96,6 +114,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.devsuite.Ptyxis.json",
     "path": "app.devsuite.Ptyxis/app.devsuite.Ptyxis.json"
   },
@@ -106,6 +126,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.devsuite.Schemes.json",
     "path": "app.devsuite.Schemes/app.devsuite.Schemes.json"
   },
@@ -116,6 +138,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.Biblioteca.json",
     "path": "app.drey.Biblioteca/app.drey.Biblioteca.json"
   },
@@ -126,6 +150,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.Blurble.json",
     "path": "app.drey.Blurble/app.drey.Blurble.json"
   },
@@ -136,6 +162,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.Damask.json",
     "path": "app.drey.Damask/app.drey.Damask.json"
   },
@@ -146,6 +174,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.Dialect.json",
     "path": "app.drey.Dialect/app.drey.Dialect.json"
   },
@@ -156,6 +186,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.EarTag.json",
     "path": "app.drey.EarTag/app.drey.EarTag.json"
   },
@@ -166,6 +198,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.Elastic.json",
     "path": "app.drey.Elastic/app.drey.Elastic.json"
   },
@@ -176,6 +210,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.KeyRack.json",
     "path": "app.drey.KeyRack/app.drey.KeyRack.json"
   },
@@ -186,6 +222,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.MultiplicationPuzzle.json",
     "path": "app.drey.MultiplicationPuzzle/app.drey.MultiplicationPuzzle.json"
   },
@@ -196,6 +234,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.drey.Warp.json",
     "path": "app.drey.Warp/app.drey.Warp.json"
   },
@@ -206,6 +246,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.eduroam.geteduroam.json",
     "path": "app.eduroam.geteduroam/app.eduroam.geteduroam.json"
   },
@@ -216,6 +258,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.feeddeck.feeddeck.json",
     "path": "app.feeddeck.feeddeck/app.feeddeck.feeddeck.json"
   },
@@ -226,6 +270,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.fluxer.Fluxer.json",
     "path": "app.fluxer.Fluxer/app.fluxer.Fluxer.json"
   },
@@ -236,6 +282,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.fotema.Fotema.json",
     "path": "app.fotema.Fotema/app.fotema.Fotema.json"
   },
@@ -246,6 +294,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.freelens.Freelens.json",
     "path": "app.freelens.Freelens/app.freelens.Freelens.json"
   },
@@ -256,6 +306,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.getclipboard.Clipboard.json",
     "path": "app.getclipboard.Clipboard/app.getclipboard.Clipboard.json"
   },
@@ -266,6 +318,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.getspace.Space.json",
     "path": "app.getspace.Space/app.getspace.Space.json"
   },
@@ -276,6 +330,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.go2tv.go2tv.json",
     "path": "app.go2tv.go2tv/app.go2tv.go2tv.json"
   },
@@ -286,6 +342,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.grayjay.Grayjay.json",
     "path": "app.grayjay.Grayjay/app.grayjay.Grayjay.json"
   },
@@ -296,6 +354,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.gummi.gummi.json",
     "path": "app.gummi.gummi/app.gummi.gummi.json"
   },
@@ -306,6 +366,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.katvan.Katvan.json",
     "path": "app.katvan.Katvan/app.katvan.Katvan.json"
   },
@@ -316,6 +378,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.kreya.Kreya.json",
     "path": "app.kreya.Kreya/app.kreya.Kreya.json"
   },
@@ -326,6 +390,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.lith.Lith.json",
     "path": "app.lith.Lith/app.lith.Lith.json"
   },
@@ -336,6 +402,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.moosync.moosync.json",
     "path": "app.moosync.moosync/app.moosync.moosync.json"
   },
@@ -346,6 +414,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.nestful.Nestful.json",
     "path": "app.nestful.Nestful/app.nestful.Nestful.json"
   },
@@ -356,6 +426,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.openbubbles.OpenBubbles.json",
     "path": "app.openbubbles.OpenBubbles/app.openbubbles.OpenBubbles.json"
   },
@@ -366,6 +438,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.opencomic.OpenComic.json",
     "path": "app.opencomic.OpenComic/app.opencomic.OpenComic.json"
   },
@@ -376,6 +450,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.organicmaps.desktop.json",
     "path": "app.organicmaps.desktop/app.organicmaps.desktop.json"
   },
@@ -386,6 +462,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.pianocheetah.pianocheetah.json",
     "path": "app.pianocheetah.pianocheetah/app.pianocheetah.pianocheetah.json"
   },
@@ -396,6 +474,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.polychromatic.controller.json",
     "path": "app.polychromatic.controller/app.polychromatic.controller.json"
   },
@@ -406,6 +486,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.rednotebook.RedNotebook.json",
     "path": "app.rednotebook.RedNotebook/app.rednotebook.RedNotebook.json"
   },
@@ -416,6 +498,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.shizumu.Shizumu.json",
     "path": "app.shizumu.Shizumu/app.shizumu.Shizumu.json"
   },
@@ -426,6 +510,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.tintero.Tintero.json",
     "path": "app.tintero.Tintero/app.tintero.Tintero.json"
   },
@@ -436,6 +522,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.towdow.TowDow.json",
     "path": "app.towdow.TowDow/app.towdow.TowDow.json"
   },
@@ -446,6 +534,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.tuneline.Tuneline.json",
     "path": "app.tuneline.Tuneline/app.tuneline.Tuneline.json"
   },
@@ -456,6 +546,8 @@
     "runtime": "org.gnome.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.twintaillauncher.ttl.json",
     "path": "app.twintaillauncher.ttl/app.twintaillauncher.ttl.json"
   },
@@ -466,6 +558,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.xemu.xemu.json",
     "path": "app.xemu.xemu/app.xemu.xemu.json"
   },
@@ -476,6 +570,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.xmcl.voxelum.json",
     "path": "app.xmcl.voxelum/app.xmcl.voxelum.json"
   },
@@ -486,6 +582,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.ytmdesktop.ytmdesktop.json",
     "path": "app.ytmdesktop.ytmdesktop/app.ytmdesktop.ytmdesktop.json"
   },
@@ -496,6 +594,8 @@
     "runtime": "org.freedesktop.Platform",
     "runtimeVersion": "x86_64",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "app.ywallet.Ywallet.json",
     "path": "app.ywallet.Ywallet/app.ywallet.Ywallet.json"
   },
@@ -506,6 +606,8 @@
     "runtime": "org.kde.Platform",
     "runtimeVersion": "6.10",
     "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
     "manifest": "org.acreetionos.MediaWriter.json",
     "path": "org.acreetionos.MediaWriter/org.acreetionos.MediaWriter.json"
   }

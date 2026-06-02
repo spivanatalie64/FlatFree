@@ -894,6 +894,12 @@ footer a:hover {
   border: 1px solid rgba(110, 64, 201, 0.3);
 }
 
+.tag-foss {
+  background: rgba(46, 160, 67, 0.15);
+  color: #3fb950;
+  border-color: rgba(46, 160, 67, 0.3);
+}
+
 .tag-orange {
   background: rgba(243, 128, 32, 0.15);
   color: #f38020;

@@ -1,7 +1,6 @@
 (() => {
   let apps = [];
   let currentView = localStorage.getItem('flatfree-view') || 'grid';
-  let currentSort = 'name';
 
   const grid = document.getElementById('appGrid');
   const searchInput = document.getElementById('appstoreSearch');
@@ -18,6 +17,13 @@
     for (let i = 0; i < id.length; i++) hash = id.charCodeAt(i) + ((hash << 5) - hash);
     const h = Math.abs(hash) % 360;
     return `hsl(${h}, 55%, 35%)`;
+  }
+
+  function licenseBadge(app) {
+    const lic = (app.license || 'FOSS').toUpperCase();
+    return `<span class="tag tag-foss" title="License: ${escapeHtml(app.projectLicense || app.license || 'Free and Open Source')}">
+      ${lic === 'FOSS' ? 'FOSS' : lic}
+    </span>`;
   }
 
   function filterApps(query) {
@@ -51,16 +57,13 @@
       return;
     }
 
-    if (currentView === 'grid') {
-      renderGrid(sorted);
-    } else {
-      renderList(sorted);
-    }
+    if (currentView === 'grid') renderGrid(sorted);
+    else renderList(sorted);
 
     if (footerEl) {
       footerEl.innerHTML = `
         <p style="text-align: center; color: #484f58; font-size: 0.8rem; padding: 16px 0;">
-          Showing ${sorted.length} of ${apps.length} apps &mdash; 
+          Showing ${sorted.length} of ${apps.length} apps &mdash; All apps are Free & Open Source &mdash;
           <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">Submit yours</a>
         </p>`;
     }
@@ -76,6 +79,7 @@
           <div class="appstore-card-id">${escapeHtml(a.id)}</div>
           <div class="appstore-card-desc">${escapeHtml(truncate(a.description, 80))}</div>
           <div class="appstore-card-meta">
+            ${licenseBadge(a)}
             <span class="tag" title="Runtime">${escapeHtml(a.runtime.split('.').pop())}</span>
           </div>
         </div>
@@ -93,7 +97,8 @@
           <div class="appstore-list-id">${escapeHtml(a.id)}</div>
           <div class="appstore-list-desc">${escapeHtml(truncate(a.description, 120))}</div>
         </div>
-        <div class="appstore-list-meta">
+        <div class="appstore-list-meta" style="display:flex;gap:6px;align-items:center">
+          ${licenseBadge(a)}
           <span class="tag">${escapeHtml(a.runtime.split('.').pop())}</span>
         </div>
       </a>
@@ -107,16 +112,14 @@
   }
 
   function truncate(s, n) {
-    return s.length > n ? s.slice(0, n) + '…' : s;
+    return s.length > n ? s.slice(0, n) + '\u2026' : s;
   }
 
   function init() {
-    // Load apps
     fetch('search.json').then(r => r.json()).then(data => {
       apps = data;
       render();
 
-      // Search handler
       if (searchInput) {
         let timer;
         searchInput.addEventListener('input', () => {
@@ -125,7 +128,6 @@
         });
       }
 
-      // View toggle
       viewBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           viewBtns.forEach(b => b.classList.remove('active'));
@@ -138,7 +140,6 @@
         else btn.classList.remove('active');
       });
 
-      // Handle ?q= param
       const params = new URLSearchParams(window.location.search);
       const q = params.get('q');
       if (q && searchInput) {
