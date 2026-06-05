@@ -26,6 +26,11 @@ jobs:
           flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
           flatpak install --noninteractive flathub org.freedesktop.Platform//24.08 || true
 
+      - name: Import GPG signing key
+        run: |
+          echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 -d | gpg --batch --import
+          echo "GPG_KEY_ID=${{ secrets.GPG_KEY_ID }}" >> "$GITHUB_ENV"
+
       - name: Mirror apps
         run: python3 scripts/mirror-apps.py
         env:
