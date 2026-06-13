@@ -6,6 +6,7 @@
   <title>FlatFree — The Free Flatpak Repository</title>
   <link rel="stylesheet" href="style.css">
   <script src="search.js" defer></script>
+  <script src="appstore.js" defer></script>
 </head>
 <body>
   <nav class="navbar">
@@ -37,23 +38,13 @@
   <main class="container">
     <section class="hero">
       <h2>Available Applications</h2>
-      <div class="app-grid">
-        <div class="app-card">
-          <a href="app.html">
-            <div class="app-icon">
-              <div class="app-icon-placeholder">MF</div>
-            </div>
-            <div class="app-info">
-              <h3>AcreetionOS Media Writer</h3>
-              <p class="app-id">org.acreetionos.MediaWriter</p>
-              <p class="app-desc">Write AcreetionOS images to USB flash drives.</p>
-              <div class="app-actions">
-                <span class="btn btn-sm">View Details</span>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">All apps in the FlatFree repository — built from public source, free for everyone.</p>
+      <div id="appGrid" class="appstore-grid"></div>
+      <p style="text-align: center; margin-top: 12px;">
+        <a href="apps.html" class="btn" style="display: inline-flex; align-items: center; gap: 6px;">
+          View All Apps <span style="font-size: 1.1rem;">→</span>
+        </a>
+      </p>
     </section>
 
     <section class="why-flatfree">
