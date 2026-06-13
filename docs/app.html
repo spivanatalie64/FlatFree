@@ -16,6 +16,12 @@
     .app-detail-error { text-align: center; padding: 80px 24px; }
     .app-detail-error h2 { color: var(--acreetion-text-bright); margin-bottom: 8px; }
     .app-detail-error p { color: var(--acreetion-text-muted); margin-bottom: 16px; }
+    .btn-install { position: relative; min-width: 140px; justify-content: center; }
+    .btn-install:disabled { opacity: 0.7; cursor: wait; }
+    .btn-copy:hover { background: var(--acreetion-box-bg) !important; color: var(--acreetion-text-bright) !important; border-color: var(--acreetion-purple-border) !important; }
+    .btn-copy:active { transform: scale(0.95); }
+    .install-info .code-block { transition: border-color 0.2s; }
+    .install-info .code-block:hover { border-color: var(--acreetion-purple-border); }
   </style>
 </head>
 <body>
@@ -88,6 +94,106 @@
   (function(){
     var appData = null;
 
+    function tryFlatpakProtocol(appId) {
+      // Try the flatpak:// URI scheme
+      var flatpakUri = 'flatpak://install?repo=flatfree&app=' + encodeURIComponent(appId);
+      var fallbackUri = 'flatpak:install?repo=flatfree&app=' + encodeURIComponent(appId);
+
+      // Try standard flatpak:// first
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = flatpakUri;
+      document.body.appendChild(iframe);
+
+      // Also try navigating a hidden link
+      var link = document.createElement('a');
+      link.href = flatpakUri;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+
+      // Try multiple approaches
+      setTimeout(function() {
+        try { window.location.href = flatpakUri; } catch(e) {}
+      }, 100);
+
+      setTimeout(function() {
+        try { window.location.href = fallbackUri; } catch(e) {}
+      }, 300);
+
+      // Clean up after attempt
+      setTimeout(function() {
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+        if (link.parentNode) link.parentNode.removeChild(link);
+      }, 2000);
+    }
+
+    function setupInstallButton() {
+      var btn = document.querySelector('.btn-install');
+      if (!btn) return;
+      var appId = btn.getAttribute('data-appid');
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        btn.disabled = true;
+        btn.innerHTML = 'Opening Flatpak... <span class="spinner" style="width:14px;height:14px;border-width:2px;vertical-align:middle;margin-left:4px"></span>';
+        tryFlatpakProtocol(appId);
+        // After 3 seconds, reset and highlight terminal commands
+        setTimeout(function() {
+          btn.disabled = false;
+          btn.innerHTML = 'Install';
+          // Scroll to install section and flash it
+          var installSection = document.querySelector('.install-info');
+          if (installSection) {
+            installSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            installSection.style.transition = 'box-shadow 0.3s';
+            installSection.style.boxShadow = '0 0 20px rgba(155,89,182,0.4)';
+            setTimeout(function() {
+              installSection.style.boxShadow = 'none';
+            }, 2000);
+          }
+        }, 3000);
+      });
+    }
+
+    function setupCopyButtons() {
+      var btns = document.querySelectorAll('.btn-copy');
+      for (var i = 0; i < btns.length; i++) {
+        (function(btn) {
+          btn.addEventListener('click', function() {
+            var targetId = btn.getAttribute('data-target');
+            var codeEl = document.getElementById(targetId);
+            if (!codeEl) return;
+            var text = codeEl.textContent || codeEl.innerText;
+            // Copy to clipboard
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(function() {
+                btn.innerHTML = '<i class="bi bi-check"></i> Copied!';
+                setTimeout(function() { btn.innerHTML = '<i class="bi bi-clipboard"></i> Copy'; }, 2000);
+              }).catch(function() {
+                fallbackCopy(text, btn);
+              });
+            } else {
+              fallbackCopy(text, btn);
+            }
+          });
+        })(btns[i]);
+      }
+    }
+
+    function fallbackCopy(text, btn) {
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        btn.innerHTML = '<i class="bi bi-check"></i> Copied!';
+        setTimeout(function() { btn.innerHTML = '<i class="bi bi-clipboard"></i> Copy'; }, 2000);
+      } catch(e) {}
+      document.body.removeChild(ta);
+    }
+
     function getInitials(name) {
       return name.split(' ').map(function(w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
     }
@@ -133,7 +239,7 @@
             '<p class="app-version">FlatFree Repository</p>' +
             '<p class="app-desc" style="font-size: 1rem;">' + escapeHtml(description) + '</p>' +
             '<div class="app-actions">' +
-              '<span class="btn btn-lg">Install</span>' +
+              '<button class="btn btn-lg btn-install" data-appid="' + escapeHtml(app.id) + '">Install</button>' +
               '<a href="' + escapeHtml(manifestUrl) + '" class="btn btn-lg btn-outline" target="_blank" rel="noopener">View Manifest</a>' +
             '</div>' +
           '</div>' +
@@ -156,13 +262,18 @@
           '</table>' +
         '</div>' +
         '<div class="install-info">' +
-          '<h2>Install</h2>' +
-          '<p>Add the FlatFree remote if you haven\'t already:</p>' +
-          '<pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>' +
-          '<p>Then install this application:</p>' +
-          '<pre><code>flatpak install flatfree ' + escapeHtml(app.id) + '</code></pre>' +
-          '<p>Or run it directly once installed:</p>' +
-          '<pre><code>flatpak run ' + escapeHtml(app.id) + '</code></pre>' +
+          '<h2>Install <span style="font-size:0.7rem;font-weight:400;color:var(--acreetion-text-muted)">via Flatpak</span></h2>' +
+          '<div class="install-protocol-note" style="background:var(--acreetion-purple-dim);border:1px solid var(--acreetion-purple-border);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem">' +
+            '<i class="bi bi-info-circle" style="color:var(--acreetion-purple)"></i> ' +
+            'Clicking <strong>Install</strong> will open your system\'s Flatpak handler. ' +
+            'If nothing happens, use the terminal commands below.' +
+          '</div>' +
+          '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 1 &mdash; Add the FlatFree remote:</p>' +
+          '<pre class="code-block" style="position:relative"><code id="cmdRemote">flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code><button class="btn-copy" data-target="cmdRemote" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
+          '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 2 &mdash; Install ' + escapeHtml(app.name) + ':</p>' +
+          '<pre class="code-block" style="position:relative"><code id="cmdInstall">flatpak install flatfree ' + escapeHtml(app.id) + '</code><button class="btn-copy" data-target="cmdInstall" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
+          '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 3 &mdash; Run it:</p>' +
+          '<pre class="code-block" style="position:relative"><code id="cmdRun">flatpak run ' + escapeHtml(app.id) + '</code><button class="btn-copy" data-target="cmdRun" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
         '</div>';
     }
 
@@ -196,6 +307,8 @@
           }
           if (found) {
             renderApp(found);
+            setupInstallButton();
+            setupCopyButtons();
           } else {
             showError('Application "' + appId + '" was not found in the FlatFree repository.');
           }
