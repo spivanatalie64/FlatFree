@@ -4,123 +4,102 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlatFree — Contribute</title>
+  <meta name="description" content="Contribute to FlatFree, the community Flatpak repository.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="search.js" defer></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-brand">FlatFree</a>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
-      <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="apps.html">Apps</a>
-        <a href="about.html">About</a>
-        <a href="guidelines.html">Guidelines</a>
-        <a href="docs.html">Docs</a>
-        <a href="setup.html">Setup</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
-        <a href="contribute.html" class="active">Contribute</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="page-wrap">
+    <div id="page-scale">
+      <header class="page-header">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-img">FF</div>
+            <span class="logo-text">Flat<span>Free</span></span>
+          </a>
+          <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
+        </div>
+      </header>
+      <div class="hero-header">
+        <h1>Contribute to FlatFree</h1>
+        <p class="subtitle">Help us build a free and open Flatpak repository</p>
       </div>
-    </div>
-  </nav>
-
-  <header>
-    <div class="container">
-      <h1>FlatFree</h1>
-      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="page-header">
-      <h2>Contribute to FlatFree</h2>
-      <p>Help us build the open repository that open source deserves.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>Ways to Contribute</h2>
-      <p>FlatFree is a community project, and every contribution helps. Here's how you can get involved:</p>
-
-      <div class="contribute-grid">
-        <div class="contribute-card">
-          <div class="emoji">📦</div>
-          <h3>Submit an Application</h3>
-          <p>Have a free software Flatpak that deserves a home? Submit it to FlatFree. Automated malware scan + quality checks, then it's in.</p>
-          <p style="margin-top: 12px;"><a href="guidelines.html" class="btn btn-sm">Learn How</a></p>
-        </div>
-
-        <div class="contribute-card">
-          <div class="emoji">🐛</div>
-          <h3>Report Issues</h3>
-          <p>Found a bug in the website, the repo infrastructure, or an application? Open an issue on GitHub and help us improve.</p>
-          <p style="margin-top: 12px;"><a href="https://github.com/spivanatalie64/FlatFree/issues" class="btn btn-sm">Open an Issue</a></p>
-        </div>
-
-        <div class="contribute-card">
-          <div class="emoji">💻</div>
-          <h3>Write Code</h3>
-          <p>Help us improve the website, tooling, and infrastructure. Pull requests are always welcome for any aspect of the project.</p>
-          <p style="margin-top: 12px;"><a href="https://github.com/spivanatalie64/FlatFree" class="btn btn-sm">View the Repo</a></p>
-        </div>
-
-        <div class="contribute-card">
-          <div class="emoji">📣</div>
-          <h3>Spread the Word</h3>
-          <p>Tell other developers about FlatFree. Share it on social media, mention it in community forums, blog about it. The more people know, the stronger our community grows.</p>
-        </div>
+      <div class="page-wrapper">
+        <main id="main-content" class="content-feed">
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-heart"></i> Ways to Contribute</h2>
+            </div>
+            <div class="box-body">
+              <p>FlatFree is a community project and we welcome contributions of all kinds. Here's how you can help:</p>
+              <div class="contribute-grid">
+                <div class="contribute-card">
+                  <span class="emoji"><i class="bi bi-box" style="font-size:2rem;color:var(--acreetion-purple)"></i></span>
+                  <h3>Submit Apps</h3>
+                  <p>Package your favorite free software as Flatpaks and submit them to FlatFree. Our CI handles the rest.</p>
+                </div>
+                <div class="contribute-card">
+                  <span class="emoji"><i class="bi bi-pencil" style="font-size:2rem;color:var(--acreetion-purple)"></i></span>
+                  <h3>Improve Docs</h3>
+                  <p>Help us write better documentation, guides, and FAQs for the FlatFree community.</p>
+                </div>
+                <div class="contribute-card">
+                  <span class="emoji"><i class="bi bi-megaphone" style="font-size:2rem;color:var(--acreetion-purple)"></i></span>
+                  <h3>Spread the Word</h3>
+                  <p>Tell other Linux users about FlatFree. The more people know, the bigger our community grows.</p>
+                </div>
+                <div class="contribute-card">
+                  <span class="emoji"><i class="bi bi-bug" style="font-size:2rem;color:var(--acreetion-purple)"></i></span>
+                  <h3>Report Issues</h3>
+                  <p>Found a bug or have a suggestion? Open an issue on our GitHub repository.</p>
+                </div>
+              </div>
+              <p style="text-align:center;margin-top:24px"><a href="https://github.com/spivanatalie64/FlatFree" class="btn btn-lg">Contribute on GitHub <i class="bi bi-box-arrow-up-right"></i></a></p>
+            </div>
+          </article>
+        </main>
       </div>
+      <footer class="page-footer">
+        <p>FlatFree is not affiliated with Flathub or the Flatpak project.</p>
+        <p><a href="https://github.com/spivanatalie64/FlatFree">GitHub</a> &middot; <a href="https://flatfree.pages.dev">flatfree.pages.dev</a> &middot; <a href="https://flatfree.acreetionos.org">flatfree.acreetionos.org</a></p>
+        <p>Maintained by Natalie, with Love <span class="footer-love">&hearts;</span></p>
+      </footer>
     </div>
-
-    <div class="content-section">
-      <h2>Submitting an Application</h2>
-      <p>You can use our <a href="https://github.com/spivanatalie64/FlatFree/releases" style="color: #8957e5;">flatfree-submit CLI tool</a> to validate and prepare your submission from the terminal, or follow the steps below:</p>
-      <p>Submitting manually is straightforward:</p>
-      <ol style="color: #c9d1d9; margin: 16px 0; padding-left: 24px;">
-        <li style="margin-bottom: 8px;">Fork the <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">FlatFree repository</a> on GitHub.</li>
-        <li style="margin-bottom: 8px;">Create a directory named after your app's reverse-domain ID (e.g., <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp</code>).</li>
-        <li style="margin-bottom: 8px;">Add a flatpak-builder manifest: <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp.json</code> or <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp.yml</code>.</li>
-        <li style="margin-bottom: 8px;">Open a pull request.</li>
-      </ol>
-      <p>Our automated CI validates the manifest, builds the app, and runs a malware scan. If all checks pass, it's accepted — no human reviewers needed.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>Helping with the Repository</h2>
-      <p>The FlatFree repository itself needs maintenance and improvement. Here are some ways to help:</p>
-      <ul class="content-list">
-        <li><strong>Improve the website.</strong> Our documentation and site can always be better. Help us write clearer guides, better CSS, or add new features.</li>
-        <li><strong>Review pull requests.</strong> While we don't have a formal review process, community members who spot issues in submission PRs are encouraged to comment.</li>
-        <li><strong>Build infrastructure.</strong> Help us set up automated build pipelines, repository signing, or better hosting for the Flatpak remote.</li>
-        <li><strong>Write tests.</strong> Help ensure that submitted manifests are valid and that applications build correctly.</li>
-      </ul>
-    </div>
-
-    <div class="content-section">
-      <h2>Spread the Word</h2>
-      <p>The most impactful thing you can do for FlatFree is to tell others about it. Many developers with AI-assisted projects don't even know they might be rejected from Flathub. Help us reach them:</p>
-      <ul class="content-list">
-        <li>Share FlatFree on social media, forums, and community chat platforms.</li>
-        <li>Mention FlatFree when you see discussions about Flathub's AI policy.</li>
-        <li>Write blog posts about why open repositories should be truly open.</li>
-        <li>Star the <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">GitHub repository</a> to help others discover it.</li>
-      </ul>
-    </div>
-
-    <div class="content-section">
-      <h2>Join the Community</h2>
-      <p>FlatFree is more than just a repository — it's a statement about what open source should be. By contributing, you're helping to build a future where free software distribution is truly free, without arbitrary restrictions on how code is created.</p>
-      <p>Every contribution matters, no matter how small. Whether you're submitting an application, fixing a typo in the documentation, or just telling a friend about FlatFree — you're making a difference.</p>
-      <p><a href="https://github.com/spivanatalie64/FlatFree" class="btn btn-lg">Get Started on GitHub</a></p>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
-    </div>
-  </footer>
+  </div>
+  <script>
+  (function(){'use strict';try{
+    var isOpen=false,sidebar,overlay,hamburger;
+    function init(){
+      var header=document.querySelector('.header-content');
+      if(!header||document.getElementById('hamburger'))return;
+      hamburger=document.createElement('button');
+      hamburger.id='hamburger';
+      hamburger.setAttribute('aria-label','Menu');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.innerHTML='<span></span><span></span><span></span>';
+      hamburger.addEventListener('click',function(e){e.preventDefault();toggle();});
+      header.appendChild(hamburger);
+      overlay=document.createElement('div');
+      overlay.id='sidebar-overlay';
+      overlay.addEventListener('click',close);
+      document.body.appendChild(overlay);
+      sidebar=document.createElement('div');
+      sidebar.id='sidebar';
+      sidebar.setAttribute('role','dialog');
+      sidebar.setAttribute('aria-label','Site navigation');
+      sidebar.innerHTML='<div class="sidebar-body"><ul><li><a href="index.html"><i class="bi bi-house"></i> Home</a></li><li><a href="apps.html"><i class="bi bi-grid"></i> Apps</a></li><li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li><li><a href="guidelines.html"><i class="bi bi-file-text"></i> Guidelines</a></li><li><a href="docs.html"><i class="bi bi-book"></i> Docs</a></li><li><a href="setup.html"><i class="bi bi-gear"></i> Setup</a></li><li><a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a></li><li><a href="blog.html"><i class="bi bi-pencil-square"></i> Blog</a></li><li><a href="contribute.html"><i class="bi bi-heart"></i> Contribute</a></li></ul></div><div class="sidebar-footer"><a href="https://github.com/spivanatalie64/FlatFree" target="_blank"><i class="bi bi-github"></i> GitHub</a><a href="https://flatfree.pages.dev" target="_blank"><i class="bi bi-globe2"></i> Visit</a></div>';
+      document.body.appendChild(sidebar);
+    }
+    function toggle(){if(isOpen){close();}else{open();}}
+    function open(){isOpen=true;document.body.classList.add('sidebar-open');if(hamburger){hamburger.classList.add('active');hamburger.setAttribute('aria-expanded','true');}if(sidebar){sidebar.classList.add('open');}}
+    function close(){isOpen=false;document.body.classList.remove('sidebar-open');if(hamburger){hamburger.classList.remove('active');hamburger.setAttribute('aria-expanded','false');}if(sidebar){sidebar.classList.remove('open');}}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)close();});
+    window.addEventListener('pageshow',function(){document.body.classList.remove('sidebar-open');});
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  }catch(e){console.error('Sidebar init error:',e);}})();
+  </script>
 </body>
 </html>

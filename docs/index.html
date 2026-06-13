@@ -4,138 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlatFree — The Free Flatpak Repository</title>
+  <meta name="description" content="FlatFree is a community Flatpak repository — free, open, and built for everyone. The alternative to Flathub's exclusionary policies.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://flatfree.acreetionos.org/">
+  <meta property="og:title" content="FlatFree — The Free Flatpak Repository">
+  <meta property="og:description" content="A community Flatpak repository — free, open, and built for everyone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://flatfree.acreetionos.org/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="search.js" defer></script>
   <script src="appstore.js" defer></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-brand">FlatFree</a>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
-      <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
-      <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="apps.html">Apps</a>
-        <a href="about.html">About</a>
-        <a href="guidelines.html">Guidelines</a>
-        <a href="docs.html">Docs</a>
-        <a href="setup.html">Setup</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
-        <a href="contribute.html">Contribute</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="page-wrap">
+    <div id="page-scale">
+      <header class="page-header">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-img">FF</div>
+            <span class="logo-text">Flat<span>Free</span></span>
+          </a>
+          <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
+        </div>
+      </header>
+      <div class="hero-header">
+        <h1>FlatFree</h1>
+        <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
       </div>
+      <div class="page-wrapper">
+        <main id="main-content" class="content-feed">
+          <article class="content-box">
+            <div class="box-header">
+              <h1><i class="bi bi-box"></i> Available Applications</h1>
+            </div>
+            <div class="box-body">
+              <p style="color: var(--acreetion-text-muted); font-size: 0.9rem; margin-bottom: 20px;">All apps in the FlatFree repository — built from public source, free for everyone.</p>
+              <div id="appGrid" class="appstore-grid"></div>
+              <p style="text-align: center; margin-top: 16px;">
+                <a href="apps.html" class="btn btn-lg">Browse All Applications &rarr;</a>
+              </p>
+            </div>
+          </article>
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-shield-exclamation"></i> Why FlatFree?</h2>
+            </div>
+            <div class="box-body">
+              <p>FlatFree exists because the established gatekeepers have forgotten what open source is supposed to be. We do not believe in rejecting software because of who wrote it or how it was made.</p>
+              <h3>On AI-Generated Submissions</h3>
+              <p><strong>FlatFree fully accepts and welcomes submissions that use AI assistance.</strong> If a tool helps a developer build better software faster, we see that as a <em>good thing</em>. We do not police how code is written — we care about whether it works, whether it's useful, and whether it respects user freedom.</p>
+              <h3>Flathub's Guidelines Are Exclusionary</h3>
+              <p>Flathub, the dominant Flatpak repository, has adopted submission guidelines that ban applications "generated predominantly by AI with minimal human involvement."</p>
+              <blockquote>
+                "Applications that are generated predominantly by AI with minimal human involvement are not accepted."
+                <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
+              </blockquote>
+              <ul>
+                <li><strong>It is unenforceable.</strong> There is no tool that can reliably determine how much AI assistance was used.</li>
+                <li><strong>It is fundamentally anti-competitive.</strong> The rule exists to keep out new developers AI empowers.</li>
+                <li><strong>It punishes transparency.</strong> Developers who openly credit AI tools are rejected.</li>
+              </ul>
+              <p>At FlatFree, we believe <strong>any tool used by a human is human work.</strong></p>
+            </div>
+          </article>
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-shield-lock"></i> Gatekeeping is Not Freedom</h2>
+            </div>
+            <div class="box-body">
+              <p><strong>Corporate greed has destroyed what open source was supposed to be.</strong> FlatFree is the alternative. No review board. No corporate board. No hidden criteria. If it builds and passes a malware scan, it's in.</p>
+            </div>
+          </article>
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-cloud-upload"></i> Submit an Application</h2>
+            </div>
+            <div class="box-body">
+              <p>We accept submissions from everyone — humans, AI-assisted developers, teams, bots, whatever builds free software.</p>
+              <p>To submit, open a pull request on our <a href="https://github.com/spivanatalie64/FlatFree" style="color:var(--acreetion-purple)">GitHub repository</a> adding a directory with your app ID and a flatpak-builder manifest.</p>
+            </div>
+          </article>
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-terminal"></i> Getting Started</h2>
+            </div>
+            <div class="box-body">
+              <p>Add the FlatFree remote to your system:</p>
+              <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+              <p>Then install an app:</p>
+              <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
+            </div>
+          </article>
+        </main>
+      </div>
+      <footer class="page-footer">
+        <p>FlatFree is not affiliated with Flathub or the Flatpak project.</p>
+        <p><a href="https://github.com/spivanatalie64/FlatFree">GitHub</a> &middot; <a href="https://flatfree.pages.dev">flatfree.pages.dev</a> &middot; <a href="https://flatfree.acreetionos.org">flatfree.acreetionos.org</a></p>
+        <p>Maintained by Natalie, with Love <span class="footer-love">&hearts;</span></p>
+      </footer>
     </div>
-  </nav>
-
-  <header>
-    <div class="container">
-      <h1>FlatFree</h1>
-      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero">
-      <h2>Available Applications</h2>
-      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">All apps in the FlatFree repository — built from public source, free for everyone.</p>
-      <div id="appGrid" class="appstore-grid"></div>
-      <p style="text-align: center; margin-top: 12px;">
-        <a href="apps.html" class="btn" style="display: inline-flex; align-items: center; gap: 6px;">
-          View All Apps <span style="font-size: 1.1rem;">→</span>
-        </a>
-      </p>
-    </section>
-
-    <section class="why-flatfree">
-      <h2>Why FlatFree?</h2>
-      <p>FlatFree exists because the established gatekeepers have forgotten what open source is supposed to be. We do not believe in rejecting software because of who wrote it or how it was made.</p>
-
-      <h3>On AI-Generated Submissions</h3>
-      <p><strong>FlatFree fully accepts and welcomes submissions that use AI assistance.</strong> If a tool helps a developer build better software faster, we see that as a <em>good thing</em>. We do not police how code is written — we care about whether it works, whether it's useful, and whether it respects user freedom.</p>
-
-      <h3>Flathub's Guidelines Are Exclusionary</h3>
-      <p>Flathub, the dominant Flatpak repository, has adopted submission guidelines that ban applications "generated predominantly by AI with minimal human involvement." This sounds reasonable on the surface, but in practice it creates an impossible standard:</p>
-
-      <blockquote>
-        "Applications that are generated predominantly by AI with minimal human involvement are not accepted."
-        <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
-      </blockquote>
-
-      <p>Let's be honest about what this really means:</p>
-      <ul>
-        <li><strong>It is unenforceable.</strong> There is no tool that can reliably determine how much AI assistance was used in a project. The rule is enforced by vibes and suspicion, not evidence.</li>
-        <li><strong>It creates a double standard.</strong> Large corporations use AI-assisted development constantly. But when a solo developer uses the same tools, suddenly it's "minimal human involvement."</li>
-        <li><strong>It is fundamentally anti-competitive.</strong> The rule exists to keep out the flood of new developers that AI empowers — exactly the people open source should be welcoming.</li>
-        <li><strong>It punishes transparency.</strong> Developers who openly credit their AI tools are rejected, while those who hide their usage sail through review. This incentivizes dishonesty.</li>
-        <li><strong>It misunderstands open source.</strong> Open source has always been about the freedom to use, study, modify, and share software — not about policing the methods used to create it.</li>
-      </ul>
-
-      <p>Flathub's guidelines also demand that each submission be "the work of a human or group of humans." We find this phrasing telling. At FlatFree, we believe that <strong>any tool used by a human is human work.</strong> A developer using AI assistance is no different from a developer using Stack Overflow, a linter, a code generator, or a compiler. They are all tools.</p>
-
-      <p>We are not "inspired" by Flathub. We are the alternative. FlatFree will never reject your work based on how you made it. If it builds, if it runs, if it's free software — it belongs here.</p>
-    </section>
-
-    <section class="why-flatfree">
-      <h2>Gatekeeping is Not Freedom</h2>
-
-      <p><strong>Corporate greed has destroyed what open source was supposed to be.</strong></p>
-
-      <p>Let's stop pretending. The rot in open source is not from AI. It's from corporations who saw a community of volunteers building free software and decided they needed to own it, control it, and monetize it. They wrapped their control in the language of "quality standards" and "community guidelines" while systematically turning open source into a corporate walled garden.</p>
-
-      <p>Every major open source project today is dominated by a handful of trillion-dollar companies. They set the rules. They decide who gets in. They change licenses when it suits them. They extract the labor of thousands of unpaid contributors and lock it behind corporate governance structures that have zero accountability to the actual community.</p>
-
-      <ul>
-        <li><strong>License changes</strong> — HashiCorp went from open source to BUSL. Redis switched to SSPL. Elastic changed licenses. MongoDB changed licenses. Every single time, it was "to protect against cloud providers" — which translates to "we want to be the only ones who can make money from this."</li>
-        <li><strong>Review board gatekeeping</strong> — When corporations control the submission process, they control what software the world gets to see. They decide what's "quality" enough. They become the arbiters of what open source means, and they redefine it to serve their bottom line.</li>
-        <li><strong>The AI panic is a smokescreen</strong> — Flathub's AI ban isn't about protecting quality. It's about maintaining control. The same corporations that use AI internally to accelerate their own development turn around and ban it for independent developers. It's not about ethics. It's about gatekeeping. It's about making sure the software that reaches users goes through their filter.</li>
-        <li><strong>They want your labor, not your freedom</strong> — Open source used to mean "free as in freedom." Now it means "free as in we get your code for free while we decide how it gets used." The community builds it. The corporations control it. And the original vision of software freedom gets buried under layers of corporate governance, contributor license agreements, and closed-door decision-making.</li>
-      </ul>
-
-      <p><strong>Gatekeeping is not freedom. It never was.</strong></p>
-
-      <p>When you reject someone's work because of how it was made, you are not protecting open source. You are protecting your own power to decide. When you require human review boards to approve every submission, you are not ensuring quality. You are ensuring that only software the gatekeepers approve of will ever see the light of day.</p>
-
-      <p>The freedom in "free software" is about the user's freedom — to run the program, to study how it works, to redistribute copies, to improve it and release improvements. <strong>That freedom does not come with a asterisk that says "unless we don't like how you made it."</strong></p>
-
-      <p>Flathub had an opportunity to be truly open. Instead, they chose to become just another gatekeeper, driven by the same corporate thinking that has poisoned every major open source institution. They chose control over freedom. They chose the path of every corporation before them that wrapped its control in the language of openness while practicing exclusion.</p>
-
-      <p><strong>We reject that path entirely.</strong></p>
-
-      <ul>
-        <li><strong>No review board.</strong> Automated CI decides. The same criteria for everyone. No exceptions. No bias.</li>
-        <li><strong>No moral policing.</strong> We don't care who you are, where you're from, or how you built your software. We care whether it respects user freedom.</li>
-        <li><strong>No corporate overlords.</strong> FlatFree is not owned by any corporation. It doesn't answer to shareholders. It answers to the community — because it <em>is</em> the community.</li>
-        <li><strong>No license shenanigans.</strong> We will never change our terms to extract value from our users. We will never suddenly declare that your contributions are now under a different license. We mean what we say.</li>
-      </ul>
-
-      <p>The open source ecosystem has been colonized by corporate interests that care more about their bottom line than about software freedom. They have turned the language of openness into a weapon to maintain control. They have built systems that look open on the surface but are designed to exclude anyone they don't approve of.</p>
-
-      <p><strong>FlatFree is the answer to that.</strong> We are small. We are independent. We are uncompromising. If you submit free software that builds and passes a malware scan, your application will be accepted. Period. No review board. No corporate board. No hidden criteria. No one to appeal to because there is no rejection to appeal.</p>
-
-      <p>That's what freedom looks like. Not corporate-approved freedom. Real freedom.</p>
-    </section>
-
-    <section class="submit-app">
-      <h2>Submit an Application</h2>
-      <p>We accept submissions from everyone — humans, AI-assisted developers, teams, bots, whatever builds free software.</p>
-      <p>To submit, open a pull request on our <a href="https://github.com/spivanatalie64/FlatFree">GitHub repository</a> adding a directory with your app ID and a flatpak-builder manifest.</p>
-      <p>Our automated CI validates the manifest, builds the app, and runs a malware scan. If it passes, it's in. No human reviewers. No gatekeepers.</p>
-    </section>
-
-    <section class="install-info">
-      <h2>Getting Started</h2>
-      <p>Add the FlatFree remote to your system:</p>
-      <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-      <p>Then install an app:</p>
-      <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
-    </div>
-  </footer>
+  </div>
+  <script>
+  (function(){'use strict';try{
+    var isOpen=false,sidebar,overlay,hamburger;
+    function init(){
+      var header=document.querySelector('.header-content');
+      if(!header||document.getElementById('hamburger'))return;
+      hamburger=document.createElement('button');
+      hamburger.id='hamburger';
+      hamburger.setAttribute('aria-label','Menu');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.innerHTML='<span></span><span></span><span></span>';
+      hamburger.addEventListener('click',function(e){e.preventDefault();toggle();});
+      header.appendChild(hamburger);
+      overlay=document.createElement('div');
+      overlay.id='sidebar-overlay';
+      overlay.addEventListener('click',close);
+      document.body.appendChild(overlay);
+      sidebar=document.createElement('div');
+      sidebar.id='sidebar';
+      sidebar.setAttribute('role','dialog');
+      sidebar.setAttribute('aria-label','Site navigation');
+      sidebar.innerHTML='<div class="sidebar-body"><ul><li><a href="index.html"><i class="bi bi-house"></i> Home</a></li><li><a href="apps.html"><i class="bi bi-grid"></i> Apps</a></li><li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li><li><a href="guidelines.html"><i class="bi bi-file-text"></i> Guidelines</a></li><li><a href="docs.html"><i class="bi bi-book"></i> Docs</a></li><li><a href="setup.html"><i class="bi bi-gear"></i> Setup</a></li><li><a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a></li><li><a href="blog.html"><i class="bi bi-pencil-square"></i> Blog</a></li><li><a href="contribute.html"><i class="bi bi-heart"></i> Contribute</a></li></ul></div><div class="sidebar-footer"><a href="https://github.com/spivanatalie64/FlatFree" target="_blank"><i class="bi bi-github"></i> GitHub</a><a href="https://flatfree.pages.dev" target="_blank"><i class="bi bi-globe2"></i> Visit</a></div>';
+      document.body.appendChild(sidebar);
+    }
+    function toggle(){if(isOpen){close();}else{open();}}
+    function open(){isOpen=true;document.body.classList.add('sidebar-open');if(hamburger){hamburger.classList.add('active');hamburger.setAttribute('aria-expanded','true');}if(sidebar){sidebar.classList.add('open');}}
+    function close(){isOpen=false;document.body.classList.remove('sidebar-open');if(hamburger){hamburger.classList.remove('active');hamburger.setAttribute('aria-expanded','false');}if(sidebar){sidebar.classList.remove('open');}}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)close();});
+    window.addEventListener('pageshow',function(){document.body.classList.remove('sidebar-open');});
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  }catch(e){console.error('Sidebar init error:',e);}})();
+  </script>
 </body>
 </html>

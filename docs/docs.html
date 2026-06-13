@@ -3,171 +3,124 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlatFree — How to Build Flatpaks</title>
+  <title>FlatFree — Documentation</title>
+  <meta name="description" content="Documentation and guides for FlatFree, the community Flatpak repository.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="search.js" defer></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-brand">FlatFree</a>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-      <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="apps.html">Apps</a>
-        <a href="about.html">About</a>
-        <a href="guidelines.html">Guidelines</a>
-        <a href="docs.html">Docs</a>
-        <a href="docs.html" class="active">Docs</a>
-        <a href="setup.html">Setup</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
-        <a href="contribute.html">Contribute</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="page-wrap">
+    <div id="page-scale">
+      <header class="page-header">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-img">FF</div>
+            <span class="logo-text">Flat<span>Free</span></span>
+          </a>
+          <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
+        </div>
+      </header>
+      <div class="hero-header">
+        <h1>Documentation</h1>
+        <p class="subtitle">Guides and references for FlatFree</p>
       </div>
-    </div>
-  </nav>
-
-  <header>
-    <div class="container">
-      <h1>FlatFree</h1>
-      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="page-header">
-      <h2>How to Build Flatpak Packages</h2>
-      <p>A beginner-friendly guide to packaging your application as a Flatpak.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>What is a Flatpak?</h2>
-      <p>Flatpak is a next-generation application sandboxing and distribution system for Linux. It lets you package your application with all its dependencies so it runs the same way on every Linux distribution.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>Prerequisites</h2>
-      <p>Install the required tools:</p>
-      <pre><code># On Arch Linux
-sudo pacman -S flatpak flatpak-builder
-
-# On Fedora
-sudo dnf install flatpak flatpak-builder
-
-# On Ubuntu/Debian
-sudo apt install flatpak flatpak-builder</code></pre>
-      <p>Then add the Flathub runtime (required for building):</p>
-      <pre><code>flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.kde.Platform//6.10 org.kde.Sdk//6.10</code></pre>
-      <p>Replace <code>org.kde.Platform</code> with your app's runtime (e.g., <code>org.gnome.Platform</code> for GNOME apps).</p>
-    </div>
-
-    <div class="content-section">
-      <h2>Step 1: Create a Manifest</h2>
-      <p>A flatpak-builder manifest is a JSON or YAML file that describes your application. Here's a minimal example:</p>
-      <pre><code>{
-    "id": "org.example.MyApp",
-    "runtime": "org.kde.Platform",
-    "runtime-version": "6.10",
-    "sdk": "org.kde.Sdk",
-    "command": "myapp",
-    "finish-args": [
-        "--socket=wayland",
-        "--socket=fallback-x11",
-        "--share=ipc"
-    ],
-    "modules": [
+      <div class="page-wrapper">
+        <main id="main-content" class="content-feed">
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-book"></i> Getting Started with FlatFree</h2>
+            </div>
+            <div class="box-body">
+              <p>FlatFree is a community-maintained Flatpak repository. This documentation will help you get started with using and contributing to FlatFree.</p>
+              <h3>What is Flatpak?</h3>
+              <p>Flatpak is a next-generation packaging format for Linux desktop applications. It provides sandboxing, cross-distribution compatibility, and automatic updates. FlatFree provides a repository of Flatpak applications that are free and open source.</p>
+              <h3>Adding the FlatFree Repository</h3>
+              <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+              <h3>Installing Applications</h3>
+              <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
+              <h3>Running Applications</h3>
+              <pre><code>flatpak run org.acreetionos.MediaWriter</code></pre>
+              <h3>Listing Available Applications</h3>
+              <pre><code>flatpak remote-ls flatfree</code></pre>
+              <h3>Updating Applications</h3>
+              <pre><code>flatpak update</code></pre>
+            </div>
+          </article>
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-code-square"></i> Creating a Flatpak Manifest</h2>
+            </div>
+            <div class="box-body">
+              <p>To submit an application to FlatFree, you need a flatpak-builder manifest. Here is a basic example:</p>
+              <pre><code>{
+  "id": "org.example.App",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "46",
+  "sdk": "org.gnome.Sdk",
+  "command": "myapp",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=x11"
+  ],
+  "modules": [
+    {
+      "name": "myapp",
+      "buildsystem": "meson",
+      "sources": [
         {
-            "name": "myapp",
-            "buildsystem": "cmake-ninja",
-            "sources": [
-                {
-                    "type": "git",
-                    "url": "https://github.com/you/MyApp.git"
-                }
-            ]
+          "type": "git",
+          "url": "https://github.com/example/myapp.git"
         }
-    ]
+      ]
+    }
+  ]
 }</code></pre>
-      <p>Key fields:</p>
-      <ul class="content-list">
-        <li><strong>id</strong> — Reverse-domain name (e.g., <code>org.example.MyApp</code>)</li>
-        <li><strong>runtime</strong> — Base runtime your app needs (<code>org.kde.Platform</code>, <code>org.gnome.Platform</code>, <code>org.freedesktop.Platform</code>)</li>
-        <li><strong>sdk</strong> — SDK matching your runtime (includes compilers and headers)</li>
-        <li><strong>command</strong> — The executable name that runs your app</li>
-        <li><strong>finish-args</strong> — Sandbox permissions your app needs</li>
-        <li><strong>modules</strong> — List of dependencies and your app, built in order</li>
-      </ul>
+              <p>Place this manifest in a directory named after your app ID (e.g., <code>org.example.App/org.example.App.json</code>) and submit a pull request.</p>
+            </div>
+          </article>
+        </main>
+      </div>
+      <footer class="page-footer">
+        <p>FlatFree is not affiliated with Flathub or the Flatpak project.</p>
+        <p><a href="https://github.com/spivanatalie64/FlatFree">GitHub</a> &middot; <a href="https://flatfree.pages.dev">flatfree.pages.dev</a> &middot; <a href="https://flatfree.acreetionos.org">flatfree.acreetionos.org</a></p>
+        <p>Maintained by Natalie, with Love <span class="footer-love">&hearts;</span></p>
+      </footer>
     </div>
-
-    <div class="content-section">
-      <h2>Step 2: Build Your Flatpak</h2>
-      <p>Once you have a manifest, build it with:</p>
-      <pre><code>flatpak-builder --force-clean build-dir org.example.MyApp.json</code></pre>
-      <p>This downloads the runtime, builds all modules, and creates a build directory.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>Step 3: Test It</h2>
-      <p>Run your app from the build directory:</p>
-      <pre><code>flatpak-builder --run build-dir org.example.MyApp.json myapp</code></pre>
-      <p>Or install it locally to test:</p>
-      <pre><code>flatpak-builder --install --user --force-clean build-dir org.example.MyApp.json
-flatpak run org.example.MyApp</code></pre>
-    </div>
-
-    <div class="content-section">
-      <h2>Step 4: Export to a Repository</h2>
-      <p>Create a local ostree repo and export your build:</p>
-      <pre><code>ostree init --repo=my-repo --mode=archive-z2
-flatpak build-export my-repo build-dir
-flatpak build-update-repo my-repo</code></pre>
-      <p>Install from your local repo to verify:</p>
-      <pre><code>flatpak remote-add --no-gpg-verify my-repo my-repo --from=oci://my-repo
-flatpak install my-repo org.example.MyApp</code></pre>
-    </div>
-
-    <div class="content-section">
-      <h2>Step 5: Submit to FlatFree</h2>
-      <p>Use our CLI tool or manual process:</p>
-      <pre><code># Using the CLI tool
-curl -L https://github.com/spivanatalie64/FlatFree/releases/download/v1.0.0/flatfree-submit -o flatfree-submit
-chmod +x flatfree-submit
-./flatfree-submit org.example.MyApp.json</code></pre>
-      <p>Or manually:</p>
-      <ol style="color: #c9d1d9; margin: 16px 0; padding-left: 24px;">
-        <li style="margin-bottom: 8px;">Fork <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">github.com/spivanatalie64/FlatFree</a></li>
-        <li style="margin-bottom: 8px;">Create a directory named <code style="background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp/</code></li>
-        <li style="margin-bottom: 8px;">Add your manifest file inside it</li>
-        <li style="margin-bottom: 8px;">Open a pull request — our CI validates and merges automatically</li>
-      </ol>
-    </div>
-
-    <div class="content-section">
-      <h2>Common Finish-Args</h2>
-      <table style="width: 100%; border-collapse: collapse; margin: 16px 0;">
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e; width: 200px;"><code>--socket=wayland</code></td><td style="padding: 10px 16px; color: #c9d1d9;">Wayland display server</td></tr>
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e;"><code>--socket=fallback-x11</code></td><td style="padding: 10px 16px; color: #c9d1d9;">X11 fallback</td></tr>
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e;"><code>--share=ipc</code></td><td style="padding: 10px 16px; color: #c9d1d9;">Shared memory (needed for X11)</td></tr>
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e;"><code>--share=network</code></td><td style="padding: 10px 16px; color: #c9d1d9;">Network access</td></tr>
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e;"><code>--device=dri</code></td><td style="padding: 10px 16px; color: #c9d1d9;">OpenGL / GPU acceleration</td></tr>
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e;"><code>--filesystem=host</code></td><td style="padding: 10px 16px; color: #c9d1d9;">Access host filesystem</td></tr>
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e;"><code>--talk-name=org.freedesktop.Notifications</code></td><td style="padding: 10px 16px; color: #c9d1d9;">DBus notifications</td></tr>
-        <tr style="border-bottom: 1px solid #30363d;"><td style="padding: 10px 16px; color: #8b949e;"><code>--system-talk-name=org.freedesktop.UDisks2</code></td><td style="padding: 10px 16px; color: #c9d1d9;">System DBus (disk access)</td></tr>
-      </table>
-    </div>
-
-    <div class="content-section">
-      <h2>Need Help?</h2>
-      <p>Open an issue on <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">GitHub</a> or read the official <a href="https://docs.flatpak.org/en/latest/flatpak-builder.html" style="color: #8957e5;">Flatpak Builder documentation</a>.</p>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
-    </div>
-  </footer>
+  </div>
+  <script>
+  (function(){'use strict';try{
+    var isOpen=false,sidebar,overlay,hamburger;
+    function init(){
+      var header=document.querySelector('.header-content');
+      if(!header||document.getElementById('hamburger'))return;
+      hamburger=document.createElement('button');
+      hamburger.id='hamburger';
+      hamburger.setAttribute('aria-label','Menu');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.innerHTML='<span></span><span></span><span></span>';
+      hamburger.addEventListener('click',function(e){e.preventDefault();toggle();});
+      header.appendChild(hamburger);
+      overlay=document.createElement('div');
+      overlay.id='sidebar-overlay';
+      overlay.addEventListener('click',close);
+      document.body.appendChild(overlay);
+      sidebar=document.createElement('div');
+      sidebar.id='sidebar';
+      sidebar.setAttribute('role','dialog');
+      sidebar.setAttribute('aria-label','Site navigation');
+      sidebar.innerHTML='<div class="sidebar-body"><ul><li><a href="index.html"><i class="bi bi-house"></i> Home</a></li><li><a href="apps.html"><i class="bi bi-grid"></i> Apps</a></li><li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li><li><a href="guidelines.html"><i class="bi bi-file-text"></i> Guidelines</a></li><li><a href="docs.html"><i class="bi bi-book"></i> Docs</a></li><li><a href="setup.html"><i class="bi bi-gear"></i> Setup</a></li><li><a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a></li><li><a href="blog.html"><i class="bi bi-pencil-square"></i> Blog</a></li><li><a href="contribute.html"><i class="bi bi-heart"></i> Contribute</a></li></ul></div><div class="sidebar-footer"><a href="https://github.com/spivanatalie64/FlatFree" target="_blank"><i class="bi bi-github"></i> GitHub</a><a href="https://flatfree.pages.dev" target="_blank"><i class="bi bi-globe2"></i> Visit</a></div>';
+      document.body.appendChild(sidebar);
+    }
+    function toggle(){if(isOpen){close();}else{open();}}
+    function open(){isOpen=true;document.body.classList.add('sidebar-open');if(hamburger){hamburger.classList.add('active');hamburger.setAttribute('aria-expanded','true');}if(sidebar){sidebar.classList.add('open');}}
+    function close(){isOpen=false;document.body.classList.remove('sidebar-open');if(hamburger){hamburger.classList.remove('active');hamburger.setAttribute('aria-expanded','false');}if(sidebar){sidebar.classList.remove('open');}}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)close();});
+    window.addEventListener('pageshow',function(){document.body.classList.remove('sidebar-open');});
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  }catch(e){console.error('Sidebar init error:',e);}})();
+  </script>
 </body>
 </html>

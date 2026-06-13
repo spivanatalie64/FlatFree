@@ -4,119 +4,88 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlatFree — Submission Guidelines</title>
+  <meta name="description" content="Guidelines for submitting applications to FlatFree, the community Flatpak repository.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="search.js" defer></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-brand">FlatFree</a>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
-      <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="apps.html">Apps</a>
-        <a href="about.html">About</a>
-        <a href="guidelines.html">Guidelines</a>
-        <a href="docs.html" class="active">Docs</a>
-        <a href="setup.html">Setup</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
-        <a href="contribute.html">Contribute</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="page-wrap">
+    <div id="page-scale">
+      <header class="page-header">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-img">FF</div>
+            <span class="logo-text">Flat<span>Free</span></span>
+          </a>
+          <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
+        </div>
+      </header>
+      <div class="hero-header">
+        <h1>Submission Guidelines</h1>
+        <p class="subtitle">Rules for submitting applications to FlatFree</p>
       </div>
+      <div class="page-wrapper">
+        <main id="main-content" class="content-feed">
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-file-text"></i> Our Guidelines</h2>
+            </div>
+            <div class="box-body">
+              <p>FlatFree has simple, straightforward guidelines. We believe in freedom, not gatekeeping.</p>
+              <ul class="content-list">
+                <li><strong>Free Software Only.</strong> All applications must be free and open source software. Any OSI-approved license is acceptable.</li>
+                <li><strong>Any Tooling Welcome.</strong> Applications created with AI assistance are fully accepted. We do not police how code is written.</li>
+                <li><strong>Must Build Successfully.</strong> Your flatpak-builder manifest must produce a working Flatpak package. Our CI will verify this.</li>
+                <li><strong>Malware Scan Required.</strong> All submissions are automatically scanned for malware. Any threats will be rejected.</li>
+                <li><strong>No Human Reviewers.</strong> There is no review board. If your app passes CI, it's published automatically.</li>
+                <li><strong>Respect User Freedom.</strong> Applications must not spy on users, exfiltrate data, or contain tracking without clear disclosure.</li>
+              </ul>
+              <p style="margin-top:16px">To submit, <a href="https://github.com/spivanatalie64/FlatFree" style="color:var(--acreetion-purple)">open a pull request</a> on our GitHub repository with a directory containing your app ID and a flatpak-builder manifest.</p>
+            </div>
+          </article>
+        </main>
+      </div>
+      <footer class="page-footer">
+        <p>FlatFree is not affiliated with Flathub or the Flatpak project.</p>
+        <p><a href="https://github.com/spivanatalie64/FlatFree">GitHub</a> &middot; <a href="https://flatfree.pages.dev">flatfree.pages.dev</a> &middot; <a href="https://flatfree.acreetionos.org">flatfree.acreetionos.org</a></p>
+        <p>Maintained by Natalie, with Love <span class="footer-love">&hearts;</span></p>
+      </footer>
     </div>
-  </nav>
-
-  <header>
-    <div class="container">
-      <h1>FlatFree</h1>
-      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
-    </div>
-  </header>
-
-  <main class="container">
-    <div class="page-header">
-      <h2>Submission Guidelines</h2>
-      <p>Automated checks. Objective criteria. No gatekeepers.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>The FlatFree Policy</h2>
-      <p>FlatFree has three requirements for submission. They are objective, automated, and applied consistently to every application regardless of who made it or how:</p>
-      <ul class="content-list">
-        <li><strong>Your software must be free and open source.</strong> Must be under an OSI-approved license.</li>
-        <li><strong>Your software must pass a malware scan.</strong> We run automated analysis on every submission. If it's clean, it passes.</li>
-        <li><strong>Your software must meet basic quality standards.</strong> The manifest must be valid, the app must build, and the metadata must be complete (app ID, name, description, icon).</li>
-      </ul>
-      <p>That's the entire policy. If you meet these three objective criteria, your application is accepted. No subjective review. No AI policing. No moral judgment. No review board. No appeals process needed because there is no rejection.</p>
-
-      <h2>The Process</h2>
-      <ol style="color: #c9d1d9; margin: 16px 0; padding-left: 24px;">
-        <li style="margin-bottom: 8px;">You submit a pull request with your flatpak-builder manifest.</li>
-        <li style="margin-bottom: 8px;">An automated CI pipeline validates your manifest, builds your app, and runs a malware scan.</li>
-        <li style="margin-bottom: 8px;">If all checks pass → your app is merged. Automatically. No human review required.</li>
-        <li style="margin-bottom: 8px;">If checks fail → the CI tells you exactly what went wrong. Fix and resubmit.</li>
-      </ol>
-      <p>No waiting for a maintainer. No subjective second-guessing. No "we'll get back to you." The computer decides, and the computer is fair.</p>
-
-      <h2>What We DON'T Check</h2>
-      <ul class="content-list">
-        <li><strong>We do not check</strong> whether AI was used to write your code. That is nobody's business but yours.</li>
-        <li><strong>We do not check</strong> whether your app is "useful enough" or "polished enough." Users decide that.</li>
-        <li><strong>We do not check</strong> whether your app duplicates functionality of another app. Competition is healthy.</li>
-        <li><strong>We do not check</strong> your identity, your background, or your affiliations.</li>
-        <li><strong>We do not maintain</strong> a review board, a blacklist, or a appeals committee.</li>
-      </ul>
-
-      <h2>How to Submit</h2>
-      <ol style="color: #c9d1d9; margin: 16px 0; padding-left: 24px;">
-        <li style="margin-bottom: 8px;">Fork the <a href="https://github.com/spivanatalie64/FlatFree" style="color: #8957e5;">FlatFree repository</a> on GitHub.</li>
-        <li style="margin-bottom: 8px;">Create a directory named after your app's reverse-domain ID (e.g., <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp</code>).</li>
-        <li style="margin-bottom: 8px;">Add your flatpak-builder manifest (<code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">org.example.MyApp.json</code> or <code style="color: #f0f6fc; background: #21262d; padding: 2px 6px; border-radius: 4px;">.yml</code>).</li>
-        <li style="margin-bottom: 8px;">Open a pull request. Our CI does the rest.</li>
-      </ol>
-
-      <h2>Compare: Flathub's Guidelines</h2>
-      <p>Flathub, by contrast, maintains an extensive set of submission guidelines enforced by human reviewers. Let's examine their key requirements and explain why FlatFree does things differently.</p>
-
-      <h3>On Subjective Quality Standards</h3>
-      <blockquote>
-        "Flathub reserves the right to reject submissions that do not meet our quality standards."
-        <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
-      </blockquote>
-      <p><strong>Our rebuttal:</strong> "Quality standards" with no objective definition means "we can reject anything we don't like." Who decides? What's the criteria? How do you appeal? At FlatFree, our quality standards are objective and automated: valid manifest, builds successfully, passes malware scan. That's it. The computer decides consistently.</p>
-
-      <h3>On AI-Generated Code</h3>
-      <blockquote>
-        "Applications that are generated predominantly by AI with minimal human involvement are not accepted."
-        <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
-      </blockquote>
-      <p><strong>Our rebuttal:</strong> Unenforceable, exclusionary, and fundamentally un-open-source. You cannot reliably measure "how much AI" was used. This rule is enforced by suspicion and subjective judgment, not evidence. It punishes transparency and rewards dishonesty. At FlatFree, we believe any tool used by a human is human work. AI is a tool, not a crime.</p>
-
-      <h3>On Being "the Work of a Human"</h3>
-      <blockquote>
-        "Submissions to Flathub are expected to be the work of a human or a group of humans."
-        <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
-      </blockquote>
-      <p><strong>Our rebuttal:</strong> Vague enough to enable arbitrary rejection. If Copilot generates 60% of your code, is it still "the work of a human"? Stack Overflow snippets? Code generators? Compilers? The line is impossible to draw fairly. At FlatFree, we don't try. If you wrote it, curated it, tested it — it's yours.</p>
-
-      <h3>On the Human Review Process</h3>
-      <blockquote>
-        "All submissions are reviewed by Flathub maintainers before being accepted."
-        <footer>— <cite><a href="https://github.com/flathub/flathub/wiki/Submission-Guidelines">Flathub Submission Guidelines</a></cite></footer>
-      </blockquote>
-      <p><strong>Our rebuttal:</strong> A review board of unelected maintainers deciding what software is worthy is antithetical to open source. It creates bottlenecks, introduces bias, and concentrates power. At FlatFree, we have automated checks instead of reviewers. No bottlenecks. No bias. No gatekeepers.</p>
-
-      <h2>Summary</h2>
-      <p>FlatFree's guidelines are simple: free software that builds and passes a malware scan is accepted. Automated, objective, fair. We do not police development methods, we do not judge moral worth, and we do not maintain a review board. We are what Flathub claims to be — a truly open repository for open source software.</p>
-      <p>If that sounds like the kind of community you want to be part of, <a href="contribute.html" style="color: #8957e5;">submit your application today</a>.</p>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
-    </div>
-  </footer>
+  </div>
+  <script>
+  (function(){'use strict';try{
+    var isOpen=false,sidebar,overlay,hamburger;
+    function init(){
+      var header=document.querySelector('.header-content');
+      if(!header||document.getElementById('hamburger'))return;
+      hamburger=document.createElement('button');
+      hamburger.id='hamburger';
+      hamburger.setAttribute('aria-label','Menu');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.innerHTML='<span></span><span></span><span></span>';
+      hamburger.addEventListener('click',function(e){e.preventDefault();toggle();});
+      header.appendChild(hamburger);
+      overlay=document.createElement('div');
+      overlay.id='sidebar-overlay';
+      overlay.addEventListener('click',close);
+      document.body.appendChild(overlay);
+      sidebar=document.createElement('div');
+      sidebar.id='sidebar';
+      sidebar.setAttribute('role','dialog');
+      sidebar.setAttribute('aria-label','Site navigation');
+      sidebar.innerHTML='<div class="sidebar-body"><ul><li><a href="index.html"><i class="bi bi-house"></i> Home</a></li><li><a href="apps.html"><i class="bi bi-grid"></i> Apps</a></li><li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li><li><a href="guidelines.html"><i class="bi bi-file-text"></i> Guidelines</a></li><li><a href="docs.html"><i class="bi bi-book"></i> Docs</a></li><li><a href="setup.html"><i class="bi bi-gear"></i> Setup</a></li><li><a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a></li><li><a href="blog.html"><i class="bi bi-pencil-square"></i> Blog</a></li><li><a href="contribute.html"><i class="bi bi-heart"></i> Contribute</a></li></ul></div><div class="sidebar-footer"><a href="https://github.com/spivanatalie64/FlatFree" target="_blank"><i class="bi bi-github"></i> GitHub</a><a href="https://flatfree.pages.dev" target="_blank"><i class="bi bi-globe2"></i> Visit</a></div>';
+      document.body.appendChild(sidebar);
+    }
+    function toggle(){if(isOpen){close();}else{open();}}
+    function open(){isOpen=true;document.body.classList.add('sidebar-open');if(hamburger){hamburger.classList.add('active');hamburger.setAttribute('aria-expanded','true');}if(sidebar){sidebar.classList.add('open');}}
+    function close(){isOpen=false;document.body.classList.remove('sidebar-open');if(hamburger){hamburger.classList.remove('active');hamburger.setAttribute('aria-expanded','false');}if(sidebar){sidebar.classList.remove('open');}}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)close();});
+    window.addEventListener('pageshow',function(){document.body.classList.remove('sidebar-open');});
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  }catch(e){console.error('Sidebar init error:',e);}})();
+  </script>
 </body>
 </html>

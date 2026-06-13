@@ -4,125 +4,111 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FlatFree — Setup Guide</title>
+  <meta name="description" content="Setup guide for FlatFree, the community Flatpak repository.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="search.js" defer></script>
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container">
-      <a href="index.html" class="nav-brand">FlatFree</a>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Toggle navigation">☰</button>
-      <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="apps.html">Apps</a>
-        <a href="about.html">About</a>
-        <a href="guidelines.html">Guidelines</a>
-        <a href="docs.html">Docs</a>
-        <a href="setup.html" class="active">Setup</a>
-        <a href="faq.html">FAQ</a>
-        <a href="blog.html">Blog</a>
-        <a href="contribute.html">Contribute</a>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div id="page-wrap">
+    <div id="page-scale">
+      <header class="page-header">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <div class="logo-img">FF</div>
+            <span class="logo-text">Flat<span>Free</span></span>
+          </a>
+          <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
+        </div>
+      </header>
+      <div class="hero-header">
+        <h1>Setup Guide</h1>
+        <p class="subtitle">Get FlatFree running on your system</p>
       </div>
-    </div>
-  </nav>
+      <div class="page-wrapper">
+        <main id="main-content" class="content-feed">
+          <article class="content-box">
+            <div class="box-header">
+              <h2><i class="bi bi-gear"></i> Setting Up FlatFree</h2>
+            </div>
+            <div class="box-body">
+              <p>Follow these steps to start using FlatFree on your Linux system.</p>
+              <div class="setup-card">
+                <h3>1. Ensure Flatpak is Installed</h3>
+                <p>Most Linux distributions include Flatpak. Install it if needed:</p>
+                <pre><code># Debian/Ubuntu
+sudo apt install flatpak
 
-  <header>
-    <div class="container">
-      <h1>FlatFree</h1>
-      <p class="subtitle">A community Flatpak repository — free, open, and built for everyone.</p>
-    </div>
-  </header>
+# Fedora
+sudo dnf install flatpak
 
-  <main class="container">
-    <div class="page-header">
-      <h2>Setup Guide</h2>
-      <p>How to add the FlatFree remote on your distribution.</p>
-    </div>
+# Arch Linux
+sudo pacman -S flatpak
 
-    <div class="content-section">
-      <h2>Prerequisites</h2>
-      <p>Before adding FlatFree, you need to have Flatpak installed on your system. Most distributions include it by default, but if not, you can install it using your package manager.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>Add the FlatFree Remote</h2>
-      <p>The following command adds the FlatFree repository to your Flatpak installation. Run this once, and you'll be able to install any FlatFree application.</p>
-      <pre class="code-block"><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-    </div>
-
-    <div class="content-section">
-      <h2>Distribution Guides</h2>
-
-      <div class="setup-card">
-        <h3>Fedora</h3>
-        <p>Flatpak comes pre-installed on Fedora. Just add the remote:</p>
-        <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+# openSUSE
+sudo zypper install flatpak</code></pre>
+              </div>
+              <div class="setup-card">
+                <h3>2. Add the FlatFree Remote</h3>
+                <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
+              </div>
+              <div class="setup-card">
+                <h3>3. Install an Application</h3>
+                <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
+              </div>
+              <div class="setup-card">
+                <h3>4. Run the Application</h3>
+                <pre><code>flatpak run org.acreetionos.MediaWriter</code></pre>
+                <p>Or launch it from your desktop's application menu.</p>
+              </div>
+              <div class="setup-card">
+                <h3>5. Keep Apps Updated</h3>
+                <pre><code>flatpak update</code></pre>
+              </div>
+            </div>
+          </article>
+        </main>
       </div>
-
-      <div class="setup-card">
-        <h3>Ubuntu / Debian</h3>
-        <p>Install Flatpak if not present, then add the remote:</p>
-        <pre><code>sudo apt install flatpak
-flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-      </div>
-
-      <div class="setup-card">
-        <h3>Arch Linux</h3>
-        <p>Install Flatpak from the official repos, then add the remote:</p>
-        <pre><code>sudo pacman -S flatpak
-flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-      </div>
-
-      <div class="setup-card">
-        <h3>openSUSE</h3>
-        <p>Install Flatpak if needed, then add the remote:</p>
-        <pre><code>sudo zypper install flatpak
-flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-      </div>
-
-      <div class="setup-card">
-        <h3>NixOS</h3>
-        <p>With Flatpak enabled in your configuration, add the remote:</p>
-        <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-      </div>
-
-      <div class="setup-card">
-        <h3>Solus</h3>
-        <p>Flatpak is pre-installed on Solus. Add the remote:</p>
-        <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-      </div>
+      <footer class="page-footer">
+        <p>FlatFree is not affiliated with Flathub or the Flatpak project.</p>
+        <p><a href="https://github.com/spivanatalie64/FlatFree">GitHub</a> &middot; <a href="https://flatfree.pages.dev">flatfree.pages.dev</a> &middot; <a href="https://flatfree.acreetionos.org">flatfree.acreetionos.org</a></p>
+        <p>Maintained by Natalie, with Love <span class="footer-love">&hearts;</span></p>
+      </footer>
     </div>
-
-    <div class="content-section">
-      <h2>Install an Application</h2>
-      <p>Once the remote is added, installing an application is straightforward:</p>
-      <pre class="code-block"><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
-      <p>To run the application:</p>
-      <pre class="code-block"><code>flatpak run org.acreetionos.MediaWriter</code></pre>
-      <p>To update all installed FlatFree applications:</p>
-      <pre class="code-block"><code>flatpak update</code></pre>
-    </div>
-
-    <div class="content-section">
-      <h2>Verify the Remote</h2>
-      <p>You can verify that the FlatFree remote is properly configured:</p>
-      <pre class="code-block"><code>flatpak remotes</code></pre>
-      <p>This should list <strong>flatfree</strong> among your configured remotes.</p>
-    </div>
-
-    <div class="content-section">
-      <h2>Troubleshooting</h2>
-      <p><strong>Certificate issues?</strong> Ensure your system's CA certificates are up to date. On most distributions, this is handled automatically by your package manager.</p>
-      <p><strong>Remote not found?</strong> Double-check that you've copied the full URL correctly. The remote URL is case-sensitive.</p>
-      <p><strong>Permission denied?</strong> The <code>flatpak remote-add</code> command typically does not require root privileges, but if you encounter permission issues, try with <code>sudo</code>.</p>
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>FlatFree is not affiliated with Flathub or the Flatpak project. We don't want to be. | <a href="https://github.com/spivanatalie64/FlatFree">GitHub</a></p>
-    </div>
-  </footer>
+  </div>
+  <script>
+  (function(){'use strict';try{
+    var isOpen=false,sidebar,overlay,hamburger;
+    function init(){
+      var header=document.querySelector('.header-content');
+      if(!header||document.getElementById('hamburger'))return;
+      hamburger=document.createElement('button');
+      hamburger.id='hamburger';
+      hamburger.setAttribute('aria-label','Menu');
+      hamburger.setAttribute('aria-expanded','false');
+      hamburger.innerHTML='<span></span><span></span><span></span>';
+      hamburger.addEventListener('click',function(e){e.preventDefault();toggle();});
+      header.appendChild(hamburger);
+      overlay=document.createElement('div');
+      overlay.id='sidebar-overlay';
+      overlay.addEventListener('click',close);
+      document.body.appendChild(overlay);
+      sidebar=document.createElement('div');
+      sidebar.id='sidebar';
+      sidebar.setAttribute('role','dialog');
+      sidebar.setAttribute('aria-label','Site navigation');
+      sidebar.innerHTML='<div class="sidebar-body"><ul><li><a href="index.html"><i class="bi bi-house"></i> Home</a></li><li><a href="apps.html"><i class="bi bi-grid"></i> Apps</a></li><li><a href="about.html"><i class="bi bi-info-circle"></i> About</a></li><li><a href="guidelines.html"><i class="bi bi-file-text"></i> Guidelines</a></li><li><a href="docs.html"><i class="bi bi-book"></i> Docs</a></li><li><a href="setup.html"><i class="bi bi-gear"></i> Setup</a></li><li><a href="faq.html"><i class="bi bi-question-circle"></i> FAQ</a></li><li><a href="blog.html"><i class="bi bi-pencil-square"></i> Blog</a></li><li><a href="contribute.html"><i class="bi bi-heart"></i> Contribute</a></li></ul></div><div class="sidebar-footer"><a href="https://github.com/spivanatalie64/FlatFree" target="_blank"><i class="bi bi-github"></i> GitHub</a><a href="https://flatfree.pages.dev" target="_blank"><i class="bi bi-globe2"></i> Visit</a></div>';
+      document.body.appendChild(sidebar);
+    }
+    function toggle(){if(isOpen){close();}else{open();}}
+    function open(){isOpen=true;document.body.classList.add('sidebar-open');if(hamburger){hamburger.classList.add('active');hamburger.setAttribute('aria-expanded','true');}if(sidebar){sidebar.classList.add('open');}}
+    function close(){isOpen=false;document.body.classList.remove('sidebar-open');if(hamburger){hamburger.classList.remove('active');hamburger.setAttribute('aria-expanded','false');}if(sidebar){sidebar.classList.remove('open');}}
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&isOpen)close();});
+    window.addEventListener('pageshow',function(){document.body.classList.remove('sidebar-open');});
+    if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  }catch(e){console.error('Sidebar init error:',e);}})();
+  </script>
 </body>
 </html>
