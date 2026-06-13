@@ -31,9 +31,27 @@ jobs:
             --prune \
             docs/repo || true
 
+      - name: Export public GPG key and update flatpakrepo
+        run: |
+          echo "Exporting public GPG key for the .flatpakrepo file..."
+          gpg --export --armor "${{ env.GPG_KEY_ID }}" > /tmp/flatfree-public.gpg
+          # Convert to base64 one-liner for GPGKey field
+          GPG_B64=$(base64 -w0 /tmp/flatfree-public.gpg)
+          # Update the flatfree.flatpakrepo with the correct public key
+          awk -v key="$GPG_B64" '
+            /^GPGKey=/ { print "GPGKey=" key; next }
+            { print }
+          ' docs/flatfree.flatpakrepo > /tmp/flatfree.flatpakrepo.new
+          mv /tmp/flatfree.flatpakrepo.new docs/flatfree.flatpakrepo
+          echo "Updated flatfree.flatpakrepo with current signing key"
+          # Also save as standalone .gpg file for manual imports
+          cp /tmp/flatfree-public.gpg docs/flatfree.gpg
+          echo "Exported docs/flatfree.gpg"
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 6a46b418508c26278ae2d3373f41da81
           command: pages deploy docs --project-name flatfree --branch main
+

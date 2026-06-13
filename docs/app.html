@@ -208,9 +208,10 @@
                 '<div class="troubleshoot-content" id="modalTroubleshootContent">' +
                   '<h4>GPG Signature Error Fix</h4>' +
                   '<p>If you see <code style="color:var(--acreetion-text-bright)">Can\'t check signature: public key not found</code>, the GPG key needs to be imported manually:</p>' +
-                  '<pre style="background:var(--acreetion-body-bg);border:1px solid var(--acreetion-box-border);border-radius:6px;padding:10px;font-size:0.75rem;font-family:var(--font-mono);color:var(--acreetion-text-bright);overflow-x:auto" id="gpgFixCmd">curl -L https://flatfree.acreetionos.org/flatfree.gpg -o /tmp/flatfree.gpg && flatpak remote-modify --gpg-import=/tmp/flatfree.gpg flatfree</pre>' +
+                  '<pre style="background:var(--acreetion-body-bg);border:1px solid var(--acreetion-box-border);border-radius:6px;padding:10px;font-size:0.75rem;font-family:var(--font-mono);color:var(--acreetion-text-bright);overflow-x:auto" id="gpgFixCmd">curl -L https://flatfree.acreetionos.org/flatfree.gpg -o /tmp/flatfree.gpg && flatpak remote-modify --gpg-import=/tmp/flatfree.gpg flatfree && flatpak install flatfree ' + escapeHtml(appId) + '</pre>' +
                   '<button class="gpg-fix-btn" id="copyGpgFix"><i class="bi bi-clipboard"></i> Copy GPG fix command</button>' +
                   '<p style="margin-top:8px;font-size:0.75rem">Then run <code style="color:var(--acreetion-text-bright)">flatpak install flatfree ' + escapeHtml(appId) + '</code> again.</p>' +
+                  '<p style="font-size:0.75rem;color:var(--acreetion-text-muted);font-style:italic;margin-top:8px;border-top:1px solid var(--acreetion-box-border);padding-top:8px">We know not everyone knows everything. So we tried to make this as easy as possible for you. <i class="bi bi-heart" style="color:var(--acreetion-purple)"></i></p>' +
                 '</div>' +
                 '<p style="font-size:0.85rem;color:var(--acreetion-text-muted);margin-top:12px">' +
                   'Open your terminal and paste (Ctrl+Shift+V or Cmd+V).<br>' +
@@ -469,8 +470,9 @@
           '<h2>Install <span style="font-size:0.7rem;font-weight:400;color:var(--acreetion-text-muted)">via Flatpak</span></h2>' +
           '<div class="install-protocol-note" style="background:var(--acreetion-purple-dim);border:1px solid var(--acreetion-purple-border);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:0.85rem">' +
             '<i class="bi bi-info-circle" style="color:var(--acreetion-purple)"></i> ' +
+            'We know not everyone knows everything. So we tried to make this as easy as possible for you.<br>' +
             'Clicking <strong>Install</strong> will open your system\'s Flatpak handler. ' +
-            'If nothing happens, use the terminal commands below.' +
+            'If nothing happens, we\'ll guide you through it.' +
           '</div>' +
           '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 1 &mdash; Add the FlatFree remote:</p>' +
           '<pre class="code-block" style="position:relative"><code id="cmdRemote">flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code><button class="btn-copy" data-target="cmdRemote" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
@@ -485,6 +487,7 @@
               '<p>If you see <code style="color:var(--acreetion-text-bright)">Can\'t check signature: public key not found</code>, the repository\'s GPG signing key needs to be imported. Run this fix:</p>' +
               '<pre style="background:var(--acreetion-body-bg);border:1px solid var(--acreetion-box-border);border-radius:6px;padding:10px;font-size:0.82rem;font-family:var(--font-mono);color:var(--acreetion-text-bright);overflow-x:auto;position:relative" id="pageGpgFixCmd">curl -L https://flatfree.acreetionos.org/flatfree.gpg -o /tmp/flatfree.gpg && flatpak remote-modify --gpg-import=/tmp/flatfree.gpg flatfree && flatpak install flatfree ' + escapeHtml(app.id) + '</pre>' +
               '<p style="font-size:0.8rem">This downloads the GPG key, imports it, and retries the install. You only need to do this once.</p>' +
+              '<p style="font-size:0.8rem;color:var(--acreetion-text-muted);margin-top:8px">We know not everyone knows everything. So we tried to make this as easy as possible for you.</p>' +
               '<p style="font-size:0.8rem;font-style:italic;color:var(--acreetion-text-muted)">FlatFree is a small community project — we\'re here for you. If you keep running into issues, <a href="https://github.com/spivanatalie64/FlatFree/issues" style="color:var(--acreetion-purple)">let us know</a>.</p>' +
             '</div>' +
           '</div>' +
