@@ -22,6 +22,23 @@
     .btn-copy:active { transform: scale(0.95); }
     .install-info .code-block { transition: border-color 0.2s; }
     .install-info .code-block:hover { border-color: var(--acreetion-purple-border); }
+    /* Modal overlay */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(4px); z-index: 10000; display: flex; align-items: center; justify-content: center; animation: fadeIn 0.2s ease; }
+    .modal-box { background: var(--acreetion-panel-bg); border: 1px solid var(--acreetion-box-border); border-radius: 16px; max-width: 480px; width: 90%; padding: 32px; box-shadow: 0 24px 64px rgba(0,0,0,0.5); animation: slideUp 0.25s ease; }
+    .modal-icon { font-size: 2.5rem; text-align: center; margin-bottom: 16px; }
+    .modal-box h3 { font-size: 1.2rem; color: var(--acreetion-text-bright); text-align: center; margin-bottom: 8px; }
+    .modal-box p { font-size: 0.9rem; color: var(--acreetion-text-muted); text-align: center; margin-bottom: 24px; line-height: 1.5; }
+    .modal-actions { display: flex; gap: 12px; flex-direction: column; }
+    .modal-actions .btn { width: 100%; text-align: center; justify-content: center; padding: 14px; font-size: 1rem; }
+    .modal-actions .btn-outline { background: transparent; }
+    .modal-actions .btn-outline:hover { background: var(--acreetion-panel-bg); }
+    .modal-copied { text-align: center; padding: 16px; }
+    .modal-copied .check-icon { font-size: 3rem; color: var(--acreetion-purple); margin-bottom: 12px; }
+    .modal-copied h3 { color: var(--acreetion-purple); }
+    .modal-copied p { margin-bottom: 16px; }
+    .modal-copied pre { background: var(--acreetion-box-bg); border: 1px solid var(--acreetion-box-border); border-radius: 8px; padding: 12px; margin: 8px 0; text-align: left; font-size: 0.78rem; font-family: var(--font-mono); color: var(--acreetion-text-bright); overflow-x: auto; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
 </head>
 <body>
@@ -127,6 +144,116 @@
       }, 2000);
     }
 
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text);
+      } else {
+        return new Promise(function(resolve, reject) {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          try {
+            document.execCommand('copy');
+            resolve();
+          } catch(e) { reject(e); }
+          document.body.removeChild(ta);
+        });
+      }
+    }
+
+    function showModal(appId, appName, remoteCmd, installCmd, runCmd) {
+      // Remove any existing modal
+      var oldModal = document.querySelector('.modal-overlay');
+      if (oldModal) oldModal.parentNode.removeChild(oldModal);
+
+      var overlay = document.createElement('div');
+      overlay.className = 'modal-overlay';
+      overlay.innerHTML =
+        '<div class="modal-box">' +
+          '<div class="modal-icon"><i class="bi bi-terminal" style="color:var(--acreetion-purple)"></i></div>' +
+          '<h3>Flatpak handler not detected</h3>' +
+          '<p>Your system didn\'t respond to the Flatpak protocol.<br>Would you like me to copy the install commands to your clipboard so you can paste them in your terminal?</p>' +
+          '<div class="modal-actions">' +
+            '<button class="btn btn-lg" id="modalYes">Yes, copy commands for me</button>' +
+            '<button class="btn btn-lg btn-outline" id="modalNo">No, I\'ll do it myself</button>' +
+          '</div>' +
+        '</div>';
+      document.body.appendChild(overlay);
+
+      document.getElementById('modalYes').addEventListener('click', function() {
+        var allCommands = remoteCmd + '\n' + installCmd + '\n' + runCmd;
+        copyToClipboard(allCommands).then(function() {
+          overlay.innerHTML =
+            '<div class="modal-box">' +
+              '<div class="modal-copied">' +
+                '<div class="check-icon"><i class="bi bi-check-circle-fill"></i></div>' +
+                '<h3>Commands Copied!</h3>' +
+                '<p>Paste them in your terminal to install ' + escapeHtml(appName) + '</p>' +
+                '<pre># Step 1: Add the remote\n' + escapeHtml(remoteCmd) + '</pre>' +
+                '<pre># Step 2: Install the app\n' + escapeHtml(installCmd) + '</pre>' +
+                '<pre># Step 3: Run it\n' + escapeHtml(runCmd) + '</pre>' +
+                '<p style="font-size:0.85rem;color:var(--acreetion-text-muted);margin-top:12px">' +
+                  'Open your terminal and paste (Ctrl+Shift+V or Cmd+V).<br>' +
+                  'All three commands will run in sequence.' +
+                '</p>' +
+                '<button class="btn" id="modalDone">Got it</button>' +
+              '</div>' +
+            '</div>';
+          document.getElementById('modalDone').addEventListener('click', function() {
+            if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+            // Scroll to terminal section
+            var installSection = document.querySelector('.install-info');
+            if (installSection) {
+              installSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        }).catch(function() {
+          // Clipboard failed — fall back to showing commands
+          overlay.innerHTML =
+            '<div class="modal-box">' +
+              '<div class="modal-icon"><i class="bi bi-exclamation-triangle" style="color:var(--acreetion-purple)"></i></div>' +
+              '<h3>Could not copy automatically</h3>' +
+              '<p>Please copy the commands manually from the terminal section below.</p>' +
+              '<div class="modal-actions">' +
+                '<button class="btn btn-lg" id="modalOk">Show me the commands</button>' +
+              '</div>' +
+            '</div>';
+          document.getElementById('modalOk').addEventListener('click', function() {
+            if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+            var installSection = document.querySelector('.install-info');
+            if (installSection) {
+              installSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              installSection.style.transition = 'box-shadow 0.3s';
+              installSection.style.boxShadow = '0 0 20px rgba(155,89,182,0.4)';
+              setTimeout(function() { installSection.style.boxShadow = 'none'; }, 2000);
+            }
+          });
+        });
+      });
+
+      document.getElementById('modalNo').addEventListener('click', function() {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        // Just scroll to the terminal section so they can copy manually
+        var installSection = document.querySelector('.install-info');
+        if (installSection) {
+          installSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          installSection.style.transition = 'box-shadow 0.3s';
+          installSection.style.boxShadow = '0 0 20px rgba(155,89,182,0.4)';
+          setTimeout(function() { installSection.style.boxShadow = 'none'; }, 2000);
+        }
+      });
+
+      // Close on overlay click (but not on modal-box click)
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+          if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+        }
+      });
+    }
+
     function setupInstallButton() {
       var btn = document.querySelector('.btn-install');
       if (!btn) return;
@@ -135,22 +262,35 @@
         e.preventDefault();
         btn.disabled = true;
         btn.innerHTML = 'Opening Flatpak... <span class="spinner" style="width:14px;height:14px;border-width:2px;vertical-align:middle;margin-left:4px"></span>';
+
+        // Get the commands
+        var remoteCmd = 'flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo';
+        var installCmd = 'flatpak install flatfree ' + appId;
+        var runCmd = 'flatpak run ' + appId;
+        var appName = btn.closest('.app-detail') ? (document.querySelector('.app-detail-meta h2') || {}).textContent || appId : appId;
+
+        // Try flatpak protocol
         tryFlatpakProtocol(appId);
-        // After 3 seconds, reset and highlight terminal commands
-        setTimeout(function() {
+
+        // After 2 seconds, if no handler detected, show the modal
+        var handlerTimer = setTimeout(function() {
           btn.disabled = false;
           btn.innerHTML = 'Install';
-          // Scroll to install section and flash it
-          var installSection = document.querySelector('.install-info');
-          if (installSection) {
-            installSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            installSection.style.transition = 'box-shadow 0.3s';
-            installSection.style.boxShadow = '0 0 20px rgba(155,89,182,0.4)';
-            setTimeout(function() {
-              installSection.style.boxShadow = 'none';
-            }, 2000);
+          showModal(appId, appName, remoteCmd, installCmd, runCmd);
+        }, 2000);
+
+        // If the page loses visibility (user switched to flatpak window), cancel the modal
+        document.addEventListener('visibilitychange', function onVisChange() {
+          if (document.hidden) {
+            clearTimeout(handlerTimer);
+            document.removeEventListener('visibilitychange', onVisChange);
           }
-        }, 3000);
+        });
+
+        // Also if user clicks elsewhere, let them cancel
+        var cancelTimer = setTimeout(function() {
+          // If they're still on the page after 5 seconds with no response, modal already showed
+        }, 5000);
       });
     }
 
