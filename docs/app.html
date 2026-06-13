@@ -3,12 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FlatFree — AcreetionOS Media Writer</title>
-  <meta name="description" content="Write AcreetionOS images to USB flash drives with ease - FlatFree Flatpak application.">
+  <title>FlatFree — App Details</title>
+  <meta name="description" content="FlatFree Flatpak application details.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💜</text></svg>">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="search.js" defer></script>
+  <style>
+    .app-detail-loading { text-align: center; padding: 80px 24px; }
+    .app-detail-loading .spinner { margin-bottom: 16px; }
+    .app-detail-loading p { color: var(--acreetion-text-muted); }
+    .app-detail-error { text-align: center; padding: 80px 24px; }
+    .app-detail-error h2 { color: var(--acreetion-text-bright); margin-bottom: 8px; }
+    .app-detail-error p { color: var(--acreetion-text-muted); margin-bottom: 16px; }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -23,65 +31,16 @@
           <div class="nav-search"><input type="text" class="nav-search-input" placeholder="Search apps..." id="navSearch"></div>
         </div>
       </header>
-      <div class="hero-header">
-        <h1>AcreetionOS Media Writer</h1>
-        <p class="subtitle">org.acreetionos.MediaWriter</p>
+      <div class="hero-header" id="heroHeader">
+        <h1 id="appTitle">FlatFree</h1>
+        <p class="subtitle" id="appSubtitle">Application details</p>
       </div>
       <div class="page-wrapper">
         <main id="main-content" class="content-feed">
-          <div class="app-detail">
-            <div class="app-detail-header">
-              <div class="app-detail-icon">
-                <div class="app-icon-placeholder">MF</div>
-              </div>
-              <div class="app-detail-meta">
-                <h2>AcreetionOS Media Writer</h2>
-                <p class="app-id">org.acreetionos.MediaWriter</p>
-                <p class="app-version">Version 1.0.0 &mdash; Updated June 2026</p>
-                <p class="app-desc" style="font-size: 1rem;">Write AcreetionOS images to USB flash drives with ease. A simple, reliable tool for creating bootable media.</p>
-                <div class="app-actions">
-                  <span class="btn btn-lg">Install</span>
-                  <a href="https://github.com/spivanatalie64/FlatFree/tree/main/org.acreetionos.MediaWriter" class="btn btn-lg btn-outline">View Manifest</a>
-                </div>
-              </div>
-            </div>
-            <div class="app-description">
-              <h3>Description</h3>
-              <p>AcreetionOS Media Writer is a straightforward utility for writing operating system images to USB drives. Forked from Fedora Media Writer and rebranded for AcreetionOS, it provides a clean interface for creating bootable installation media.</p>
-              <p>Built with Qt 6 and designed for Linux, it supports writing ISO and raw image files to USB flash drives. No complicated command-line options — just select your image, select your drive, and write.</p>
-              <p>This application is free software, licensed under the GPL, and welcomes contributions from all developers regardless of how they build their software.</p>
-            </div>
-            <div class="screenshots">
-              <h3>Screenshots</h3>
-              <div class="screenshot-grid">
-                <div class="screenshot-item">
-                  <div class="screenshot-placeholder">Screenshot coming soon</div>
-                </div>
-                <div class="screenshot-item">
-                  <div class="screenshot-placeholder">Screenshot coming soon</div>
-                </div>
-              </div>
-            </div>
-            <div class="app-info-table">
-              <h3>Details</h3>
-              <table>
-                <tr><td>App ID</td><td>org.acreetionos.MediaWriter</td></tr>
-                <tr><td>Version</td><td>1.0.0</td></tr>
-                <tr><td>License</td><td>GPL-2.0-or-later</td></tr>
-                <tr><td>Runtime</td><td>org.gnome.Platform 46</td></tr>
-                <tr><td>Branch</td><td>stable</td></tr>
-                <tr><td>Repository</td><td>FlatFree</td></tr>
-                <tr><td>Source</td><td><a href="https://github.com/spivanatalie64/FlatFree/tree/main/org.acreetionos.MediaWriter" style="color:var(--acreetion-purple)">View Manifest</a></td></tr>
-              </table>
-            </div>
-            <div class="install-info">
-              <h2>Install</h2>
-              <p>Add the FlatFree remote if you haven't already:</p>
-              <pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>
-              <p>Then install this application:</p>
-              <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
-              <p>Or run it directly once installed:</p>
-              <pre><code>flatpak run org.acreetionos.MediaWriter</code></pre>
+          <div id="appContent" class="app-detail">
+            <div class="app-detail-loading">
+              <div class="spinner"></div>
+              <p>Loading application details...</p>
             </div>
           </div>
         </main>
@@ -124,6 +83,131 @@
     window.addEventListener('pageshow',function(){document.body.classList.remove('sidebar-open');});
     if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
   }catch(e){console.error('Sidebar init error:',e);}})();
+  </script>
+  <script>
+  (function(){
+    var appData = null;
+
+    function getInitials(name) {
+      return name.split(' ').map(function(w) { return w[0]; }).join('').slice(0, 2).toUpperCase();
+    }
+
+    function getColor(id) {
+      var hash = 0;
+      for (var i = 0; i < id.length; i++) hash = id.charCodeAt(i) + ((hash << 5) - hash);
+      var h = Math.abs(hash) % 360;
+      return 'hsl(' + h + ', 55%, 35%)';
+    }
+
+    function escapeHtml(text) {
+      if (!text) return '';
+      var d = document.createElement('div');
+      d.textContent = text;
+      return d.innerHTML;
+    }
+
+    function renderApp(app) {
+      var initials = getInitials(app.name);
+      var color = getColor(app.id);
+      var manifestPath = app.path || (app.id + '/' + app.id + '.json');
+      var manifestUrl = 'https://github.com/spivanatalie64/FlatFree/tree/main/' + manifestPath;
+      var runtimeName = app.runtime || 'Unknown';
+      var runtimeVersion = app.runtimeVersion || '';
+      var license = app.projectLicense || app.license || 'FOSS';
+      var description = app.description || app.name + ' — a FlatFree Flatpak application.';
+
+      document.title = 'FlatFree — ' + app.name;
+      document.querySelector('meta[name="description"]').content = description;
+
+      document.getElementById('appTitle').textContent = app.name;
+      document.getElementById('appSubtitle').textContent = app.id;
+
+      document.getElementById('appContent').innerHTML =
+        '<div class="app-detail-header">' +
+          '<div class="app-detail-icon">' +
+            '<div class="app-icon-placeholder" style="background:' + color + ';color:#fff;font-size:2.5rem;font-weight:800;display:flex;align-items:center;justify-content:center;width:100%;height:100%">' + escapeHtml(initials) + '</div>' +
+          '</div>' +
+          '<div class="app-detail-meta">' +
+            '<h2>' + escapeHtml(app.name) + '</h2>' +
+            '<p class="app-id">' + escapeHtml(app.id) + '</p>' +
+            '<p class="app-version">FlatFree Repository</p>' +
+            '<p class="app-desc" style="font-size: 1rem;">' + escapeHtml(description) + '</p>' +
+            '<div class="app-actions">' +
+              '<span class="btn btn-lg">Install</span>' +
+              '<a href="' + escapeHtml(manifestUrl) + '" class="btn btn-lg btn-outline" target="_blank" rel="noopener">View Manifest</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="app-description">' +
+          '<h3>Description</h3>' +
+          '<p>' + escapeHtml(app.name) + ' is a free and open source Flatpak application available in the FlatFree repository.</p>' +
+          '<p>Runtime: ' + escapeHtml(runtimeName) + ' ' + escapeHtml(runtimeVersion) + '</p>' +
+          '<p>This application is free software and welcomes contributions from all developers regardless of how they build their software.</p>' +
+        '</div>' +
+        '<div class="app-info-table">' +
+          '<h3>Details</h3>' +
+          '<table>' +
+            '<tr><td>App ID</td><td>' + escapeHtml(app.id) + '</td></tr>' +
+            '<tr><td>License</td><td>' + escapeHtml(license) + '</td></tr>' +
+            '<tr><td>Runtime</td><td>' + escapeHtml(runtimeName) + ' ' + escapeHtml(runtimeVersion) + '</td></tr>' +
+            '<tr><td>Branch</td><td>stable</td></tr>' +
+            '<tr><td>Repository</td><td>FlatFree</td></tr>' +
+            '<tr><td>Source</td><td><a href="' + escapeHtml(manifestUrl) + '" style="color:var(--acreetion-purple)" target="_blank" rel="noopener">View Manifest</a></td></tr>' +
+          '</table>' +
+        '</div>' +
+        '<div class="install-info">' +
+          '<h2>Install</h2>' +
+          '<p>Add the FlatFree remote if you haven\'t already:</p>' +
+          '<pre><code>flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code></pre>' +
+          '<p>Then install this application:</p>' +
+          '<pre><code>flatpak install flatfree ' + escapeHtml(app.id) + '</code></pre>' +
+          '<p>Or run it directly once installed:</p>' +
+          '<pre><code>flatpak run ' + escapeHtml(app.id) + '</code></pre>' +
+        '</div>';
+    }
+
+    function showError(msg) {
+      document.getElementById('appContent').innerHTML =
+        '<div class="app-detail-error">' +
+          '<h2>Application Not Found</h2>' +
+          '<p>' + escapeHtml(msg) + '</p>' +
+          '<a href="apps.html" class="btn">Browse Applications</a>' +
+        '</div>';
+    }
+
+    function initApp() {
+      var params = new URLSearchParams(window.location.search);
+      var appId = params.get('id');
+
+      if (!appId) {
+        showError('No application specified. Please select an app from the app store.');
+        return;
+      }
+
+      fetch('search.json')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          var found = null;
+          for (var i = 0; i < data.length; i++) {
+            if (data[i].id === appId) {
+              found = data[i];
+              break;
+            }
+          }
+          if (found) {
+            renderApp(found);
+          } else {
+            showError('Application "' + appId + '" was not found in the FlatFree repository.');
+          }
+        })
+        .catch(function() {
+          showError('Failed to load application data. Please try again later.');
+        });
+    }
+
+    if (document.readyState !== 'loading') initApp();
+    else document.addEventListener('DOMContentLoaded', initApp);
+  })();
   </script>
 </body>
 </html>
