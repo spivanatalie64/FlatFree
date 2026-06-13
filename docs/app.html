@@ -37,6 +37,15 @@
     .modal-copied h3 { color: var(--acreetion-purple); }
     .modal-copied p { margin-bottom: 16px; }
     .modal-copied pre { background: var(--acreetion-box-bg); border: 1px solid var(--acreetion-box-border); border-radius: 8px; padding: 12px; margin: 8px 0; text-align: left; font-size: 0.78rem; font-family: var(--font-mono); color: var(--acreetion-text-bright); overflow-x: auto; }
+    .troubleshoot-btn { background: transparent; border: 1px dashed var(--acreetion-purple-border); color: var(--acreetion-text-muted); padding: 10px; border-radius: 8px; cursor: pointer; font-size: 0.82rem; width: 100%; margin-top: 8px; transition: all 0.2s; }
+    .troubleshoot-btn:hover { border-color: var(--acreetion-purple); color: var(--acreetion-purple); background: var(--acreetion-purple-dim); }
+    .troubleshoot-content { display: none; margin-top: 12px; padding: 16px; background: var(--acreetion-box-bg); border-radius: 8px; border: 1px solid var(--acreetion-box-border); text-align: left; }
+    .troubleshoot-content.visible { display: block; }
+    .troubleshoot-content h4 { font-size: 0.9rem; color: var(--acreetion-text-bright); margin-bottom: 8px; }
+    .troubleshoot-content p { font-size: 0.8rem; color: var(--acreetion-text-muted); margin-bottom: 8px; text-align: left; }
+    .troubleshoot-content pre { font-size: 0.75rem; margin: 6px 0; }
+    .gpg-fix-btn { display: inline-flex; align-items: center; gap: 6px; background: var(--acreetion-purple); color: #000; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 0.82rem; font-weight: 600; margin-top: 8px; }
+    .gpg-fix-btn:hover { background: var(--acreetion-purple-hover); }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   </style>
@@ -195,6 +204,14 @@
                 '<pre># Step 1: Add the remote\n' + escapeHtml(remoteCmd) + '</pre>' +
                 '<pre># Step 2: Install the app\n' + escapeHtml(installCmd) + '</pre>' +
                 '<pre># Step 3: Run it\n' + escapeHtml(runCmd) + '</pre>' +
+                '<button class="troubleshoot-btn" id="modalTroubleshoot"><i class="bi bi-exclamation-triangle"></i> Having issues? GPG signature error? Click here</button>' +
+                '<div class="troubleshoot-content" id="modalTroubleshootContent">' +
+                  '<h4>GPG Signature Error Fix</h4>' +
+                  '<p>If you see <code style="color:var(--acreetion-text-bright)">Can\'t check signature: public key not found</code>, the GPG key needs to be imported manually:</p>' +
+                  '<pre style="background:var(--acreetion-body-bg);border:1px solid var(--acreetion-box-border);border-radius:6px;padding:10px;font-size:0.75rem;font-family:var(--font-mono);color:var(--acreetion-text-bright);overflow-x:auto" id="gpgFixCmd">curl -L https://flatfree.acreetionos.org/flatfree.gpg -o /tmp/flatfree.gpg && flatpak remote-modify --gpg-import=/tmp/flatfree.gpg flatfree</pre>' +
+                  '<button class="gpg-fix-btn" id="copyGpgFix"><i class="bi bi-clipboard"></i> Copy GPG fix command</button>' +
+                  '<p style="margin-top:8px;font-size:0.75rem">Then run <code style="color:var(--acreetion-text-bright)">flatpak install flatfree ' + escapeHtml(appId) + '</code> again.</p>' +
+                '</div>' +
                 '<p style="font-size:0.85rem;color:var(--acreetion-text-muted);margin-top:12px">' +
                   'Open your terminal and paste (Ctrl+Shift+V or Cmd+V).<br>' +
                   'All three commands will run in sequence.' +
@@ -204,12 +221,43 @@
             '</div>';
           document.getElementById('modalDone').addEventListener('click', function() {
             if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
-            // Scroll to terminal section
             var installSection = document.querySelector('.install-info');
             if (installSection) {
               installSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
           });
+
+          // Troubleshooting toggle
+          var troubleshootBtn = document.getElementById('modalTroubleshoot');
+          var troubleshootContent = document.getElementById('modalTroubleshootContent');
+          if (troubleshootBtn && troubleshootContent) {
+            troubleshootBtn.addEventListener('click', function() {
+              troubleshootContent.classList.toggle('visible');
+              if (troubleshootContent.classList.contains('visible')) {
+                troubleshootBtn.innerHTML = '<i class="bi bi-chevron-up"></i> Hide troubleshooting';
+              } else {
+                troubleshootBtn.innerHTML = '<i class="bi bi-exclamation-triangle"></i> Having issues? GPG signature error? Click here';
+              }
+            });
+          }
+
+          // GPG fix copy
+          var copyGpgBtn = document.getElementById('copyGpgFix');
+          if (copyGpgBtn) {
+            copyGpgBtn.addEventListener('click', function() {
+              var cmdEl = document.getElementById('gpgFixCmd');
+              var text = cmdEl ? (cmdEl.textContent || cmdEl.innerText) : '';
+              if (text) {
+                copyToClipboard(text).then(function() {
+                  copyGpgBtn.innerHTML = '<i class="bi bi-check"></i> Copied!';
+                  setTimeout(function() { copyGpgBtn.innerHTML = '<i class="bi bi-clipboard"></i> Copy GPG fix command'; }, 2500);
+                }).catch(function() {
+                  copyGpgBtn.innerHTML = '<i class="bi bi-exclamation-triangle"></i> Failed to copy';
+                  setTimeout(function() { copyGpgBtn.innerHTML = '<i class="bi bi-clipboard"></i> Copy GPG fix command'; }, 2000);
+                });
+              }
+            });
+          }
         }).catch(function() {
           // Clipboard failed — fall back to showing commands
           overlay.innerHTML =
@@ -319,6 +367,22 @@
       }
     }
 
+    function setupTroubleshoot() {
+      // Page-level troubleshoot toggle
+      var pageBtn = document.getElementById('pageTroubleshoot');
+      var pageContent = document.getElementById('pageTroubleshootContent');
+      if (pageBtn && pageContent) {
+        pageBtn.addEventListener('click', function() {
+          pageContent.classList.toggle('visible');
+          if (pageContent.classList.contains('visible')) {
+            pageBtn.innerHTML = '<i class="bi bi-chevron-up"></i> Hide troubleshooting';
+          } else {
+            pageBtn.innerHTML = '<i class="bi bi-exclamation-triangle"></i> Getting "public key not found" errors? We got you.';
+          }
+        });
+      }
+    }
+
     function fallbackCopy(text, btn) {
       var ta = document.createElement('textarea');
       ta.value = text;
@@ -414,6 +478,16 @@
           '<pre class="code-block" style="position:relative"><code id="cmdInstall">flatpak install flatfree ' + escapeHtml(app.id) + '</code><button class="btn-copy" data-target="cmdInstall" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
           '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 3 &mdash; Run it:</p>' +
           '<pre class="code-block" style="position:relative"><code id="cmdRun">flatpak run ' + escapeHtml(app.id) + '</code><button class="btn-copy" data-target="cmdRun" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
+          '<div style="margin-top:24px;padding:16px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);border-radius:8px">' +
+            '<button class="troubleshoot-btn" id="pageTroubleshoot" style="border-style:solid"><i class="bi bi-exclamation-triangle"></i> Getting "public key not found" errors? We got you.</button>' +
+            '<div class="troubleshoot-content" id="pageTroubleshootContent">' +
+              '<h4>GPG Signature Error</h4>' +
+              '<p>If you see <code style="color:var(--acreetion-text-bright)">Can\'t check signature: public key not found</code>, the repository\'s GPG signing key needs to be imported. Run this fix:</p>' +
+              '<pre style="background:var(--acreetion-body-bg);border:1px solid var(--acreetion-box-border);border-radius:6px;padding:10px;font-size:0.82rem;font-family:var(--font-mono);color:var(--acreetion-text-bright);overflow-x:auto;position:relative" id="pageGpgFixCmd">curl -L https://flatfree.acreetionos.org/flatfree.gpg -o /tmp/flatfree.gpg && flatpak remote-modify --gpg-import=/tmp/flatfree.gpg flatfree && flatpak install flatfree ' + escapeHtml(app.id) + '</pre>' +
+              '<p style="font-size:0.8rem">This downloads the GPG key, imports it, and retries the install. You only need to do this once.</p>' +
+              '<p style="font-size:0.8rem;font-style:italic;color:var(--acreetion-text-muted)">FlatFree is a small community project — we\'re here for you. If you keep running into issues, <a href="https://github.com/spivanatalie64/FlatFree/issues" style="color:var(--acreetion-purple)">let us know</a>.</p>' +
+            '</div>' +
+          '</div>' +
         '</div>';
     }
 
@@ -449,6 +523,7 @@
             renderApp(found);
             setupInstallButton();
             setupCopyButtons();
+            setupTroubleshoot();
           } else {
             showError('Application "' + appId + '" was not found in the FlatFree repository.');
           }
