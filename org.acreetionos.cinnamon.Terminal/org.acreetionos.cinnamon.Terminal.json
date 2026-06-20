@@ -3,7 +3,7 @@
     "runtime": "org.gnome.Platform",
     "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
-    "command": "gnome-terminal",
+    "command": "cinnamon-terminal",
     "finish-args": [
         "--share=ipc",
         "--socket=wayland",
@@ -13,11 +13,12 @@
         "--device=dri",
         "--filesystem=host",
         "--filesystem=/tmp",
-        "--talk-name=org.gnome.Terminal",
+        "--talk-name=org.acreetionos.cinnamon.Terminal",
         "--talk-name=org.gnome.Shell",
         "--talk-name=org.freedesktop.Flatpak",
         "--talk-name=org.freedesktop.secrets",
-        "--own-name=org.gnome.Terminal.*",
+        "--own-name=org.acreetionos.cinnamon.Terminal",
+        "--own-name=org.acreetionos.cinnamon.Terminal.*",
         "--env=GSETTINGS_SCHEMA_DIR=/app/share/glib-2.0/schemas"
     ],
     "cleanup": [
@@ -63,7 +64,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.acreetionos.org/acreetionos-code/cinnamon-terminal.git",
-                    "commit": "ce7c0863ac41cdc6bb349cdf427c04a10a76d18f"
+                    "commit": "ebe0a9ffd17f86f355f1ef63b86b7f57e55aa1a5"
                 }
             ]
         }
