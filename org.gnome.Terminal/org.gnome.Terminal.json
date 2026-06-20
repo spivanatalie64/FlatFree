@@ -46,7 +46,7 @@
                 {
                     "type": "archive",
                     "url": "https://download.gnome.org/sources/vte/0.84/vte-0.84.0.tar.xz",
-                    "sha256": "f2fd3b3464f53dceba8e0c2cb0d4b8452087f45cf5e8d203fe9414082862d5ca"
+                    "sha256": "0414e31583836aeb7878da25f67c515f7e8879917ecc37c92e26b83e8d8fc3e3"
                 }
             ]
         },
