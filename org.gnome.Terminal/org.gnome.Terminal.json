@@ -1,0 +1,71 @@
+{
+    "id": "org.gnome.Terminal",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "47",
+    "sdk": "org.gnome.Sdk",
+    "command": "gnome-terminal",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=wayland",
+        "--socket=fallback-x11",
+        "--socket=pulseaudio",
+        "--share=network",
+        "--device=dri",
+        "--filesystem=host",
+        "--filesystem=/tmp",
+        "--talk-name=org.gnome.Terminal",
+        "--talk-name=org.gnome.Shell",
+        "--talk-name=org.freedesktop.Flatpak",
+        "--talk-name=org.freedesktop.secrets",
+        "--own-name=org.gnome.Terminal.*",
+        "--env=GSETTINGS_SCHEMA_DIR=/app/share/glib-2.0/schemas"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/pkgconfig",
+        "/man",
+        "/share/doc",
+        "/share/gtk-doc",
+        "/share/man",
+        "/share/pkgconfig",
+        "*.la",
+        "*.a"
+    ],
+    "modules": [
+        {
+            "name": "vte4",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dgtk3=false",
+                "-Dgtk4=true",
+                "-Dgir=false",
+                "-Dvapi=false",
+                "-Ddocs=false"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://download.gnome.org/sources/vte/0.84/vte-0.84.0.tar.xz",
+                    "sha256": "f2fd3b3464f53dceba8e0c2cb0d4b8452087f45cf5e8d203fe9414082862d5ca"
+                }
+            ]
+        },
+        {
+            "name": "cinnamon-terminal",
+            "buildsystem": "meson",
+            "config-opts": [
+                "-Dbuildtype=release",
+                "-Ddocs=true",
+                "-Dnautilus_extension=false",
+                "-Dsearch_provider=true"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://gitlab.acreetionos.org/acreetionos-code/cinnamon-terminal.git",
+                    "commit": "7f507ef100c99b007d8ea79e3fb578b9649c90cf"
+                }
+            ]
+        }
+    ]
+}

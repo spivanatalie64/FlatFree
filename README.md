@@ -11,6 +11,7 @@ Website: **[https://natalie.acreetionos.org/FlatFree](https://natalie.acreetiono
 ```bash
 flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo
 flatpak install flatfree org.acreetionos.MediaWriter
+flatpak install flatfree org.gnome.Terminal
 ```
 
 ## Available Applications
@@ -18,6 +19,7 @@ flatpak install flatfree org.acreetionos.MediaWriter
 | App ID | Description |
 |--------|-------------|
 | [`org.acreetionos.MediaWriter`](./org.acreetionos.MediaWriter) | AcreetionOS Media Writer — Write OS images to USB drives |
+| [`org.gnome.Terminal`](./org.gnome.Terminal) | Cinnamon Terminal — GNOME Terminal fork for the Cinnamon Desktop |
 
 ## Why FlatFree?
 
