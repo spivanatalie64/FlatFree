@@ -63,7 +63,7 @@
                 {
                     "type": "git",
                     "url": "https://gitlab.acreetionos.org/acreetionos-code/cinnamon-terminal.git",
-                    "commit": "7f507ef100c99b007d8ea79e3fb578b9649c90cf"
+                    "commit": "ce7c0863ac41cdc6bb349cdf427c04a10a76d18f"
                 }
             ]
         }
