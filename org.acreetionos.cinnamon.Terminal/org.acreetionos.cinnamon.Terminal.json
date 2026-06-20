@@ -1,5 +1,5 @@
 {
-    "id": "org.gnome.Terminal",
+    "id": "org.acreetionos.cinnamon.Terminal",
     "runtime": "org.gnome.Platform",
     "runtime-version": "47",
     "sdk": "org.gnome.Sdk",
