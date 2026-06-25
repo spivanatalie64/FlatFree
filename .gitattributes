@@ -1,0 +1,3 @@
+*.bin -delta
+*.iso -delta
+*.img -delta

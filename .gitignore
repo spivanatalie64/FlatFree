@@ -1,2 +1,15 @@
 .wrangler/
 docs/repo/.lock
+
+# Mirror safety: excluded from Codeberg/GitLab mirrors
+# These patterns prevent us hitting platform storage limits
+node_modules/
+vendor/
+.build/
+dist-newstyle/
+*.bin
+*.iso
+*.img
+*.dmg
+__pycache__/
+*.pyc
