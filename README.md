@@ -47,4 +47,4 @@ No review board. No moral policing. Just free software.
 
 ## License
 
-Unless otherwise noted, all manifests in this repository are licensed under the MIT License.
+Unless otherwise noted, all manifests in this repository are licensed under the GNU General Public License v2.0.

@@ -610,5 +610,17 @@
     "projectLicense": "",
     "manifest": "org.acreetionos.MediaWriter.json",
     "path": "org.acreetionos.MediaWriter/org.acreetionos.MediaWriter.json"
+  },
+  {
+    "id": "org.acreetionos.cinnamon.Terminal",
+    "name": "vte4",
+    "description": "vte4 — org.gnome.Platform app",
+    "runtime": "org.gnome.Platform",
+    "runtimeVersion": "47",
+    "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
+    "manifest": "org.acreetionos.cinnamon.Terminal.json",
+    "path": "org.acreetionos.cinnamon.Terminal/org.acreetionos.cinnamon.Terminal.json"
   }
 ]

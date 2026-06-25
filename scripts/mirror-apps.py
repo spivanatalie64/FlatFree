@@ -3,6 +3,7 @@
 
 import json
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -33,11 +34,16 @@ def generate_manifest(app_id, info):
         if 'Runtime:' in line:
             parts = line.split('Runtime:')[1].strip().split('/')
             runtime = parts[0] if parts else ''
-            runtime_ver = parts[1] if len(parts) > 1 else ''
+            runtime_ver = parts[2] if len(parts) > 2 else parts[1] if len(parts) > 1 else ''
         elif 'Command:' in line:
             command = line.split('Command:')[1].strip()
 
-    name = app_id.split('.')[-1] if '.' in app_id else app_id
+    segments = app_id.split('.')
+    name_seg = segments[-1]
+    generic = {'desktop', 'app', 'client', 'daemon', 'server', 'core', 'gui', 'ui'}
+    if name_seg in generic and len(segments) >= 2:
+        name_seg = segments[-2]
+    name = re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', name_seg).replace('-', ' ').replace('_', ' ').strip().title()
 
     # Try to detect license from metadata
     license = 'FOSS'
@@ -52,7 +58,7 @@ def generate_manifest(app_id, info):
         'id': app_id,
         'runtime': runtime or 'org.freedesktop.Platform',
         'runtime-version': runtime_ver or '24.08',
-        'sdk': runtime or 'org.freedesktop.Sdk',
+        'sdk': runtime.replace('Platform', 'Sdk') if runtime else 'org.freedesktop.Sdk',
         'command': command or name.lower(),
         'license': license,
         'finish-args': [],
