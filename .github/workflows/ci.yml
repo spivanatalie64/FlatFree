@@ -7,20 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Validate JSON manifests
-        run: |
-          for f in *.json; do
-            echo "Checking $f..."
-            python3 -m json.tool "$f" > /dev/null && echo "  ✅" || echo "  ❌ $f"
-          done
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Generate search index
-        run: node scripts/generate-index.js
-        continue-on-error: true
+  test:
+    uses: spivanatalie64/.github/.github/workflows/ci-guile.yml@main
+    with:
+      module-name: "FlatFree"
