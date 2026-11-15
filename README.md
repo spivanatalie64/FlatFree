@@ -8,6 +8,12 @@ Website: **[https://flatfree.acreetionos.org](https://flatfree.acreetionos.org)*
 
 ## Adding FlatFree to your system
 
+**One-line auto-install (handles GPG):**
+```bash
+curl -fsSL https://flatfree.acreetionos.org/install.sh | bash
+```
+
+Or manually:
 ```bash
 flatpak remote-add --if-not-exists flatfree https://flatfree.acreetionos.org/flatfree.flatpakrepo
 flatpak install flatfree org.acreetionos.MediaWriter
