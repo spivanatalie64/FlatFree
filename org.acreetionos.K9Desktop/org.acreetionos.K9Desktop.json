@@ -1,0 +1,41 @@
+{
+    "id": "org.acreetionos.K9Desktop",
+    "runtime": "org.freedesktop.Platform",
+    "runtime-version": "24.08",
+    "sdk": "org.freedesktop.Sdk",
+    "command": "k9",
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland",
+        "--device=dri",
+        "--filesystem=home",
+        "--share=network"
+    ],
+    "modules": [
+        {
+            "name": "k9-desktop",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -d /app/lib/k9-desktop",
+                "cp -a . /app/lib/k9-desktop/",
+                "rm -rf /app/lib/k9-desktop/.git /app/lib/k9-desktop/.github /app/lib/k9-desktop/scripts /app/lib/k9-desktop/dist",
+                "rm -f /app/lib/k9-desktop/pingsender /app/lib/k9-desktop/crashreporter /app/lib/k9-desktop/crashhelper",
+                "install -d /app/bin",
+                "ln -sf /app/lib/k9-desktop/k9 /app/bin/k9",
+                "install -d /app/share/applications /app/share/icons/hicolor/256x256/apps /app/share/icons/hicolor/scalable/apps",
+                "install -Dm644 chrome/icons/default/default256.png /app/share/icons/hicolor/256x256/apps/org.acreetionos.K9Desktop.png",
+                "install -Dm644 chrome/icons/default/TB-symbolic.svg /app/share/icons/hicolor/scalable/apps/org.acreetionos.K9Desktop.svg",
+                "printf '[Desktop Entry]\\nName=K9Desktop\\nComment=K9Desktop mail client based on Mozilla Thunderbird LTS\\nExec=k9 %u\\nType=Application\\nIcon=org.acreetionos.K9Desktop\\nTerminal=false\\nCategories=Network;Email;\\nMimeType=x-scheme-handler/mailto;\\nStartupNotify=true\\n' > /app/share/applications/org.acreetionos.K9Desktop.desktop"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/spivanatalie64/k9-desktop.git",
+                    "tag": "v153.7.0",
+                    "commit": "51833e7721f1afc9286046430d1332278e9f297b"
+                }
+            ]
+        }
+    ]
+}
