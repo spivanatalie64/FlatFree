@@ -92,10 +92,13 @@
               <h2><i class="bi bi-terminal"></i> Getting Started</h2>
             </div>
             <div class="box-body">
-              <p>Add the FlatFree remote to your system:</p>
+              <p><strong>Quick install (auto-configures GPG):</strong></p>
+              <pre><code>curl -fsSL https://flatfree.acreetionos.org/install.sh | bash</code></pre>
+              <p style="color:var(--acreetion-text-muted);font-size:0.85rem">Or manually:</p>
               <pre><code>flatpak remote-add --if-not-exists flatfree https://flatfree.acreetionos.org/flatfree.flatpakrepo</code></pre>
               <p>Then install an app:</p>
-              <pre><code>flatpak install flatfree org.acreetionos.MediaWriter</code></pre>
+              <pre><code>flatpak install flatfree app.authpass.AuthPass</code></pre>
+              <p style="color:var(--acreetion-text-muted);font-size:0.78rem">If you see <code>Can't check signature: public key not found</code>, run: <code>curl -fsSL https://flatfree.acreetionos.org/install.sh | bash</code> — it auto-fixes GPG.</p>
             </div>
           </article>
         </main>
