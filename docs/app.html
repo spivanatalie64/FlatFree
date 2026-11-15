@@ -282,7 +282,7 @@
         btn.innerHTML = 'Opening Flatpak... <span class="spinner" style="width:14px;height:14px;border-width:2px;vertical-align:middle;margin-left:4px"></span>';
 
         // Get the commands
-        var remoteCmd = 'flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo';
+        var remoteCmd = 'flatpak remote-add --if-not-exists flatfree https://flatfree.acreetionos.org/flatfree.flatpakrepo';
         var installCmd = 'flatpak install flatfree ' + appId;
         var runCmd = 'flatpak run ' + appId;
         var appName = btn.closest('.app-detail') ? (document.querySelector('.app-detail-meta h2') || {}).textContent || appId : appId;
@@ -444,7 +444,7 @@
             'If nothing happens, we\'ll guide you through it.' +
           '</div>' +
           '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 1 &mdash; Add the FlatFree remote:</p>' +
-          '<pre class="code-block" style="position:relative"><code id="cmdRemote">flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo</code><button class="btn-copy" data-target="cmdRemote" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
+          '<pre class="code-block" style="position:relative"><code id="cmdRemote">flatpak remote-add --if-not-exists flatfree https://flatfree.acreetionos.org/flatfree.flatpakrepo</code><button class="btn-copy" data-target="cmdRemote" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
           '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 2 &mdash; Install ' + escapeHtml(app.name) + ':</p>' +
           '<pre class="code-block" style="position:relative"><code id="cmdInstall">flatpak install flatfree ' + escapeHtml(app.id) + '</code><button class="btn-copy" data-target="cmdInstall" title="Copy to clipboard" style="position:absolute;top:8px;right:8px;background:var(--acreetion-box-bg);border:1px solid var(--acreetion-box-border);color:var(--acreetion-text);padding:4px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem"><i class="bi bi-clipboard"></i> Copy</button></pre>' +
           '<p style="font-weight:600;color:var(--acreetion-text-bright)">Step 3 &mdash; Run it:</p>' +

@@ -4,12 +4,12 @@
 
 **We accept AI-assisted submissions.** We do not police how code is written. If it builds, if it's free software — it belongs here.
 
-Website: **[https://natalie.acreetionos.org/FlatFree](https://natalie.acreetionos.org/FlatFree)**
+Website: **[https://flatfree.acreetionos.org](https://flatfree.acreetionos.org)** — also at **https://flatfree.pages.dev**
 
 ## Adding FlatFree to your system
 
 ```bash
-flatpak remote-add --if-not-exists flatfree https://natalie.acreetionos.org/FlatFree/flatfree.flatpakrepo
+flatpak remote-add --if-not-exists flatfree https://flatfree.acreetionos.org/flatfree.flatpakrepo
 flatpak install flatfree org.acreetionos.MediaWriter
 flatpak install flatfree org.acreetionos.cinnamon.Terminal
 ```
