@@ -1,4 +1,31 @@
 {
-  "version": 2,
-  "public": true
+  "outputDirectory": "docs",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/flatfree.flatpakrepo",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    },
+    {
+      "source": "/flatfree.gpg",
+      "headers": [{ "key": "Content-Type", "value": "application/pgp-keys" }]
+    },
+    {
+      "source": "/repo/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=300" }]
+    }
+  ],
+  "rewrites": [
+    { "source": "/FlatFree/:path*", "destination": "/:path*" },
+    { "source": "/flatfree/:path*", "destination": "/:path*" }
+  ]
 }

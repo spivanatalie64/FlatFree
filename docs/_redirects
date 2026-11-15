@@ -1,0 +1,3 @@
+# Netlify / Cloudflare Pages redirects - also handles /FlatFree prefix for GH Pages
+/FlatFree/*  /:splat  200
+/flatfree/*  /:splat  200
