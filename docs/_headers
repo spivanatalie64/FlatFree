@@ -1,0 +1,18 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/flatfree.flatpakrepo
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=300
+
+/flatfree.gpg
+  Content-Type: application/pgp-keys
+  Cache-Control: public, max-age=300
+
+/repo/*
+  Cache-Control: public, max-age=300
+
+/*.html
+  Cache-Control: public, max-age=600

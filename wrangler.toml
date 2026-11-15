@@ -1,0 +1,14 @@
+name = "flatfree-proxy"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+# Deploy the Worker that proxies natalie.acreetionos.org/FlatFree -> flatfree.pages.dev
+# Requires: CLOUDFLARE_API_TOKEN with Workers + Zone edit, and account_id from deploy.yml
+# Deploy with: npx wrangler deploy --env production
+# Or: wrangler deploy (needs CLOUDFLARE_API_TOKEN env var)
+
+[env.production]
+routes = [
+  { pattern = "natalie.acreetionos.org/FlatFree*", zone_name = "acreetionos.org" },
+  { pattern = "natalie.acreetionos.org/flatfree*", zone_name = "acreetionos.org" }
+]
