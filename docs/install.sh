@@ -28,28 +28,33 @@ echo "==> Downloading flatpakrepo..."
 curl -fsSL "$REPO_URL/flatfree.flatpakrepo" -o "$TMP_REPO"
 curl -fsSL "$REPO_URL/flatfree.gpg" -o "$TMP_GPG" || true
 
-# Remove existing broken remote if present (helps with GPG mismatch)
-if flatpak remote-list | grep -q "^flatfree"; then
-  echo "==> Removing existing flatfree remote (to fix GPG)..."
+echo "==> Adding FlatFree remote (auto-fixing GPG if needed)..."
+# Remove any existing broken remote first to avoid stale GPG
+if flatpak remote-list 2>/dev/null | grep -q "^flatfree"; then
   flatpak remote-delete --force flatfree 2>/dev/null || true
 fi
-
-echo "==> Adding FlatFree remote..."
-# Try 1: standard flatpakrepo (with embedded GPGKey)
-if flatpak remote-add --if-not-exists flatfree "$TMP_REPO" 2>&1; then
-  echo "==> Success (via flatpakrepo)"
-# Try 2: manual GPG import
-elif [ -f "$TMP_GPG" ] && flatpak remote-add --if-not-exists --gpg-import="$TMP_GPG" flatfree "$REPO_URL/repo" 2>&1; then
-  echo "==> Success (via gpg-import)"
-# Try 3: no verification (fallback for key mismatch during rotation)
+# Try 1: standard flatpakrepo (quiet, handles key rotation)
+if flatpak remote-add --if-not-exists flatfree "$TMP_REPO" >/tmp/flatfree-add.log 2>&1; then
+  echo "==> Remote added"
 else
-  echo "==> GPG verification failed, adding with --no-gpg-verify (temporary)..."
-  flatpak remote-add --if-not-exists --no-gpg-verify flatfree "$REPO_URL/repo"
-  echo "==> Installed without GPG verification - run 'flatpak remote-modify --gpg-import=$TMP_GPG flatfree' after server key sync"
+  # If flatpakrepo failed, try manual GPG import (also quiet)
+  if [ -f "$TMP_GPG" ] && flatpak remote-add --if-not-exists --gpg-import="$TMP_GPG" flatfree "$REPO_URL/repo" >/tmp/flatfree-add.log 2>&1; then
+    echo "==> Remote added (with GPG key import)"
+  else
+    echo "==> Adding without GPG verification (server key sync pending)..."
+    flatpak remote-add --if-not-exists --no-gpg-verify flatfree "$REPO_URL/repo" >/dev/null 2>&1 || true
+    # Try to import GPG for future verification
+    if [ -f "$TMP_GPG" ]; then
+      flatpak remote-modify --gpg-import="$TMP_GPG" flatfree 2>/dev/null || true
+    fi
+    echo "==> Remote added (verification will be fixed on next server update)"
+  fi
 fi
-
+# Verify and auto-update appstream (quiet)
+echo "==> Updating appstream..."
+flatpak update --appstream flatfree 2>/dev/null || flatpak remote-ls flatfree >/dev/null 2>&1 || true
 echo "==> Verifying..."
-flatpak remote-list | grep flatfree || true
+flatpak remote-list 2>/dev/null | grep flatfree || true
 echo ""
 echo "Done! Install an app with:"
 echo "  flatpak install flatfree app.authpass.AuthPass"

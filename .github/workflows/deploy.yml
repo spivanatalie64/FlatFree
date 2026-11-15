@@ -48,6 +48,18 @@ jobs:
           cp /tmp/flatfree-public.gpg docs/flatfree.gpg
           echo "Exported docs/flatfree.gpg"
 
+      - name: Commit and push signed repo (automate GPG sync for Vercel)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/repo docs/flatfree.flatpakrepo docs/flatfree.gpg docs/search.json || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: auto-update signed repo and GPG key [skip ci]"
+            git push origin HEAD:main
+          fi
+
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
