@@ -600,6 +600,18 @@
     "path": "app.ywallet.Ywallet/app.ywallet.Ywallet.json"
   },
   {
+    "id": "org.acreetionos.K9Desktop",
+    "name": "k9 desktop",
+    "description": "k9 desktop — org.freedesktop.Platform app",
+    "runtime": "org.freedesktop.Platform",
+    "runtimeVersion": "24.08",
+    "categories": [],
+    "license": "FOSS",
+    "projectLicense": "",
+    "manifest": "org.acreetionos.K9Desktop.json",
+    "path": "org.acreetionos.K9Desktop/org.acreetionos.K9Desktop.json"
+  },
+  {
     "id": "org.acreetionos.MediaWriter",
     "name": "Media Writer",
     "description": "Media Writer — org.kde.Platform app",
